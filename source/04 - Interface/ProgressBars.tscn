@@ -59,8 +59,6 @@ theme_override_constants/margin_left = 3
 
 [node name="Quixote" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1275707637]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 script = ExtResource("3_16uq8")
 
 [node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer/Quixote" unique_id=2099399918]
@@ -78,6 +76,7 @@ value = 100.0
 fill_mode = 1
 texture_over = ExtResource("2_wdb5f")
 texture_progress = ExtResource("1_yyeld")
+texture_progress_offset = Vector2(4, 4)
 tint_progress = Color(0.6392157, 0.27058825, 0.27058825, 1)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
@@ -105,7 +104,7 @@ script = ExtResource("3_16uq8")
 
 [node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=471381622]
 layout_mode = 2
-value = 50.0
+value = 100.0
 texture_under = ExtResource("1_yyeld")
 texture_progress = ExtResource("1_yyeld")
 tint_under = Color(0, 0, 0, 1)
@@ -113,7 +112,8 @@ tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
 
 [node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=702757983]
 layout_mode = 2
-value = 25.0
+value = 100.0
 texture_over = ExtResource("2_wdb5f")
 texture_progress = ExtResource("1_yyeld")
+texture_progress_offset = Vector2(4, 4)
 tint_progress = Color(0.27058825, 0.56078434, 0.34509805, 1)

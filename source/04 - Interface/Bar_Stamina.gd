@@ -1,6 +1,5 @@
 extends CenterContainer
 #------------------------------------------------------------------------------#
-#Variables
 #OnReady Variables
 @onready var stamina_under = $StaminaUnder
 @onready var stamina_over = $StaminaOver

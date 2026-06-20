@@ -1,6 +1,7 @@
 extends CharacterBody2D
 #------------------------------------------------------------------------------#
 signal quixote_damage
+signal windmill_damage
 #------------------------------------------------------------------------------#
 #Variables
 var geriatric_damage: int = 10
@@ -24,12 +25,19 @@ var geriatric_damage: int = 10
 func _ready() -> void:
 	await get_tree().process_frame
 	MAIN.WINDMILL.connect("spin", impede)
+	MAIN.PROGRESS.connect("collapse", collapse)
 #------------------------------------------------------------------------------#
 #Signaled Functions
 func _on_geriatric_timeout() -> void: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
 #------------------------------------------------------------------------------#
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
+func attack_lance(): emit_signal("windmill_damage", "Lance", 5)
+func collapse(origin):
+	print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
+	match(origin.name):
+		"Quixote": print("<Quixote Collapse Animation>")
+		"Windmill": print("<Quixote Victory Animation>")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 func impede(spinning, wind_speed):

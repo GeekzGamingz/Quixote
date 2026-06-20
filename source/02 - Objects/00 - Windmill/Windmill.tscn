@@ -10,7 +10,7 @@ radius = 31.144823
 
 [node name="Windmill" type="StaticBody2D" unique_id=2143046118]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_0h1dv")
 wind_speed = 5
 
@@ -30,6 +30,8 @@ texture = ExtResource("3_atwbm")
 centered = false
 
 [node name="Axis" type="RigidBody2D" parent="." unique_id=706639578]
+collision_layer = 2
+collision_mask = 4
 input_pickable = true
 
 [node name="SpriteBlades" type="Sprite2D" parent="Axis" unique_id=1662794801]

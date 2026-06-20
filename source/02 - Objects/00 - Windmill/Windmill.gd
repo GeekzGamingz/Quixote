@@ -6,8 +6,15 @@ signal spin
 #Variable
 @export_range(2, 20, 1, "prefer_slider") var wind_speed: int
 #OnReady Variables
+#Main Nodes
+@onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
+#Local Nodes
 @onready var pin: PinJoint2D = $PinJoint2D
 #------------------------------------------------------------------------------#
+#Ready
+func _ready() -> void:
+	await get_tree().process_frame
+	MAIN.PROGRESS.connect("collapse", collapse)
 #Signaled Functions
 #Mouse Enter/Exit
 func _on_axis_mouse_entered() -> void: focus_spin(true)
@@ -23,3 +30,10 @@ func focus_spin(focused):
 		pin.motor_target_velocity = 1
 		emit_signal("spin", focused, 2)
 		print("#---Idle Spinning---#")
+#------------------------------------------------------------------------------#
+#Custom Signaled Functions
+func collapse(origin):
+	print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
+	match(origin.name):
+		"Quixote": print("<Quixote Collapse Animation>")
+		"Windmill": print("<Windmill Collapse Animation>")
