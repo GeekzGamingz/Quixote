@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://d1dfprxgd1can"]
 
 [ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="1_wdb5f"]
-[ext_resource type="Texture2D" uid="uid://crc4ak1dknm71" path="res://assets/00 - Interface/01 - ProgressBar/Progress_Bar.png" id="1_yyeld"]
+[ext_resource type="Texture2D" uid="uid://crc4ak1dknm71" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Progress.png" id="1_yyeld"]
 [ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/ProgressBars.gd" id="2_pqbtp"]
-[ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/Progress_Border.png" id="2_wdb5f"]
+[ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Border.png" id="2_wdb5f"]
 [ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/Bar_Stamina.gd" id="3_16uq8"]
+[ext_resource type="Texture2D" uid="uid://by3axmdpt0f88" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Empty.png" id="6_j3tq5"]
+[ext_resource type="Texture2D" uid="uid://b6xys46bc2yhp" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Filling.png" id="7_dg70k"]
+[ext_resource type="Texture2D" uid="uid://dnlub7k7n6ck5" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Outline.png" id="8_c5wa0"]
+[ext_resource type="Texture2D" uid="uid://dagkekyns1auv" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Full.png" id="9_2k8up"]
 
 [sub_resource type="Theme" id="Theme_yyeld"]
 default_font = ExtResource("1_wdb5f")
@@ -37,31 +41,30 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=140477706]
+[node name="QuixoteContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=140477706]
 layout_mode = 2
 theme_override_constants/separation = -6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=906001615]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=906001615]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1464554662]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/QuixoteContainer/HBoxContainer" unique_id=1464554662]
 z_index = 1
 layout_mode = 2
 text = "Quixote"
 horizontal_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=67712654]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer/HBoxContainer" unique_id=67712654]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 
-[node name="Quixote" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1275707637]
+[node name="Quixote" type="CenterContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=1275707637]
 layout_mode = 2
 script = ExtResource("3_16uq8")
 
-[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer/Quixote" unique_id=2099399918]
+[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/QuixoteContainer/Quixote" unique_id=2099399918]
 layout_mode = 2
 value = 100.0
 fill_mode = 1
@@ -70,7 +73,7 @@ texture_progress = ExtResource("1_yyeld")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
 
-[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer/Quixote" unique_id=1660929034]
+[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/QuixoteContainer/Quixote" unique_id=1660929034]
 layout_mode = 2
 value = 100.0
 fill_mode = 1
@@ -79,30 +82,48 @@ texture_progress = ExtResource("1_yyeld")
 texture_progress_offset = Vector2(4, 4)
 tint_progress = Color(0.6392157, 0.27058825, 0.27058825, 1)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
+[node name="FlourContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer" unique_id=2005600087]
+layout_mode = 2
+
+[node name="FlourUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/FlourContainer" unique_id=1526359823]
+layout_mode = 2
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("6_j3tq5")
+texture_progress = ExtResource("7_dg70k")
+
+[node name="FlourOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/FlourContainer" unique_id=1694376664]
+layout_mode = 2
+value = 25.0
+fill_mode = 3
+texture_over = ExtResource("8_c5wa0")
+texture_progress = ExtResource("9_2k8up")
+texture_progress_offset = Vector2(2, 2)
+
+[node name="WindmillContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
 layout_mode = 2
 theme_override_constants/separation = -6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2092593191]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=2092593191]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1233998019]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer/HBoxContainer" unique_id=1233998019]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1039119602]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/WindmillContainer/HBoxContainer" unique_id=1039119602]
 z_index = 1
 layout_mode = 2
 text = "Windmill"
 
-[node name="Windmill" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2023118161]
+[node name="Windmill" type="CenterContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=2023118161]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("3_16uq8")
 
-[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=471381622]
+[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/WindmillContainer/Windmill" unique_id=471381622]
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("1_yyeld")
@@ -110,7 +131,7 @@ texture_progress = ExtResource("1_yyeld")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
 
-[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=702757983]
+[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/WindmillContainer/Windmill" unique_id=702757983]
 layout_mode = 2
 value = 100.0
 texture_over = ExtResource("2_wdb5f")

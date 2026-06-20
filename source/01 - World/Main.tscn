@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="4_a37ph"]
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/ProgressBars.tscn" id="5_pe435"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1j8a"]
+radius = 4.0
+height = 80.0
+
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_dlvln")
 metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0]
@@ -18,7 +24,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_pe435")
 
+[node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
+layer = 100
+
+[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill") instance=ExtResource("5_pe435")]
+quixote = NodePath("../../Entities/Quixote")
+windmill = NodePath("../../Objects/Windmill")
+
+[node name="Areas" type="Node2D" parent="." unique_id=1560364250]
+
+[node name="BraceStop" type="Area2D" parent="Areas" unique_id=593927919]
+position = Vector2(0, 80)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/BraceStop" unique_id=1860981608]
+shape = SubResource("CircleShape2D_a1j8a")
+
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
+
+[node name="WorldBorder" type="StaticBody2D" parent="Objects" unique_id=138302502]
+position = Vector2(120, 100)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/WorldBorder" unique_id=1186160181]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a1j8a")
 
 [node name="Windmill" parent="Objects" unique_id=874538700 instance=ExtResource("3_bn52s")]
 position = Vector2(120, 44)
@@ -26,12 +56,5 @@ position = Vector2(120, 44)
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 
 [node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("4_a37ph")]
-position = Vector2(9, 80)
+position = Vector2(8, 80)
 horse_speed = 4
-
-[node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
-layer = 100
-
-[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill") instance=ExtResource("5_pe435")]
-quixote = NodePath("../../Entities/Quixote")
-windmill = NodePath("../../Objects/Windmill")

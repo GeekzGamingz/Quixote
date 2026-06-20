@@ -4,6 +4,9 @@ extends StaticBody2D
 signal spin
 #------------------------------------------------------------------------------#
 #Variable
+#Bools
+var collapsed: bool = false
+#Integers
 @export_range(2, 20, 1, "prefer_slider") var wind_speed: int
 #OnReady Variables
 #Main Nodes
@@ -33,7 +36,11 @@ func focus_spin(focused):
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 func collapse(origin):
-	print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
-	match(origin.name):
-		"Quixote": print("<Quixote Collapse Animation>")
-		"Windmill": print("<Windmill Collapse Animation>")
+	if !collapsed:
+		match(origin.name):
+			"Quixote": print("<Farmer Random Animation>")
+			"Windmill":
+				collapsed = true
+				pin.node_b = ""
+				$CollisionPolygon2D.set_deferred("disabled", true)
+		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")

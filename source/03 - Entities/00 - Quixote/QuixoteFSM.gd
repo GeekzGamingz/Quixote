@@ -13,6 +13,8 @@ func _ready() -> void:
 	state_add("ride_forth")
 	state_add("to_arms")
 	state_add("bracing")
+	state_add("brace_max")
+	state_add("collapsed")
 	call_deferred("state_set", states.ride_forth)
 #------------------------------------------------------------------------------#
 #State Label
@@ -28,24 +30,35 @@ func state_logic(delta):
 @warning_ignore("unused_parameter")
 func transitions(delta):
 	match(state):
-		#Default
 		states.idle:
 			if quixote.horse_speed > 0: return states.ride_forth
 			if quixote.horse_speed < 0: return states.bracing
+			if quixote.collapsed: return states.collapsed
 		states.ride_forth: 
 			if quixote.horse_speed < 1: return states.idle
 			if quixote.lance.is_colliding(): return states.to_arms
-		states.bracing: if quixote.horse_speed > -1: return states.idle
-		states.to_arms: if quixote.horse_speed < 0: return states.idle
+			if quixote.collapsed: return states.collapsed
+		states.bracing:
+			if quixote.horse_speed > -1: return states.idle
+			if quixote.brace_cast.is_colliding(): return states.brace_max
+			if quixote.collapsed: return states.collapsed
+		states.brace_max:
+			if quixote.horse_speed > -1: return states.idle
+			if quixote.collapsed: return states.collapsed
+		states.to_arms:
+			if quixote.horse_speed < 0: return states.idle
+			if quixote.collapsed: return states.collapsed
 	return null
 #Enter State
 @warning_ignore("unused_parameter")
 func state_enter(new_state, old_state):
 	match(new_state):
-		states.idle: quixote.anim_player.play("idle")
-		states.ride_forth: quixote.anim_player.play("ride_forth")
-		states.to_arms: quixote.anim_player.play("to_arms")
-		states.bracing: quixote.anim_player.play("bracing")
+		states.idle: quixote.sprite_player.play("idle")
+		states.ride_forth: quixote.sprite_player.play("ride_forth")
+		states.to_arms: quixote.sprite_player.play("to_arms")
+		states.bracing: quixote.sprite_player.play("bracing")
+		states.brace_max: quixote.sprite_player.play("brace_max")
+		states.collapsed: quixote.sprite_player.play("collapsing")
 #Exit State
 @warning_ignore("unused_parameter")
 func state_exit(old_state, new_state):

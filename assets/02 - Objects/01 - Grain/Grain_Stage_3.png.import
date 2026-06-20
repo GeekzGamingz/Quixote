@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5qatte40smgt"
-path="res://.godot/imported/windmill_base.png-46cb2d4c0d634bb5ea0440de057b87d5.ctex"
+uid="uid://c03rqo2y4d8xs"
+path="res://.godot/imported/Grain_Stage_3.png-7793978209ff14e84e6a243b0e64decd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/Windmill/windmill_base.png"
-dest_files=["res://.godot/imported/windmill_base.png-46cb2d4c0d634bb5ea0440de057b87d5.ctex"]
+source_file="res://assets/02 - Objects/01 - Grain/Grain_Stage_3.png"
+dest_files=["res://.godot/imported/Grain_Stage_3.png-7793978209ff14e84e6a243b0e64decd.ctex"]
 
 [params]
 

@@ -4,6 +4,9 @@ signal quixote_damage
 signal windmill_damage
 #------------------------------------------------------------------------------#
 #Variables
+#Bools
+var collapsed: bool = false
+#Integers
 var geriatric_damage: int = 10
 #Exported Variables
 @export_category("Geriatric Damage")
@@ -16,10 +19,11 @@ var geriatric_damage: int = 10
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
-@onready var lance: RayCast2D = $Facing/RayCast2D
+@onready var lance: RayCast2D = $RayCasts/LanceRay
+@onready var brace_cast: RayCast2D = $RayCasts/BraceRay
 @onready var starting_speed: int = horse_speed
 @onready var geriatric_timer: Timer = $Timers/GeriatricTimer
-@onready var anim_player: AnimationPlayer = $AnimationPlayers/SpritePlayer
+@onready var sprite_player: AnimationPlayer = $AnimationPlayers/SpritePlayer
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:
@@ -28,16 +32,21 @@ func _ready() -> void:
 	MAIN.PROGRESS.connect("collapse", collapse)
 #------------------------------------------------------------------------------#
 #Signaled Functions
-func _on_geriatric_timeout() -> void: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
+#Animation Players
+func _on_sprite_player_finished(_anim_name: StringName) -> void: sprite_player.play("collapsed")
+#Timers
+func _on_geriatric_timeout() -> void:
+	if !collapsed: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
 #------------------------------------------------------------------------------#
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
 func attack_lance(): emit_signal("windmill_damage", "Lance", 5)
 func collapse(origin):
-	print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
-	match(origin.name):
-		"Quixote": print("<Quixote Collapse Animation>")
-		"Windmill": print("<Quixote Victory Animation>")
+	if !collapsed:
+		match(origin.name):
+			"Quixote": collapsed = true
+			"Windmill": print("<Quixote Victory Animation>")
+		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 func impede(spinning, wind_speed):

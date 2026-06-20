@@ -8,8 +8,8 @@ signal collapse
 @export var quixote: CharacterBody2D
 @export var windmill: StaticBody2D
 #OnReady Variables
-@onready var q_stamina: CenterContainer = $VBoxContainer/HBoxContainer/VBoxContainer/Quixote
-@onready var w_stamina: CenterContainer = $VBoxContainer/HBoxContainer/VBoxContainer2/Windmill
+@onready var q_stamina: CenterContainer = $VBoxContainer/HBoxContainer/QuixoteContainer/Quixote
+@onready var w_stamina: CenterContainer = $VBoxContainer/HBoxContainer/WindmillContainer/Windmill
 #------------------------------------------------------------------------------#
 #Functions
 #Ready

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qb3ntumuildp"
-path="res://.godot/imported/basicarms.png-a2b7c16667c63532a0a767647aa7df1e.ctex"
+uid="uid://bjd68qvw5vkia"
+path="res://.godot/imported/Grain_Stage_5.png-eda44d37049615f8a368784b9665f1ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/Windmill/basicarms.png"
-dest_files=["res://.godot/imported/basicarms.png-a2b7c16667c63532a0a767647aa7df1e.ctex"]
+source_file="res://assets/02 - Objects/01 - Grain/Grain_Stage_5.png"
+dest_files=["res://.godot/imported/Grain_Stage_5.png-eda44d37049615f8a368784b9665f1ae.ctex"]
 
 [params]
 

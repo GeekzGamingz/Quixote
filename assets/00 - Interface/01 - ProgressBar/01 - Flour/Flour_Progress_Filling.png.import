@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fhbu540uf2f0"
-path="res://.godot/imported/Progress_Border.png-88c3027d616530755a0d6eff40c6a6ab.ctex"
+uid="uid://b6xys46bc2yhp"
+path="res://.godot/imported/Flour_Progress_Filling.png-c88705a0765ef2488c1c54020f7946f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/01 - ProgressBar/Progress_Border.png"
-dest_files=["res://.godot/imported/Progress_Border.png-88c3027d616530755a0d6eff40c6a6ab.ctex"]
+source_file="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Filling.png"
+dest_files=["res://.godot/imported/Flour_Progress_Filling.png-c88705a0765ef2488c1c54020f7946f0.ctex"]
 
 [params]
 
