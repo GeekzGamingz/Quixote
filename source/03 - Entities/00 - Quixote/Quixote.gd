@@ -8,6 +8,7 @@ signal windmill_damage
 var collapsed: bool = false
 #Integers
 var geriatric_damage: int = 10
+var lance_damage: int = 5
 #Exported Variables
 @export_category("Geriatric Damage")
 @export_range(10, 30, 5, "prefer_slider") var geriatric_damage_base = geriatric_damage
@@ -40,7 +41,7 @@ func _on_geriatric_timeout() -> void:
 #------------------------------------------------------------------------------#
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
-func attack_lance(): emit_signal("windmill_damage", "Lance", 5)
+func attack_lance(): emit_signal("windmill_damage", "Lance", lance_damage)
 func collapse(origin):
 	if !collapsed:
 		match(origin.name):

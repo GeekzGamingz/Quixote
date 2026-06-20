@@ -1,5 +1,11 @@
 extends StaticBody2D
 #------------------------------------------------------------------------------#
+#Constants
+const BASE = preload("uid://b5qatte40smgt")
+const BASE_DAMAGE_1 = preload("uid://ci88xju3wg772")
+const BASE_DAMAGE_2 = preload("uid://bdbq5bpsy78jt")
+const BASE_DAMAGE_3 = preload("uid://dtknhtk3iy6fg")
+#------------------------------------------------------------------------------#
 #Signals
 signal spin
 #------------------------------------------------------------------------------#
@@ -13,6 +19,7 @@ var collapsed: bool = false
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
 @onready var pin: PinJoint2D = $PinJoint2D
+@onready var sprite_base: Sprite2D = $SpriteBase
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:
@@ -35,6 +42,7 @@ func focus_spin(focused):
 		print("#---Idle Spinning---#")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
+#Collapse
 func collapse(origin):
 	if !collapsed:
 		match(origin.name):
