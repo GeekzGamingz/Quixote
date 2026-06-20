@@ -106,6 +106,7 @@ _data = {
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_wbstt")
+geriatric_damage_max = 20
 horse_speed = 5
 
 [node name="QuixoteFSM" type="Node2D" parent="." unique_id=1136628782]
@@ -132,7 +133,7 @@ autoplay = &"idle"
 [node name="Timers" type="Node2D" parent="." unique_id=1509137181]
 
 [node name="GeriatricTimer" type="Timer" parent="Timers" unique_id=1970280575]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="Outputs" type="Node2D" parent="." unique_id=938932772]
