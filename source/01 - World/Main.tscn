@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bnqo7royaq3ks"]
+
+[ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/Main.gd" id="1_dlvln"]
+[ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="2_pe435"]
+[ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="3_bn52s"]
+[ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="4_a37ph"]
+[ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/ProgressBars.tscn" id="5_pe435"]
+
+[node name="Main" type="Node2D" unique_id=962239125]
+script = ExtResource("1_dlvln")
+metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0]
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1838358318]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=601367710]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pe435")
+
+[node name="Objects" type="Node2D" parent="." unique_id=1558102882]
+
+[node name="Windmill" parent="Objects" unique_id=874538700 instance=ExtResource("3_bn52s")]
+position = Vector2(120, 44)
+
+[node name="Entities" type="Node2D" parent="." unique_id=1974705992]
+
+[node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("4_a37ph")]
+position = Vector2(9, 80)
+horse_speed = 4
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
+layer = 100
+
+[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill") instance=ExtResource("5_pe435")]
+quixote = NodePath("../../Entities/Quixote")
+windmill = NodePath("../../Objects/Windmill")

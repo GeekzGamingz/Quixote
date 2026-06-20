@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://d1dfprxgd1can"]
+
+[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="1_wdb5f"]
+[ext_resource type="Texture2D" uid="uid://crc4ak1dknm71" path="res://assets/00 - Interface/01 - ProgressBar/Progress_Bar.png" id="1_yyeld"]
+[ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/ProgressBars.gd" id="2_pqbtp"]
+[ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/Progress_Border.png" id="2_wdb5f"]
+[ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/Bar_Stamina.gd" id="3_16uq8"]
+
+[sub_resource type="Theme" id="Theme_yyeld"]
+default_font = ExtResource("1_wdb5f")
+
+[node name="ProgressBars" type="Control" unique_id=563821590]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_yyeld")
+script = ExtResource("2_pqbtp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245706032]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -27.0
+offset_right = 86.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=96851288]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=140477706]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=906001615]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1464554662]
+z_index = 1
+layout_mode = 2
+text = "Quixote"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=67712654]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="Quixote" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1275707637]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_16uq8")
+
+[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer/Quixote" unique_id=2099399918]
+layout_mode = 2
+value = 100.0
+fill_mode = 1
+texture_under = ExtResource("1_yyeld")
+texture_progress = ExtResource("1_yyeld")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
+
+[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer/Quixote" unique_id=1660929034]
+layout_mode = 2
+value = 100.0
+fill_mode = 1
+texture_over = ExtResource("2_wdb5f")
+texture_progress = ExtResource("1_yyeld")
+tint_progress = Color(0.6392157, 0.27058825, 0.27058825, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2092593191]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1233998019]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1039119602]
+z_index = 1
+layout_mode = 2
+text = "Windmill"
+
+[node name="Windmill" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2023118161]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_16uq8")
+
+[node name="StaminaUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=471381622]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("1_yyeld")
+texture_progress = ExtResource("1_yyeld")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
+
+[node name="StaminaOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Windmill" unique_id=702757983]
+layout_mode = 2
+value = 25.0
+texture_over = ExtResource("2_wdb5f")
+texture_progress = ExtResource("1_yyeld")
+tint_progress = Color(0.27058825, 0.56078434, 0.34509805, 1)
