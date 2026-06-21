@@ -8,6 +8,7 @@ const BASE_DAMAGE_3 = preload("uid://dtknhtk3iy6fg")
 #------------------------------------------------------------------------------#
 #Signals
 signal spin
+signal rotated
 #------------------------------------------------------------------------------#
 #Variable
 #Bools
@@ -29,6 +30,8 @@ func _ready() -> void:
 #Mouse Enter/Exit
 func _on_axis_mouse_entered() -> void: focus_spin(true)
 func _on_axis_mouse_exited() -> void: focus_spin(false)
+#Rotation Detection
+func _on_mill_area_exited(_area: Area2D) -> void: emit_signal("rotated", 15)
 #------------------------------------------------------------------------------#
 #Custom Functions
 func focus_spin(focused):

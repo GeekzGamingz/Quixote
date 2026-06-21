@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cbxxtvr4b3wn7"]
+
+[ext_resource type="Script" uid="uid://cp12n6gq5pral" path="res://source/02 - Objects/Grain.gd" id="1_hnavx"]
+[ext_resource type="Texture2D" uid="uid://bjd68qvw5vkia" path="res://assets/02 - Objects/01 - Grain/Grain_Stage_5.png" id="2_o76lu"]
+[ext_resource type="Texture2D" uid="uid://b4n83lsr12xa3" path="res://assets/00 - Interface/03 - Buttons/00 - Plant/Button_Plant_Unpressed.png" id="3_77n4u"]
+[ext_resource type="Texture2D" uid="uid://d3et2epjydmrf" path="res://assets/00 - Interface/03 - Buttons/00 - Plant/Button_Plant_Pressed.png" id="4_3ak4f"]
+[ext_resource type="Texture2D" uid="uid://cf5ay81n47b0q" path="res://assets/00 - Interface/03 - Buttons/01 - Reap/Button_Scythe_Unpressed.png" id="5_3ak4f"]
+[ext_resource type="Texture2D" uid="uid://b2khowkqqocvr" path="res://assets/00 - Interface/03 - Buttons/01 - Reap/Button_Scythe_Pressed.png" id="6_8givh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
+radius = 14.035668
+
+[node name="Grain" type="Area2D" unique_id=484321813]
+script = ExtResource("1_hnavx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614664578]
+shape = SubResource("CircleShape2D_a1j8a")
+
+[node name="SpriteBase" type="Sprite2D" parent="." unique_id=1060322082]
+texture = ExtResource("2_o76lu")
+
+[node name="GrowthTimer" type="Timer" parent="." unique_id=864522210]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Buttons" type="Node2D" parent="." unique_id=657917476]
+
+[node name="PlantButton" type="TextureButton" parent="Buttons" unique_id=1064258382]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_77n4u")
+texture_pressed = ExtResource("4_3ak4f")
+
+[node name="ReapButton" type="TextureButton" parent="Buttons" unique_id=842239033]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -24.0
+offset_right = 7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_3ak4f")
+texture_pressed = ExtResource("6_8givh")
+
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timeout"]
+[connection signal="button_up" from="Buttons/ReapButton" to="." method="_on_reap_button_up"]

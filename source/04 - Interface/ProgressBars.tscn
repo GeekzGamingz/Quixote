@@ -4,22 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://crc4ak1dknm71" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Progress.png" id="1_yyeld"]
 [ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/ProgressBars.gd" id="2_pqbtp"]
 [ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Border.png" id="2_wdb5f"]
-[ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/Bar_Stamina.gd" id="3_16uq8"]
+[ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/Progress.gd" id="3_16uq8"]
+[ext_resource type="Texture2D" uid="uid://bkcdq6t3xvk3m" path="res://assets/00 - Interface/01 - ProgressBar/03 - Fence/Fence_Progress_Bar.png" id="6_2f1rd"]
+[ext_resource type="Texture2D" uid="uid://bajf0o4ivay4q" path="res://assets/00 - Interface/01 - ProgressBar/02 - Grain/Grain_Progress_Bar.png" id="6_c5wa0"]
 [ext_resource type="Texture2D" uid="uid://by3axmdpt0f88" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Empty.png" id="6_j3tq5"]
+[ext_resource type="Texture2D" uid="uid://boyvt2402o8aw" path="res://assets/00 - Interface/01 - ProgressBar/02 - Grain/Grain_Progress_Border.png" id="7_2k8up"]
 [ext_resource type="Texture2D" uid="uid://b6xys46bc2yhp" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Filling.png" id="7_dg70k"]
+[ext_resource type="Texture2D" uid="uid://chhrt4ppl1sof" path="res://assets/00 - Interface/01 - ProgressBar/03 - Fence/Fence_Progress_Border.png" id="7_ukrv8"]
 [ext_resource type="Texture2D" uid="uid://dnlub7k7n6ck5" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Outline.png" id="8_c5wa0"]
 [ext_resource type="Texture2D" uid="uid://dagkekyns1auv" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Full.png" id="9_2k8up"]
+[ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="12_ukrv8"]
 
 [sub_resource type="Theme" id="Theme_yyeld"]
 default_font = ExtResource("1_wdb5f")
 
 [node name="ProgressBars" type="Control" unique_id=563821590]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
 mouse_filter = 2
 theme = SubResource("Theme_yyeld")
 script = ExtResource("2_pqbtp")
@@ -31,9 +42,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -27.0
-offset_right = 86.0
+offset_left = -104.0
+offset_top = -41.0
+offset_right = 104.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -44,6 +55,7 @@ size_flags_vertical = 4
 
 [node name="QuixoteContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=140477706]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = -6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=906001615]
@@ -84,26 +96,99 @@ texture_progress = ExtResource("1_yyeld")
 texture_progress_offset = Vector2(4, 4)
 tint_progress = Color(0.6392157, 0.27058825, 0.27058825, 1)
 
-[node name="FlourContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer" unique_id=2005600087]
+[node name="VFenceContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=39792305]
 layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="FenceContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VFenceContainer" unique_id=1582815168 node_paths=PackedStringArray("progress_under", "progress_over")]
+layout_mode = 2
+script = ExtResource("3_16uq8")
+progress_under = NodePath("FenceUnder")
+progress_over = NodePath("FenceOver")
+
+[node name="FenceUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VFenceContainer/FenceContainer" unique_id=1106703265]
+layout_mode = 2
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("6_2f1rd")
+texture_progress = ExtResource("6_2f1rd")
+tint_under = Color(0, 0, 0, 1)
+
+[node name="FenceOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VFenceContainer/FenceContainer" unique_id=1284300070]
+layout_mode = 2
+value = 25.0
+fill_mode = 3
+texture_over = ExtResource("7_ukrv8")
+texture_progress = ExtResource("6_2f1rd")
+texture_progress_offset = Vector2(4, 9)
+tint_progress = Color(0.654902, 0.52156866, 0.8, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VFenceContainer" unique_id=1768817116]
+layout_mode = 2
+
+[node name="FlourContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer" unique_id=2005600087 node_paths=PackedStringArray("progress_under", "progress_over")]
+layout_mode = 2
+script = ExtResource("3_16uq8")
+progress_under = NodePath("FlourUnder")
+progress_over = NodePath("FlourOver")
 
 [node name="FlourUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/FlourContainer" unique_id=1526359823]
 layout_mode = 2
-value = 50.0
 fill_mode = 3
 texture_under = ExtResource("6_j3tq5")
 texture_progress = ExtResource("7_dg70k")
 
 [node name="FlourOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/FlourContainer" unique_id=1694376664]
 layout_mode = 2
-value = 25.0
 fill_mode = 3
 texture_over = ExtResource("8_c5wa0")
 texture_progress = ExtResource("9_2k8up")
 texture_progress_offset = Vector2(2, 2)
 
+[node name="SacksLabel" type="Label" parent="VBoxContainer/HBoxContainer/FlourContainer" unique_id=499873805]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 14)
+theme_override_fonts/font = ExtResource("12_ukrv8")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="VGrainContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1377835298]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="GrainContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/VGrainContainer" unique_id=1531152436 node_paths=PackedStringArray("progress_under", "progress_over")]
+layout_mode = 2
+script = ExtResource("3_16uq8")
+progress_under = NodePath("GrainUnder")
+progress_over = NodePath("GrainOver")
+
+[node name="GrainUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VGrainContainer/GrainContainer" unique_id=711447399]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("6_c5wa0")
+texture_progress = ExtResource("6_c5wa0")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.89411765, 0.85490197, 0.49411765, 1)
+
+[node name="GrainOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VGrainContainer/GrainContainer" unique_id=752578844]
+layout_mode = 2
+fill_mode = 3
+texture_over = ExtResource("7_2k8up")
+texture_progress = ExtResource("6_c5wa0")
+texture_progress_offset = Vector2(4, 9)
+tint_progress = Color(0.654902, 0.52156866, 0.8, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VGrainContainer" unique_id=798688627]
+layout_mode = 2
+
 [node name="WindmillContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = -6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=2092593191]

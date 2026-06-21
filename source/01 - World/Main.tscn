@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="2_pe435"]
 [ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="3_bn52s"]
 [ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="4_a37ph"]
+[ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="4_bn52s"]
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/ProgressBars.tscn" id="5_pe435"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
@@ -27,9 +28,10 @@ texture = ExtResource("2_pe435")
 [node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
 layer = 100
 
-[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill") instance=ExtResource("5_pe435")]
+[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill", "grain_nodes") instance=ExtResource("5_pe435")]
 quixote = NodePath("../../Entities/Quixote")
 windmill = NodePath("../../Objects/Windmill")
+grain_nodes = [NodePath("../../Areas/Grain"), NodePath("../../Areas/Grain2"), NodePath("../../Areas/Grain3")]
 
 [node name="Areas" type="Node2D" parent="." unique_id=1560364250]
 
@@ -39,6 +41,16 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/BraceStop" unique_id=1860981608]
 shape = SubResource("CircleShape2D_a1j8a")
+
+[node name="Grain" parent="Areas" unique_id=484321813 instance=ExtResource("4_bn52s")]
+position = Vector2(180, 84)
+stage = "Seedling"
+
+[node name="Grain2" parent="Areas" unique_id=944202481 instance=ExtResource("4_bn52s")]
+position = Vector2(204, 84)
+
+[node name="Grain3" parent="Areas" unique_id=1333717773 instance=ExtResource("4_bn52s")]
+position = Vector2(228, 84)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
 

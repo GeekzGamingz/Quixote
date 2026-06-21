@@ -54,10 +54,12 @@ func impede(spinning, wind_speed):
 	if spinning:
 		horse_speed -= wind_speed
 		geriatric_timer.wait_time = 5.0
+		geriatric_timer.start()
 		geriatric_damage = geriatric_damage_max
 	else:
 		horse_speed = starting_speed
 		geriatric_timer.wait_time = 10.0
+		geriatric_timer.start()
 		geriatric_damage = geriatric_damage_base
 	print("Wind Speed: ", wind_speed)
 	print("Horse Speed: ", horse_speed)
