@@ -4,7 +4,6 @@ extends Control
 signal collapse
 #------------------------------------------------------------------------------#
 #Variables
-var flour_sacks: int = 0
 #Exported Variables
 @export var quixote: CharacterBody2D
 @export var windmill: StaticBody2D
@@ -17,6 +16,8 @@ var flour_sacks: int = 0
 @onready var sacks_label: Label = $VBoxContainer/HBoxContainer/FlourContainer/SacksLabel
 #------------------------------------------------------------------------------#
 #Functions
+#Process
+func _process(_delta: float) -> void: sacks_label.text = str(G.FLOUR)
 #Ready
 func _ready() -> void:
 	quixote.connect("quixote_damage", quixote_damage)
@@ -58,6 +59,5 @@ func flour_gain(value):
 		f_sack.progress_heal(value)
 		g_reapings.progress_damage(value / 2)
 	if f_sack.progress_under.value > 99:
-		flour_sacks += 1
-		sacks_label.text = str(flour_sacks)
+		G.FLOUR += 1
 		f_sack.progress_damage(100)

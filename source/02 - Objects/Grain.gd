@@ -33,6 +33,11 @@ func _ready() -> void: check_grain()
 #Signaled Functions
 #Reap Button
 func _on_reap_button_up() -> void: harvest()
+func _on_plant_button_up() -> void:
+	if G.FLOUR > 0:
+		stage = "Seedling"
+		check_grain()
+		G.FLOUR -= 1
 #Growth Timer
 func _on_growth_timeout() -> void:
 	match(stage):

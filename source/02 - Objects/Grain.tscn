@@ -61,4 +61,5 @@ texture_normal = ExtResource("5_3ak4f")
 texture_pressed = ExtResource("6_8givh")
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timeout"]
+[connection signal="button_up" from="Buttons/PlantButton" to="." method="_on_plant_button_up"]
 [connection signal="button_up" from="Buttons/ReapButton" to="." method="_on_reap_button_up"]
