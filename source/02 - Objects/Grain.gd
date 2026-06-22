@@ -21,6 +21,9 @@ signal harvested
 	"Ripening"
 ) var stage: String = "Barren"
 #OnReady Variables
+#Main Variables
+@onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
+#Local Variables
 @onready var sprite_base: Sprite2D = $SpriteBase
 @onready var growth_timer: Timer = $GrowthTimer
 @onready var plant_button: TextureButton = $Buttons/PlantButton
@@ -28,7 +31,10 @@ signal harvested
 #------------------------------------------------------------------------------#
 #Functions
 #Ready
-func _ready() -> void: check_grain()
+func _ready() -> void:
+	check_grain()
+	await get_tree().process_frame
+	MAIN.SHOP.growth_button.connect("growth_upgrade", growth_upgrade)
 #------------------------------------------------------------------------------#
 #Signaled Functions
 #Reap Button
@@ -72,3 +78,7 @@ func harvest():
 		stage = "Seedling"
 		emit_signal("harvested", 25)
 		check_grain()
+#------------------------------------------------------------------------------#
+#Custom Signaled Functions
+#Upgrade Growth Speed
+func growth_upgrade(): if growth_timer.wait_time > 3: growth_timer.wait_time -= 1

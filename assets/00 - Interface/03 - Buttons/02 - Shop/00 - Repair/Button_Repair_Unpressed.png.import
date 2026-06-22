@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpc6iwnuspq2d"
-path="res://.godot/imported/Button_BladeUpgrade2_Unpressed.png-7cd8ff171886574dfcb145fe3d052b1a.ctex"
+uid="uid://i1jsasshwwvk"
+path="res://.godot/imported/Button_Repair_Unpressed.png-3cf39c8cb63d55a0adff918c418b6857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Blades/Button_BladeUpgrade2_Unpressed.png"
-dest_files=["res://.godot/imported/Button_BladeUpgrade2_Unpressed.png-7cd8ff171886574dfcb145fe3d052b1a.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Repair/Button_Repair_Unpressed.png"
+dest_files=["res://.godot/imported/Button_Repair_Unpressed.png-3cf39c8cb63d55a0adff918c418b6857.ctex"]
 
 [params]
 

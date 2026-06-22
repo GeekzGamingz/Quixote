@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0wic64g5a825"
-path="res://.godot/imported/Button_GrowthSpeed_Pressed.png-6818acfcd9b2bc0b9a93ad036e685304.ctex"
+uid="uid://bvh3t1hyd35gx"
+path="res://.godot/imported/Button_BladeUpgrade3_Pressed.png-12cc3feb8c35b88836605706b2594cd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_GrowthSpeed_Pressed.png"
-dest_files=["res://.godot/imported/Button_GrowthSpeed_Pressed.png-6818acfcd9b2bc0b9a93ad036e685304.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/01 - Blades/Button_BladeUpgrade3_Pressed.png"
+dest_files=["res://.godot/imported/Button_BladeUpgrade3_Pressed.png-12cc3feb8c35b88836605706b2594cd1.ctex"]
 
 [params]
 

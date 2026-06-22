@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtb7tx5kopfcl"
-path="res://.godot/imported/Button_BladeUpgrade1_Pressed.png-31b9f0c79b10189acaf9066cbde6d18e.ctex"
+uid="uid://d4d0lqke7mn58"
+path="res://.godot/imported/Button_Rotation_Pressed.png-4598d952e2003953c188edb0294c05d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Blades/Button_BladeUpgrade1_Pressed.png"
-dest_files=["res://.godot/imported/Button_BladeUpgrade1_Pressed.png-31b9f0c79b10189acaf9066cbde6d18e.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/02 - Rotation/Button_Rotation_Pressed.png"
+dest_files=["res://.godot/imported/Button_Rotation_Pressed.png-4598d952e2003953c188edb0294c05d6.ctex"]
 
 [params]
 
