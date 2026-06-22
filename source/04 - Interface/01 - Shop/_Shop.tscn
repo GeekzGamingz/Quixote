@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c74c3wi4a460o"]
 
 [ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="1_r3br3"]
-[ext_resource type="Script" uid="uid://d4kpg6nsjoboa" path="res://source/04 - Interface/01 - Shop/Shop.gd" id="2_r3br3"]
+[ext_resource type="Script" uid="uid://d4kpg6nsjoboa" path="res://source/04 - Interface/01 - Shop/_Shop.gd" id="2_r3br3"]
 [ext_resource type="Texture2D" uid="uid://dow2yovwmt7re" path="res://assets/00 - Interface/05 - Shop/ShopTitle.png" id="3_p3toa"]
 [ext_resource type="Texture2D" uid="uid://cgakku71as6qf" path="res://assets/00 - Interface/05 - Shop/ShopPanel.png" id="3_uvbjg"]
 [ext_resource type="Texture2D" uid="uid://i1jsasshwwvk" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Repair/Button_Repair_Unpressed.png" id="5_jifjs"]
@@ -11,20 +11,21 @@
 [ext_resource type="Texture2D" uid="uid://dtb7tx5kopfcl" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/01 - Blades/Button_BladeUpgrade1_Pressed.png" id="8_u345u"]
 [ext_resource type="Texture2D" uid="uid://dbud6kex0yi7v" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/02 - Rotation/Button_Rotation_Unpressed.png" id="9_ysoof"]
 [ext_resource type="Texture2D" uid="uid://d4d0lqke7mn58" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/02 - Rotation/Button_Rotation_Pressed.png" id="10_0gi2b"]
-[ext_resource type="Texture2D" uid="uid://dwixxa7fiw3nt" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Fence_Unpressed.png" id="11_2k7ie"]
-[ext_resource type="Texture2D" uid="uid://bdge10da45rts" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Fence_Pressed.png" id="12_88s1b"]
+[ext_resource type="Texture2D" uid="uid://dwixxa7fiw3nt" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Unpressed.png" id="11_2k7ie"]
+[ext_resource type="Texture2D" uid="uid://bdge10da45rts" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Pressed.png" id="12_88s1b"]
 [ext_resource type="Script" uid="uid://bcvijcv7aluwd" path="res://source/04 - Interface/01 - Shop/RotationButton.gd" id="12_u345u"]
 [ext_resource type="Texture2D" uid="uid://djxr0lm4bydoc" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed.png" id="13_ahl2h"]
 [ext_resource type="Texture2D" uid="uid://b4xeob72rmpy2" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Pressed.png" id="14_1hwss"]
 [ext_resource type="Texture2D" uid="uid://cv83ud6ua68bw" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_AngyFarmer_Unpressed.png" id="15_ai084"]
 [ext_resource type="Texture2D" uid="uid://buxoahhavjkm5" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed_Inactive.png" id="15_jek6v"]
+[ext_resource type="Script" uid="uid://pw54ioexemlm" path="res://source/04 - Interface/01 - Shop/FenceButton.gd" id="15_utta5"]
 [ext_resource type="Texture2D" uid="uid://bh3md4oacv63" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_AngyFarmer_Pressed.png" id="16_bnkj6"]
 [ext_resource type="Texture2D" uid="uid://di3lopgxu473b" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/06 - Growth/Button_GrowthSpeed_Unpressed.png" id="17_rjjwo"]
 [ext_resource type="Texture2D" uid="uid://d0wic64g5a825" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/06 - Growth/Button_GrowthSpeed_Pressed.png" id="18_ioosw"]
 [ext_resource type="Texture2D" uid="uid://dn8c6xpr0ephx" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Pubby_Unpressed.png" id="19_gucpk"]
 [ext_resource type="Texture2D" uid="uid://bgbcc528dxoml" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Pubby_Pressed.png" id="20_in8ky"]
-[ext_resource type="Texture2D" uid="uid://yn7bkki7upb8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Unpressed.png" id="21_6y0tb"]
-[ext_resource type="Texture2D" uid="uid://irxshbuho3dn" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Pressed.png" id="22_0hx72"]
+[ext_resource type="Texture2D" uid="uid://yn7bkki7upb8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/08 - Yield/Button_HarvestYield_Unpressed.png" id="21_6y0tb"]
+[ext_resource type="Texture2D" uid="uid://irxshbuho3dn" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/08 - Yield/Button_HarvestYield_Pressed.png" id="22_0hx72"]
 [ext_resource type="Script" uid="uid://yvavsp4ihj66" path="res://source/04 - Interface/01 - Shop/GrowthButton.gd" id="22_ysoof"]
 [ext_resource type="Script" uid="uid://bxmtef5la816" path="res://source/04 - Interface/01 - Shop/YieldButton.gd" id="27_0gi2b"]
 
@@ -140,9 +141,9 @@ columns = 3
 [node name="RepairButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=446597692]
 layout_mode = 2
 tooltip_text = "[Repair Windmill]
-Rebuilding some of the
-damage that has been caused
-by the \"Giant Slayer\".
+Rebuild some of the damage
+that has been caused by the
+\"Giant Slayer\".
 {Costs 1 Flour}"
 texture_normal = ExtResource("5_jifjs")
 texture_pressed = ExtResource("6_jek6v")
@@ -163,6 +164,7 @@ script = ExtResource("12_u345u")
 layout_mode = 2
 texture_normal = ExtResource("11_2k7ie")
 texture_pressed = ExtResource("12_88s1b")
+script = ExtResource("15_utta5")
 
 [node name="UnknownButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1551835152]
 layout_mode = 2
@@ -211,6 +213,7 @@ autoplay = &"RESET"
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ShopRect" to="." method="_on_shop_mouse_entered"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" method="_on_button_up"]
 [connection signal="mouse_exited" from="ShopArea" to="." method="_on_shop_area_exited"]

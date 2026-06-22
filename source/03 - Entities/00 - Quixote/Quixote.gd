@@ -2,22 +2,24 @@ extends CharacterBody2D
 #------------------------------------------------------------------------------#
 signal quixote_damage
 signal windmill_damage
+signal fence_damage
 #------------------------------------------------------------------------------#
 #Variables
 #Bools
 var on_screen: bool = false
 var collapsed: bool = false
+var victorious: bool = false
 var windmill_sighted: bool = false
 #Integers
 var geriatric_damage: int = 10
-var lance_damage: int = 5
 #Exported Variables
 @export_category("Geriatric Damage")
 @export_range(10, 30, 5, "prefer_slider") var geriatric_damage_base = geriatric_damage
 @export_range(10, 30, 5, "prefer_slider") var geriatric_damage_max = geriatric_damage
-@export_range(5, 10, 1, "prefer_slider") var geriatric_ticks: = 10
+@export_range(5, 20, 1, "prefer_slider") var geriatric_ticks = 10
 @export_category("Traits")
-@export_range(1, 10, 1, "prefer_slider") var horse_speed: int
+@export_range(5, 20, 1, "prefer_slider") var lance_damage: int = 5
+@export_range(1, 10, 1, "prefer_slider") var horse_speed: int = 5
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -40,18 +42,21 @@ func _ready() -> void:
 func _on_sprite_player_finished(_anim_name: StringName) -> void: sprite_player.play("collapsed")
 #Timers
 func _on_geriatric_timeout() -> void:
-	if !collapsed && on_screen: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
+	if on_screen && !collapsed && !victorious: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
 #Screen Notifier
 func _on_screen_notifier_entered() -> void: on_screen = true
 #------------------------------------------------------------------------------#
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
-func attack_lance(): emit_signal("windmill_damage", "Lance", lance_damage)
+func attack_lance():
+	match(lance.get_collider().name):
+		"Windmill": emit_signal("windmill_damage", "Lance", lance_damage)
+		"Fence": emit_signal("fence_damage", "Lance", lance_damage)
 func collapse(origin):
 	if !collapsed:
 		match(origin.name):
 			"Quixote": collapsed = true
-			"Windmill": print("<Quixote Victory Animation>")
+			"Windmill": victorious = true
 		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions

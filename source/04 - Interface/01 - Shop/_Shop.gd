@@ -19,10 +19,12 @@ var shown: bool = false
 #------------------------------------------------------------------------------#
 #Signaled Functions
 #Mouse Entered
-func _on_shop_mouse_entered() -> void: if !shown:
-	shop_player.play("show")
-	shown = true
+func _on_shop_mouse_entered() -> void:
+	if !shown:
+		shop_player.play("show")
+		shown = true
 #Mouse Exited
-func _on_shop_area_exited() -> void: if shown:
-	shop_player.play("hide")
-	shown = false
+func _on_shop_area_exited() -> void:
+	if shown:
+		shop_player.play("hide")
+		shown = false

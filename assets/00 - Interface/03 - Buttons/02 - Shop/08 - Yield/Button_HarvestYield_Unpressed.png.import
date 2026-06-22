@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdge10da45rts"
-path="res://.godot/imported/Button_Fence_Pressed.png-dbc4797db2980d2d3006276a76b3eded.ctex"
+uid="uid://yn7bkki7upb8"
+path="res://.godot/imported/Button_HarvestYield_Unpressed.png-bd5107c94061944c493ad9b49bcc76c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Fence_Pressed.png"
-dest_files=["res://.godot/imported/Button_Fence_Pressed.png-dbc4797db2980d2d3006276a76b3eded.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/08 - Yield/Button_HarvestYield_Unpressed.png"
+dest_files=["res://.godot/imported/Button_HarvestYield_Unpressed.png-bd5107c94061944c493ad9b49bcc76c9.ctex"]
 
 [params]
 

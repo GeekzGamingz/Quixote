@@ -54,7 +54,6 @@ func collapse(origin):
 			"Windmill":
 				collapsed = true
 				pin.node_b = ""
-				$CollisionPolygon2D.set_deferred("disabled", true)
 		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
 #Upgrade Rotation
 func rotation_upgrade(): if wind_speed < 20: wind_speed += 5
