@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv83ud6ua68bw"
-path="res://.godot/imported/Button_AngyFarmer_Unpressed.png-bd720877e966ab20329abc4c65dbf358.ctex"
+uid="uid://b1r0sioeifyj6"
+path="res://.godot/imported/Farmer_Sheet.png-97405bc7a6bf5dc61d8168970f0a5ddc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_AngyFarmer_Unpressed.png"
-dest_files=["res://.godot/imported/Button_AngyFarmer_Unpressed.png-bd720877e966ab20329abc4c65dbf358.ctex"]
+source_file="res://assets/03 - Entities/02 - Farmer/Farmer_Sheet.png"
+dest_files=["res://.godot/imported/Farmer_Sheet.png-97405bc7a6bf5dc61d8168970f0a5ddc.ctex"]
 
 [params]
 

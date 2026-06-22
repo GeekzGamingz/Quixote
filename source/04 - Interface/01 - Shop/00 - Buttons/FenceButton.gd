@@ -1,11 +1,13 @@
 extends TextureButton
 #------------------------------------------------------------------------------#
 #Signals
-signal rotation_upgrade
+signal erect_fence
 #------------------------------------------------------------------------------#
 #Variables
+#Bools
+var built: bool = false
 #Integers
-var upgrade: int = 1
+var cost: int = 3
 #------------------------------------------------------------------------------#
 #Functions
 #Ready
@@ -14,27 +16,25 @@ func _ready() -> void: update_tooltip()
 #Signaled Functions
 #Upgrade Rotation Speed
 func _on_button_up() -> void:
-	if G.FLOUR >= upgrade * 3:
-		G.FLOUR -= upgrade * 3
-		upgrade += 1
-		emit_signal("rotation_upgrade")
+	if G.FLOUR >= cost:
+		G.FLOUR -= cost
+		built = true
+		emit_signal("erect_fence")
 	update_tooltip()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Update Tooltip
 func update_tooltip():
-	if upgrade != 3:
-		tooltip_text = "[Upgrade Rotation]
-						Increase the windmill's
-						rotation speed when hovering,
-						processing flour quicker
-						and other fun results!
-						{Costs %s Flour}" % str(upgrade * 3)
+	if !built:
+		tooltip_text = "[Build Fence]
+						Have the human build us
+						a fence to keep out any
+						pesky trespassers.
+						{Costs %s Flour}" % str(cost)
 	else:
 		set_deferred("disabled", true)
-		tooltip_text = "[Upgrade Rotation]
-						Increase the windmill's
-						rotation speed when hovering,
-						processing flour quicker
-						and other fun results!
-						{Fully Upgraded}"
+		tooltip_text = "[Repair Fence]
+						Repair the Fence, Human!
+						It helped; Even, but for a
+						moment.
+						{Costs %s Flour}" % str(cost)

@@ -1,12 +1,14 @@
 extends StaticBody2D
 #------------------------------------------------------------------------------#
+signal fence_repair
+#------------------------------------------------------------------------------#
 #Variables
 #Exported Variables
 @export_enum(
 	"Unbuilt",
 	"Built",
 	"Broken"
-) var stage: String = "Unbuilt"
+) var state: String = "Unbuilt"
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -18,16 +20,16 @@ extends StaticBody2D
 #Functions
 #Ready
 func _ready() -> void:
-	stage_check()
+	check_fence()
 	await get_tree().process_frame
 	MAIN.SHOP.fence_button.connect("erect_fence", erect)
 #------------------------------------------------------------------------------#
 #Custom Functions
-func stage_check():
+func check_fence():
 	sprite_base.set_deferred("visible", false)
 	sprites_broken.set_deferred("visible", false)
 	collision.set_deferred("disabled", false)
-	match(stage):
+	match(state):
 		"Unbuilt": collision.set_deferred("disabled", true)
 		"Built": sprite_base.set_deferred("visible", true)
 		"Broken":
@@ -36,5 +38,6 @@ func stage_check():
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 func erect():
-	stage = "Built"
-	stage_check()
+	state = "Built"
+	emit_signal("fence_repair", 100)
+	check_fence()

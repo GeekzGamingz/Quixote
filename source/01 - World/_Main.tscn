@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://bnqo7royaq3ks"]
 
-[ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/_Main.gd" id="1_ivxdo"]
-[ext_resource type="Script" uid="uid://dwb1baam3pgdh" path="res://source/01 - World/Level.gd" id="2_r6syk"]
-[ext_resource type="Script" uid="uid://3x1qr27gfybm" path="res://source/01 - World/LevelFSM.gd" id="3_tinpb"]
-[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="4_88mwx"]
-[ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="5_6vswa"]
-[ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="6_pp0k7"]
-[ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/ProgressBars.tscn" id="7_272to"]
-[ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/_Shop.tscn" id="8_mncll"]
-[ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="9_kwqb5"]
-[ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="10_4reo6"]
-[ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="11_mmygp"]
-[ext_resource type="PackedScene" uid="uid://bk36k0b6gnqlm" path="res://source/02 - Objects/02 - Fence/Fence.tscn" id="11_r6syk"]
-[ext_resource type="PackedScene" uid="uid://dny50y7ngafpp" path="res://source/03 - Entities/01 - Sancho/Sancho.tscn" id="12_swti7"]
+[ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/_Main.gd" id="1_alxrc"]
+[ext_resource type="Script" uid="uid://dwb1baam3pgdh" path="res://source/01 - World/Level.gd" id="2_sxaaq"]
+[ext_resource type="Script" uid="uid://3x1qr27gfybm" path="res://source/01 - World/LevelFSM.gd" id="3_hdco3"]
+[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="4_hbw1b"]
+[ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="5_5irkm"]
+[ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="6_46hjb"]
+[ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.tscn" id="7_qxxn8"]
+[ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/Shop.tscn" id="8_jhciw"]
+[ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="9_lkj5x"]
+[ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="10_45upr"]
+[ext_resource type="PackedScene" uid="uid://bk36k0b6gnqlm" path="res://source/02 - Objects/02 - Fence/Fence.tscn" id="11_wx7qp"]
+[ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="12_y6q66"]
+[ext_resource type="PackedScene" uid="uid://dny50y7ngafpp" path="res://source/03 - Entities/01 - Sancho/Sancho.tscn" id="13_ow5x3"]
+[ext_resource type="PackedScene" uid="uid://ch6jtpmkwfkdj" path="res://source/03 - Entities/02 - Farmer/Farmer.tscn" id="14_tinpb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
 radius = 3.0
@@ -24,17 +25,17 @@ radius = 4.0
 height = 80.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
-script = ExtResource("1_ivxdo")
+script = ExtResource("1_alxrc")
 metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0, -100.0, 180.0, 204.0, 228.0, 75.0]
 metadata/_edit_horizontal_guides_ = [80.0, 100.0, 85.0, 14.0, 44.0, 117.0, 124.0, 66.0, 206.0]
 
 [node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("quixote", "grain_nodes")]
-script = ExtResource("2_r6syk")
+script = ExtResource("2_sxaaq")
 quixote = NodePath("../Entities/Quixote")
 grain_nodes = [NodePath("../Areas/Grain"), NodePath("../Areas/Grain2"), NodePath("../Areas/Grain3")]
 
 [node name="LevelFSM" type="Node2D" parent="Level" unique_id=369404075]
-script = ExtResource("3_tinpb")
+script = ExtResource("3_hdco3")
 
 [node name="Outputs" type="HBoxContainer" parent="Level" unique_id=2102172733]
 offset_right = 49.0
@@ -45,7 +46,7 @@ layout_mode = 2
 
 [node name="Label_Day" type="Label" parent="Level/Outputs" unique_id=1716478447]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_88mwx")
+theme_override_fonts/font = ExtResource("4_hbw1b")
 theme_override_font_sizes/font_size = 9
 text = "Day:"
 horizontal_alignment = 1
@@ -53,7 +54,7 @@ vertical_alignment = 1
 
 [node name="Output_State" type="Label" parent="Level/Outputs" unique_id=1524947661]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_6vswa")
+theme_override_fonts/font = ExtResource("5_5irkm")
 theme_override_font_sizes/font_size = 9
 text = "Level State"
 horizontal_alignment = 1
@@ -65,17 +66,18 @@ layer = -100
 [node name="Background" type="TextureRect" parent="Background" unique_id=601367710]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_pp0k7")
+texture = ExtResource("6_46hjb")
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
 layer = 100
 
-[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill", "grain_nodes") instance=ExtResource("7_272to")]
+[node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill", "fence", "grain_nodes") instance=ExtResource("7_qxxn8")]
 quixote = NodePath("../../Entities/Quixote")
 windmill = NodePath("../../Objects/Windmill")
+fence = NodePath("../../Objects/Fence")
 grain_nodes = [NodePath("../../Areas/Grain"), NodePath("../../Areas/Grain2"), NodePath("../../Areas/Grain3")]
 
-[node name="Shop" parent="Interface" unique_id=917203886 instance=ExtResource("8_mncll")]
+[node name="Shop" parent="Interface" unique_id=917203886 instance=ExtResource("8_jhciw")]
 
 [node name="Areas" type="Node2D" parent="." unique_id=1560364250]
 
@@ -94,14 +96,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/BraceStop" unique_id=1860981608]
 shape = SubResource("CircleShape2D_a1j8a")
 
-[node name="Grain" parent="Areas" unique_id=484321813 instance=ExtResource("9_kwqb5")]
+[node name="Grain" parent="Areas" unique_id=484321813 instance=ExtResource("9_lkj5x")]
 position = Vector2(180, 84)
-stage = "Seedling"
+state = "Seedling"
 
-[node name="Grain2" parent="Areas" unique_id=944202481 instance=ExtResource("9_kwqb5")]
+[node name="Grain2" parent="Areas" unique_id=944202481 instance=ExtResource("9_lkj5x")]
 position = Vector2(204, 84)
 
-[node name="Grain3" parent="Areas" unique_id=1333717773 instance=ExtResource("9_kwqb5")]
+[node name="Grain3" parent="Areas" unique_id=1333717773 instance=ExtResource("9_lkj5x")]
 position = Vector2(228, 84)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
@@ -114,17 +116,19 @@ collision_mask = 0
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a1j8a")
 
-[node name="Windmill" parent="Objects" unique_id=874538700 instance=ExtResource("10_4reo6")]
+[node name="Windmill" parent="Objects" unique_id=874538700 instance=ExtResource("10_45upr")]
 position = Vector2(120, 44)
 
-[node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_r6syk")]
+[node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
 position = Vector2(69, 81)
-stage = "Built"
 
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 
-[node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("11_mmygp")]
+[node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("12_y6q66")]
 position = Vector2(-100, 80)
 
-[node name="Sancho" parent="Entities" unique_id=1585068152 instance=ExtResource("12_swti7")]
+[node name="Sancho" parent="Entities" unique_id=1585068152 instance=ExtResource("13_ow5x3")]
 position = Vector2(-10, 85)
+
+[node name="Farmer" parent="Entities" unique_id=1738560258 instance=ExtResource("14_tinpb")]
+position = Vector2(152, 85)

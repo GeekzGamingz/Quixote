@@ -16,7 +16,7 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
 
-[node name="Windmill" type="StaticBody2D" unique_id=2143046118]
+[node name="Windmill" type="StaticBody2D" unique_id=1608751506]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_0h1dv")
@@ -38,7 +38,6 @@ centered = false
 
 [node name="Axis" type="RigidBody2D" parent="." unique_id=706639578]
 collision_layer = 2
-collision_mask = 5
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_3xuhk")
 

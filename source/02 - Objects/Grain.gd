@@ -1,11 +1,11 @@
 extends Area2D
 #------------------------------------------------------------------------------#
 #Constants
-const STAGE_1 = preload("uid://ctic48dx0yb7x")
-const STAGE_2 = preload("uid://niedp2jgqmqm")
-const STAGE_3 = preload("uid://c03rqo2y4d8xs")
-const STAGE_4 = preload("uid://jglarnyrgaoe")
-const STAGE_5 = preload("uid://bjd68qvw5vkia")
+const STATE_1 = preload("uid://ctic48dx0yb7x")
+const STATE_2 = preload("uid://niedp2jgqmqm")
+const STATE_3 = preload("uid://c03rqo2y4d8xs")
+const STATE_4 = preload("uid://jglarnyrgaoe")
+const STATE_5 = preload("uid://bjd68qvw5vkia")
 #------------------------------------------------------------------------------#
 #Signals
 signal harvested
@@ -20,7 +20,7 @@ var crop_yield: int = 10
 	"Stemling",
 	"Heading",
 	"Ripening"
-) var stage: String = "Barren"
+) var state: String = "Barren"
 #OnReady Variables
 #Main Variables
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -43,17 +43,17 @@ func _ready() -> void:
 func _on_reap_button_up() -> void: harvest()
 func _on_plant_button_up() -> void:
 	if G.FLOUR > 0:
-		stage = "Seedling"
+		state = "Seedling"
 		check_grain()
 		G.FLOUR -= 1
 #Growth Timer
 func _on_growth_timeout() -> void:
-	match(stage):
-		"Seedling": stage = "Tillering"
-		"Tillering": stage = "Stemling"
-		"Stemling": stage = "Heading"
+	match(state):
+		"Seedling": state = "Tillering"
+		"Tillering": state = "Stemling"
+		"Stemling": state = "Heading"
 		"Heading":
-			stage = "Ripening"
+			state = "Ripening"
 			print("[", name, "] Ready for Harvesting!")
 		"Ripening": pass
 	growth_timer.start()
@@ -63,21 +63,21 @@ func _on_growth_timeout() -> void:
 func check_grain():
 	reap_button.set_deferred("visible", false)
 	plant_button.set_deferred("visible", false)
-	match(stage):
+	match(state):
 		"Barren":
 			sprite_base.texture = null
 			plant_button.set_deferred("visible", true)
-		"Seedling": sprite_base.texture = STAGE_1
-		"Tillering": sprite_base.texture = STAGE_2
-		"Stemling": sprite_base.texture = STAGE_3
-		"Heading": sprite_base.texture = STAGE_4
+		"Seedling": sprite_base.texture = STATE_1
+		"Tillering": sprite_base.texture = STATE_2
+		"Stemling": sprite_base.texture = STATE_3
+		"Heading": sprite_base.texture = STATE_4
 		"Ripening":
-			sprite_base.texture = STAGE_5
+			sprite_base.texture = STATE_5
 			reap_button.set_deferred("visible", true)
 #Harvest
 func harvest():
-	if stage == "Ripening":
-		stage = "Seedling"
+	if state == "Ripening":
+		state = "Seedling"
 		emit_signal("harvested", crop_yield)
 		check_grain()
 #------------------------------------------------------------------------------#

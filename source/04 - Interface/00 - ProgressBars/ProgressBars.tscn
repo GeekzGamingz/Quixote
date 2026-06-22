@@ -2,9 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="1_wdb5f"]
 [ext_resource type="Texture2D" uid="uid://crc4ak1dknm71" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Progress.png" id="1_yyeld"]
-[ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/ProgressBars.gd" id="2_pqbtp"]
+[ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.gd" id="2_pqbtp"]
 [ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Border.png" id="2_wdb5f"]
-[ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/Progress.gd" id="3_16uq8"]
+[ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/00 - ProgressBars/Progress.gd" id="3_16uq8"]
 [ext_resource type="Texture2D" uid="uid://bkcdq6t3xvk3m" path="res://assets/00 - Interface/01 - ProgressBar/03 - Fence/Fence_Progress_Bar.png" id="6_2f1rd"]
 [ext_resource type="Texture2D" uid="uid://bajf0o4ivay4q" path="res://assets/00 - Interface/01 - ProgressBar/02 - Grain/Grain_Progress_Bar.png" id="6_c5wa0"]
 [ext_resource type="Texture2D" uid="uid://by3axmdpt0f88" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Empty.png" id="6_j3tq5"]
@@ -108,7 +108,6 @@ progress_over = NodePath("FenceOver")
 
 [node name="FenceUnder" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VFenceContainer/FenceContainer" unique_id=1106703265]
 layout_mode = 2
-value = 50.0
 fill_mode = 3
 texture_under = ExtResource("6_2f1rd")
 texture_progress = ExtResource("6_2f1rd")
@@ -116,7 +115,6 @@ tint_under = Color(0, 0, 0, 1)
 
 [node name="FenceOver" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer/VFenceContainer/FenceContainer" unique_id=1284300070]
 layout_mode = 2
-value = 25.0
 fill_mode = 3
 texture_over = ExtResource("7_ukrv8")
 texture_progress = ExtResource("6_2f1rd")

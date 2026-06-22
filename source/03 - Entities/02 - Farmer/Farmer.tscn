@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://ch6jtpmkwfkdj"]
+
+[ext_resource type="Texture2D" uid="uid://b1r0sioeifyj6" path="res://assets/03 - Entities/02 - Farmer/Farmer_Sheet.png" id="2_c7lwd"]
+
+[sub_resource type="Animation" id="Animation_j74yu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sgkoc"]
+resource_name = "angy"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_c7lwd"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rccvj"]
+_data = {
+&"RESET": SubResource("Animation_j74yu"),
+&"angy": SubResource("Animation_sgkoc"),
+&"idle": SubResource("Animation_c7lwd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyvht"]
+
+[node name="Farmer" type="CharacterBody2D" unique_id=1738560258]
+collision_layer = 4
+collision_mask = 4
+
+[node name="FarmerFSM" type="Node2D" parent="." unique_id=895177623]
+
+[node name="Sprites" type="Node2D" parent="." unique_id=318322000]
+
+[node name="SpriteBase" type="Sprite2D" parent="Sprites" unique_id=297870647]
+position = Vector2(2, -3)
+texture = ExtResource("2_c7lwd")
+hframes = 4
+vframes = 2
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=1629565411]
+
+[node name="ForkRay" type="RayCast2D" parent="RayCasts" unique_id=139672912]
+target_position = Vector2(-75, 0)
+collision_mask = 4
+
+[node name="AnimationPlayers" type="Node2D" parent="." unique_id=1557503056]
+
+[node name="SpritePlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=1542713613]
+libraries/ = SubResource("AnimationLibrary_rccvj")
+autoplay = &"idle"
+
+[node name="Timers" type="Node2D" parent="." unique_id=248071368]
+
+[node name="IdleTimer" type="Timer" parent="Timers" unique_id=1935516391]
+wait_time = 4.0
+one_shot = true
+
+[node name="Outputs" type="Node2D" parent="." unique_id=307948542]
+
+[node name="StateOutput" type="Label" parent="Outputs" unique_id=1590570937]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "State"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 162
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=324292791]
+shape = SubResource("CircleShape2D_vyvht")

@@ -19,7 +19,7 @@ var geriatric_damage: int = 10
 @export_range(5, 20, 1, "prefer_slider") var geriatric_ticks = 10
 @export_category("Traits")
 @export_range(5, 20, 1, "prefer_slider") var lance_damage: int = 5
-@export_range(1, 10, 1, "prefer_slider") var horse_speed: int = 5
+@export_range(1, 10, 1, "prefer_slider") var horse_speed: int = 4
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -51,7 +51,7 @@ func ride_forth(delta): global_position.x += horse_speed * delta
 func attack_lance():
 	match(lance.get_collider().name):
 		"Windmill": emit_signal("windmill_damage", "Lance", lance_damage)
-		"Fence": emit_signal("fence_damage", "Lance", lance_damage)
+		"Fence": emit_signal("fence_damage", "Lance", lance_damage * 2)
 func collapse(origin):
 	if !collapsed:
 		match(origin.name):
