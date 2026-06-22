@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brth8hlq8dn4x"
-path="res://.godot/imported/Don_Lvl1_Sheet.png-1505c52751779c19c361708160357b06.ctex"
+uid="uid://bvh3t1hyd35gx"
+path="res://.godot/imported/Button_BladeUpgrade3_Pressed.png-362eb8edb962150ab2b0cfae358d5236.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Quixote/Don_Lvl1_Sheet.png"
-dest_files=["res://.godot/imported/Don_Lvl1_Sheet.png-1505c52751779c19c361708160357b06.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Blades/Button_BladeUpgrade3_Pressed.png"
+dest_files=["res://.godot/imported/Button_BladeUpgrade3_Pressed.png-362eb8edb962150ab2b0cfae358d5236.ctex"]
 
 [params]
 

@@ -9,13 +9,14 @@ extends StateMachine
 #Ready Method
 func _ready() -> void:
 	#Add States
+	state_add("intro")
 	state_add("idle")
 	state_add("ride_forth")
 	state_add("to_arms")
 	state_add("bracing")
 	state_add("brace_max")
 	state_add("collapsed")
-	call_deferred("state_set", states.ride_forth)
+	call_deferred("state_set", states.intro)
 #------------------------------------------------------------------------------#
 #State Label
 func _process(_delta: float) -> void: state_label.text = str(states.keys()[state])
@@ -30,6 +31,7 @@ func state_logic(delta):
 @warning_ignore("unused_parameter")
 func transitions(delta):
 	match(state):
+		states.intro: if quixote.windmill_sighted: return states.ride_forth
 		states.idle:
 			if quixote.horse_speed > 0: return states.ride_forth
 			if quixote.horse_speed < 0: return states.bracing

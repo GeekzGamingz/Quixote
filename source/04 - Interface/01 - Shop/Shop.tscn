@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://c74c3wi4a460o"]
+
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="1_r3br3"]
+[ext_resource type="Script" uid="uid://d4kpg6nsjoboa" path="res://source/04 - Interface/01 - Shop/Shop.gd" id="2_r3br3"]
+[ext_resource type="Texture2D" uid="uid://dow2yovwmt7re" path="res://assets/00 - Interface/05 - Shop/ShopTitle.png" id="3_p3toa"]
+[ext_resource type="Texture2D" uid="uid://cgakku71as6qf" path="res://assets/00 - Interface/05 - Shop/ShopPanel.png" id="3_uvbjg"]
+[ext_resource type="Texture2D" uid="uid://i1jsasshwwvk" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/01 - Repair/Button_Repair_Unpressed.png" id="5_jifjs"]
+[ext_resource type="Texture2D" uid="uid://dxec4wu1tdms7" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/01 - Repair/Button_Repair_Pressed.png" id="6_jek6v"]
+[ext_resource type="Script" uid="uid://bjvfwefwlf0uq" path="res://source/04 - Interface/01 - Shop/RepairButton.gd" id="7_u345u"]
+[ext_resource type="Texture2D" uid="uid://da7kpu3d0frmv" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Blades/Button_BladeUpgrade1_Unpressed.png" id="7_uobg6"]
+[ext_resource type="Texture2D" uid="uid://dtb7tx5kopfcl" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/00 - Blades/Button_BladeUpgrade1_Pressed.png" id="8_u345u"]
+[ext_resource type="Texture2D" uid="uid://dbud6kex0yi7v" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Rotation_Unpressed.png" id="9_ysoof"]
+[ext_resource type="Texture2D" uid="uid://d4d0lqke7mn58" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Rotation_Pressed.png" id="10_0gi2b"]
+[ext_resource type="Texture2D" uid="uid://dwixxa7fiw3nt" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Fence_Unpressed.png" id="11_2k7ie"]
+[ext_resource type="Texture2D" uid="uid://bdge10da45rts" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Fence_Pressed.png" id="12_88s1b"]
+[ext_resource type="Texture2D" uid="uid://djxr0lm4bydoc" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed.png" id="13_ahl2h"]
+[ext_resource type="Texture2D" uid="uid://b4xeob72rmpy2" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Pressed.png" id="14_1hwss"]
+[ext_resource type="Texture2D" uid="uid://cv83ud6ua68bw" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_AngyFarmer_Unpressed.png" id="15_ai084"]
+[ext_resource type="Texture2D" uid="uid://buxoahhavjkm5" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed_Inactive.png" id="15_jek6v"]
+[ext_resource type="Texture2D" uid="uid://bh3md4oacv63" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_AngyFarmer_Pressed.png" id="16_bnkj6"]
+[ext_resource type="Texture2D" uid="uid://di3lopgxu473b" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_GrowthSpeed_Unpressed.png" id="17_rjjwo"]
+[ext_resource type="Texture2D" uid="uid://d0wic64g5a825" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_GrowthSpeed_Pressed.png" id="18_ioosw"]
+[ext_resource type="Texture2D" uid="uid://dn8c6xpr0ephx" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Pubby_Unpressed.png" id="19_gucpk"]
+[ext_resource type="Texture2D" uid="uid://bgbcc528dxoml" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Pubby_Pressed.png" id="20_in8ky"]
+[ext_resource type="Texture2D" uid="uid://yn7bkki7upb8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Unpressed.png" id="21_6y0tb"]
+[ext_resource type="Texture2D" uid="uid://irxshbuho3dn" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Pressed.png" id="22_0hx72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
+radius = 50.0
+
+[sub_resource type="Animation" id="Animation_uvbjg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(227, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_p3toa"]
+resource_name = "hide"
+length = 0.4
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(175, -0.06666667, 8.666667, 0, 0, 227, -0.3, 50, 0, -54),
+"times": PackedFloat32Array(0, 0.4)
+}
+
+[sub_resource type="Animation" id="Animation_6g87c"]
+resource_name = "show"
+length = 0.4
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(227, -0.2, 0, 0.1, -92, 175, -0.099999994, -4, 0, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_374kx"]
+_data = {
+&"RESET": SubResource("Animation_uvbjg"),
+&"hide": SubResource("Animation_p3toa"),
+&"show": SubResource("Animation_6g87c")
+}
+
+[node name="Shop" type="Control" unique_id=917203886]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 227.0
+offset_right = 227.0
+theme = ExtResource("1_r3br3")
+script = ExtResource("2_r3br3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1371334687]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 73.0
+mouse_filter = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1381932141]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1343240072]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+mouse_filter = 2
+theme_override_constants/separation = -3
+
+[node name="ShopRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1520761359]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_uvbjg")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=639490644]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=1141786030]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1739565228]
+layout_mode = 2
+
+[node name="TitleRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=515601900]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_p3toa")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1202844925]
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 2
+columns = 3
+
+[node name="RepairButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=446597692]
+layout_mode = 2
+texture_normal = ExtResource("5_jifjs")
+texture_pressed = ExtResource("6_jek6v")
+script = ExtResource("7_u345u")
+
+[node name="UpgradeButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1158886772]
+layout_mode = 2
+texture_normal = ExtResource("7_uobg6")
+texture_pressed = ExtResource("8_u345u")
+
+[node name="RotationButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=107834953]
+layout_mode = 2
+texture_normal = ExtResource("9_ysoof")
+texture_pressed = ExtResource("10_0gi2b")
+
+[node name="FenceButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=468944184]
+layout_mode = 2
+texture_normal = ExtResource("11_2k7ie")
+texture_pressed = ExtResource("12_88s1b")
+
+[node name="UnknownButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1551835152]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("13_ahl2h")
+texture_pressed = ExtResource("14_1hwss")
+texture_disabled = ExtResource("15_jek6v")
+
+[node name="FarmerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=689984806]
+layout_mode = 2
+texture_normal = ExtResource("15_ai084")
+texture_pressed = ExtResource("16_bnkj6")
+
+[node name="GrowthButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=6897367]
+layout_mode = 2
+texture_normal = ExtResource("17_rjjwo")
+texture_pressed = ExtResource("18_ioosw")
+
+[node name="PubbyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=414226847]
+layout_mode = 2
+texture_normal = ExtResource("19_gucpk")
+texture_pressed = ExtResource("20_in8ky")
+
+[node name="YieldButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=208744585]
+layout_mode = 2
+texture_normal = ExtResource("21_6y0tb")
+texture_pressed = ExtResource("22_0hx72")
+
+[node name="ShopArea" type="Area2D" parent="." unique_id=1087214042]
+position = Vector2(39, 39)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea" unique_id=36278958]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_a1j8a")
+
+[node name="AnimationPlayers" type="Node2D" parent="." unique_id=627091252]
+
+[node name="ShopPlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=1217861321]
+libraries/ = SubResource("AnimationLibrary_374kx")
+autoplay = &"RESET"
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ShopRect" to="." method="_on_shop_mouse_entered"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" method="_on_button_up"]
+[connection signal="mouse_exited" from="ShopArea" to="." method="_on_shop_area_exited"]

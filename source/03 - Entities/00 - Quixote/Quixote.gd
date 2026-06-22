@@ -5,7 +5,9 @@ signal windmill_damage
 #------------------------------------------------------------------------------#
 #Variables
 #Bools
+var on_screen: bool = false
 var collapsed: bool = false
+var windmill_sighted: bool = false
 #Integers
 var geriatric_damage: int = 10
 var lance_damage: int = 5
@@ -31,13 +33,16 @@ func _ready() -> void:
 	await get_tree().process_frame
 	MAIN.WINDMILL.connect("spin", impede)
 	MAIN.PROGRESS.connect("collapse", collapse)
+	MAIN.SANCHO.get_node("SanchoFSM").connect("target_acquired", target_acquired)
 #------------------------------------------------------------------------------#
 #Signaled Functions
 #Animation Players
 func _on_sprite_player_finished(_anim_name: StringName) -> void: sprite_player.play("collapsed")
 #Timers
 func _on_geriatric_timeout() -> void:
-	if !collapsed: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
+	if !collapsed && on_screen: emit_signal("quixote_damage", "Geriatric", geriatric_damage)
+#Screen Notifier
+func _on_screen_notifier_entered() -> void: on_screen = true
 #------------------------------------------------------------------------------#
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
@@ -50,16 +55,22 @@ func collapse(origin):
 		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
+#Impede
 func impede(spinning, wind_speed):
-	if spinning:
-		horse_speed -= wind_speed
-		geriatric_timer.wait_time = 5.0
-		geriatric_timer.start()
-		geriatric_damage = geriatric_damage_max
-	else:
-		horse_speed = starting_speed
-		geriatric_timer.wait_time = 10.0
-		geriatric_timer.start()
-		geriatric_damage = geriatric_damage_base
-	print("Wind Speed: ", wind_speed)
-	print("Horse Speed: ", horse_speed)
+	if on_screen:
+		if spinning:
+			horse_speed -= wind_speed
+			geriatric_timer.wait_time = 5.0
+			geriatric_timer.start()
+			geriatric_damage = geriatric_damage_max
+		else:
+			horse_speed = starting_speed
+			geriatric_timer.wait_time = 10.0
+			geriatric_timer.start()
+			geriatric_damage = geriatric_damage_base
+		print("Wind Speed: ", wind_speed)
+		print("Horse Speed: ", horse_speed)
+#Target Acquired
+func target_acquired():
+	print("WINDMILL SIGHTED!")
+	windmill_sighted = true

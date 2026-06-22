@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://bnqo7royaq3ks"]
 
 [ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/Main.gd" id="1_dlvln"]
+[ext_resource type="Script" uid="uid://dwb1baam3pgdh" path="res://source/01 - World/Level.gd" id="2_406si"]
+[ext_resource type="Script" uid="uid://3x1qr27gfybm" path="res://source/01 - World/LevelFSM.gd" id="2_a37ph"]
 [ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="2_pe435"]
 [ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="3_bn52s"]
 [ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="4_a37ph"]
 [ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="4_bn52s"]
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/ProgressBars.tscn" id="5_pe435"]
+[ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/Shop.tscn" id="8_hqgfk"]
+[ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="8_rxfph"]
+[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="9_406si"]
+[ext_resource type="PackedScene" uid="uid://dny50y7ngafpp" path="res://source/03 - Entities/01 - Sancho/Sancho.tscn" id="11_522pn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
+radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
 
@@ -15,7 +24,39 @@ height = 80.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_dlvln")
-metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0]
+metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0, -100.0]
+metadata/_edit_horizontal_guides_ = [80.0, 100.0, 85.0]
+
+[node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("quixote", "grain_nodes")]
+script = ExtResource("2_406si")
+quixote = NodePath("../Entities/Quixote")
+grain_nodes = [NodePath("../Areas/Grain"), NodePath("../Areas/Grain2"), NodePath("../Areas/Grain3")]
+
+[node name="LevelFSM" type="Node2D" parent="Level" unique_id=369404075]
+script = ExtResource("2_a37ph")
+
+[node name="Outputs" type="HBoxContainer" parent="Level" unique_id=2102172733]
+offset_right = 49.0
+offset_bottom = 9.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Level/Outputs" unique_id=2057421734]
+layout_mode = 2
+
+[node name="Label_Day" type="Label" parent="Level/Outputs" unique_id=1716478447]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_406si")
+theme_override_font_sizes/font_size = 9
+text = "Day:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Output_State" type="Label" parent="Level/Outputs" unique_id=1524947661]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rxfph")
+theme_override_font_sizes/font_size = 9
+text = "Level State"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1838358318]
 layer = -100
@@ -33,10 +74,20 @@ quixote = NodePath("../../Entities/Quixote")
 windmill = NodePath("../../Objects/Windmill")
 grain_nodes = [NodePath("../../Areas/Grain"), NodePath("../../Areas/Grain2"), NodePath("../../Areas/Grain3")]
 
+[node name="Shop" parent="Interface" unique_id=917203886 instance=ExtResource("8_hqgfk")]
+
 [node name="Areas" type="Node2D" parent="." unique_id=1560364250]
 
+[node name="SanchoStop" type="Area2D" parent="Areas" unique_id=1891117159]
+position = Vector2(23, 86)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/SanchoStop" unique_id=1432506480]
+shape = SubResource("CircleShape2D_43fak")
+
 [node name="BraceStop" type="Area2D" parent="Areas" unique_id=593927919]
-position = Vector2(0, 80)
+position = Vector2(10, 80)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/BraceStop" unique_id=1860981608]
@@ -68,5 +119,8 @@ position = Vector2(120, 44)
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 
 [node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("4_a37ph")]
-position = Vector2(8, 80)
+position = Vector2(-100, 80)
 horse_speed = 4
+
+[node name="Sancho" parent="Entities" unique_id=1585068152 instance=ExtResource("11_522pn")]
+position = Vector2(-10, 85)

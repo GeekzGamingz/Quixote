@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dny50y7ngafpp"]
+
+[ext_resource type="Texture2D" uid="uid://dyhjwxpqq3esn" path="res://assets/03 - Entities/01 - Sancho/Sancho_Sheet.png" id="1_djytw"]
+[ext_resource type="Script" uid="uid://cguj4j3u5vp7y" path="res://source/03 - Entities/01 - Sancho/Sancho.gd" id="1_i0hiy"]
+[ext_resource type="Script" uid="uid://c5cd6tcgkvjxs" path="res://source/03 - Entities/01 - Sancho/SanchoFSM.gd" id="2_wgy1w"]
+
+[sub_resource type="Animation" id="Animation_i0hiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_wgy1w"]
+resource_name = "idle"
+length = 0.48
+loop_mode = 1
+step = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_0c0dc"]
+resource_name = "ride_forth"
+length = 0.48
+loop_mode = 1
+step = 0.16
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_es6pb"]
+resource_name = "strum"
+length = 0.48
+loop_mode = 1
+step = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_es6pb"]
+_data = {
+&"RESET": SubResource("Animation_i0hiy"),
+&"idle": SubResource("Animation_wgy1w"),
+&"ride_forth": SubResource("Animation_0c0dc"),
+&"strum": SubResource("Animation_es6pb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnv4i"]
+
+[node name="Sancho" type="CharacterBody2D" unique_id=1585068152]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_i0hiy")
+donkey_speed = 3
+
+[node name="SanchoFSM" type="Node2D" parent="." unique_id=2145642539]
+script = ExtResource("2_wgy1w")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1076251855]
+
+[node name="SpriteBase" type="Sprite2D" parent="Sprites" unique_id=1485748275]
+position = Vector2(2, -3)
+texture = ExtResource("1_djytw")
+hframes = 4
+vframes = 3
+frame = 8
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=200937736]
+
+[node name="PositionRay" type="RayCast2D" parent="RayCasts" unique_id=564054481]
+target_position = Vector2(10, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="AnimationPlayers" type="Node2D" parent="." unique_id=1068970790]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=609224880]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_es6pb")
+
+[node name="Timers" type="Node2D" parent="." unique_id=601410340]
+
+[node name="IdleTimer" type="Timer" parent="Timers" unique_id=1189965956]
+wait_time = 4.0
+one_shot = true
+
+[node name="Outputs" type="Node2D" parent="." unique_id=1500426306]
+
+[node name="StateOutput" type="Label" parent="Outputs" unique_id=1282101752]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "State"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 162
+uppercase = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11001386]
+shape = SubResource("CircleShape2D_jnv4i")

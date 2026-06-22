@@ -93,7 +93,7 @@ value = 100.0
 fill_mode = 1
 texture_over = ExtResource("2_wdb5f")
 texture_progress = ExtResource("1_yyeld")
-texture_progress_offset = Vector2(4, 4)
+texture_progress_offset = Vector2(5, 5)
 tint_progress = Color(0.6392157, 0.27058825, 0.27058825, 1)
 
 [node name="VFenceContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=39792305]
@@ -225,5 +225,5 @@ layout_mode = 2
 value = 100.0
 texture_over = ExtResource("2_wdb5f")
 texture_progress = ExtResource("1_yyeld")
-texture_progress_offset = Vector2(4, 4)
+texture_progress_offset = Vector2(5, 5)
 tint_progress = Color(0.27058825, 0.56078434, 0.34509805, 1)

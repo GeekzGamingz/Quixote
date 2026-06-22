@@ -1,0 +1,35 @@
+[gd_resource type="Theme" format=3 uid="uid://c1fdn3jrwtw4l"]
+
+[ext_resource type="Texture2D" uid="uid://c0qynmdhbclm6" path="res://assets/00 - Interface/Panel.png" id="1_k66w7"]
+[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="2_hk8v1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oq8xk"]
+texture = ExtResource("1_k66w7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 12, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1j8a"]
+texture = ExtResource("1_k66w7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8givh"]
+texture = ExtResource("1_k66w7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[resource]
+default_font = ExtResource("2_hk8v1")
+Panel/styles/panel = SubResource("StyleBoxTexture_oq8xk")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_a1j8a")
+TooltipLabel/colors/font_color = Color(0.3647059, 0.21568628, 0.28235295, 1)
+TooltipLabel/constants/line_spacing = -2
+TooltipLabel/font_sizes/font_size = 8
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_8givh")
