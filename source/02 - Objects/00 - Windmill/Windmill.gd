@@ -26,6 +26,7 @@ var collapsed: bool = false
 func _ready() -> void:
 	await get_tree().process_frame
 	MAIN.PROGRESS.connect("collapse", collapse)
+	MAIN.SHOP.rotation_button.connect("rotation_upgrade", rotation_upgrade)
 #Signaled Functions
 #Mouse Enter/Exit
 func _on_axis_mouse_entered() -> void: focus_spin(true)
@@ -55,3 +56,5 @@ func collapse(origin):
 				pin.node_b = ""
 				$CollisionPolygon2D.set_deferred("disabled", true)
 		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
+#Upgrade Rotation
+func rotation_upgrade(): if wind_speed < 20: wind_speed += 5

@@ -26,7 +26,6 @@ wind_speed = 5
 script = ExtResource("1_h2yvc")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1257591889]
-visible = false
 node_a = NodePath("..")
 node_b = NodePath("../Axis")
 motor_enabled = true
