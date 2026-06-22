@@ -11,6 +11,7 @@ const STAGE_5 = preload("uid://bjd68qvw5vkia")
 signal harvested
 #------------------------------------------------------------------------------#
 #Variables
+var crop_yield: int = 10
 #Exported Variables
 @export_enum(
 	"Barren",
@@ -35,6 +36,7 @@ func _ready() -> void:
 	check_grain()
 	await get_tree().process_frame
 	MAIN.SHOP.growth_button.connect("growth_upgrade", growth_upgrade)
+	MAIN.SHOP.yield_button.connect("yield_upgrade", yield_upgrade)
 #------------------------------------------------------------------------------#
 #Signaled Functions
 #Reap Button
@@ -76,9 +78,11 @@ func check_grain():
 func harvest():
 	if stage == "Ripening":
 		stage = "Seedling"
-		emit_signal("harvested", 25)
+		emit_signal("harvested", crop_yield)
 		check_grain()
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Upgrade Growth Speed
-func growth_upgrade(): if growth_timer.wait_time > 3: growth_timer.wait_time -= 1
+func growth_upgrade(): growth_timer.wait_time -= 1
+#Upgrade Crop Yield
+func yield_upgrade(): crop_yield += 10

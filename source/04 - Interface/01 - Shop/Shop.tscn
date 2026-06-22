@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://yn7bkki7upb8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Unpressed.png" id="21_6y0tb"]
 [ext_resource type="Texture2D" uid="uid://irxshbuho3dn" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_HarvestYield_Pressed.png" id="22_0hx72"]
 [ext_resource type="Script" uid="uid://yvavsp4ihj66" path="res://source/04 - Interface/01 - Shop/GrowthButton.gd" id="22_ysoof"]
+[ext_resource type="Script" uid="uid://bxmtef5la816" path="res://source/04 - Interface/01 - Shop/YieldButton.gd" id="27_0gi2b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
 radius = 50.0
@@ -190,6 +191,7 @@ texture_pressed = ExtResource("20_in8ky")
 layout_mode = 2
 texture_normal = ExtResource("21_6y0tb")
 texture_pressed = ExtResource("22_0hx72")
+script = ExtResource("27_0gi2b")
 
 [node name="ShopArea" type="Area2D" parent="." unique_id=1087214042]
 position = Vector2(39, 39)
@@ -210,4 +212,5 @@ autoplay = &"RESET"
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" method="_on_button_up"]
 [connection signal="mouse_exited" from="ShopArea" to="." method="_on_shop_area_exited"]
