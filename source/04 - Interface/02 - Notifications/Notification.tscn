@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://bxf0eqp2uio1d"]
+
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="1_2k60q"]
+[ext_resource type="Script" uid="uid://cjbljl1snjhue" path="res://source/04 - Interface/02 - Notifications/Notification.gd" id="1_amprx"]
+
+[sub_resource type="Animation" id="Animation_hufyg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.5235988, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_me3bl"]
+resource_name = "appear"
+length = 0.5
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.2, 208, 0, -0.099999994, 50, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(25, -0.25, 0, 0.25, 0, 0, -0.083333336, 4.166667, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-0.5235988, -0.25, 0, 0.25, 0, 0, -0.083333336, -0.08726647, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_2k60q"]
+resource_name = "hide"
+length = 0.5
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.099999994, 50, 0, 0, -150, -0.19999999, 229, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.083333336, 4.166667, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.083333336, -0.08726647, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6nwt"]
+_data = {
+&"RESET": SubResource("Animation_hufyg"),
+&"appear": SubResource("Animation_me3bl"),
+&"hide": SubResource("Animation_2k60q")
+}
+
+[node name="Notification" type="PanelContainer" unique_id=621922141]
+offset_transform_enabled = true
+offset_transform_position = Vector2(-150, 25)
+offset_transform_rotation = -0.5235988
+theme = ExtResource("1_2k60q")
+script = ExtResource("1_amprx")
+
+[node name="MessageLabel" type="RichTextLabel" parent="." unique_id=629776747]
+custom_minimum_size = Vector2(50, 0)
+custom_maximum_size = Vector2(150, -1)
+layout_mode = 2
+theme_override_constants/line_separation = -3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "It seems this message has been [wave]lost[/wave] to time..."
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=227012479]
+libraries/ = SubResource("AnimationLibrary_x6nwt")
+autoplay = &"appear"

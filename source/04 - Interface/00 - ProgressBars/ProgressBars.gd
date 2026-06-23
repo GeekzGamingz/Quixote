@@ -2,6 +2,8 @@ extends Control
 #------------------------------------------------------------------------------#
 #Signals
 signal collapse
+signal flour_changed
+signal fence_broken
 #------------------------------------------------------------------------------#
 #Variables
 #Exported Variables
@@ -54,14 +56,16 @@ func check_stamina():
 func quixote_damage(damage_type, value):
 	match(damage_type):
 		"Geriatric": q_stamina.progress_damage(value)
-	print("Quixote Took [(", value, ") ", damage_type, "] Damage!!")
+	var notifier = MAIN.NOTIFIER
+	if value > 10: notifier.add_message(str("Quixote Took Great ", damage_type, " Damage!!"), 3)
+	elif value > 30: notifier.add_message(str("Quixote Took Massive ", damage_type, " Damage!!"), 3)
+	else: notifier.add_message(str("Quixote Took ", damage_type, " Damage!"), 3)
 	check_stamina()
 #Windmill
 #Windmill Damage
 func windmill_damage(damage_type, value):
 	match(damage_type):
 		"Lance": w_stamina.progress_damage(value)
-	print("Windmill Took [(", value, ") ", damage_type, "] Damage!!")
 	check_windmill()
 #Windmill Heal
 func windmill_heal(value):
@@ -72,10 +76,11 @@ func windmill_heal(value):
 func fence_damage(damage_type, value):
 	match(damage_type):
 		"Lance": f_stamina.progress_damage(value)
-	if f_stamina.progress_over.value < 0:
+	if f_stamina.progress_over.value <= 0:
 		fence.state = "Broken"
 		fence.check_fence()
-	print("Fence Took [(", value, ") ", damage_type, "] Damage!!")
+		emit_signal("fence_broken")
+		MAIN.NOTIFIER.add_message(str("Fence was Destroyed by ", damage_type, " Damage!!"), 3)
 #Fence Repair
 func fence_repair(value):
 	f_stamina.progress_heal(value)
@@ -86,6 +91,8 @@ func flour_gain(value):
 	if g_reapings.progress_over.value > 0:
 		f_sack.progress_heal(value)
 		g_reapings.progress_damage(value / 2)
-	if f_sack.progress_over.value > 99:
+	if f_sack.progress_over.value >= 100:
 		G.FLOUR += 1
 		f_sack.progress_damage(100)
+		MAIN.NOTIFIER.add_message(str("Finished Milling a Sack of Flour!"), 3)
+	emit_signal("flour_changed")

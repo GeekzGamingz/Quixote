@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cf5ay81n47b0q" path="res://assets/00 - Interface/03 - Buttons/01 - Reap/Button_Scythe_Unpressed.png" id="5_3ak4f"]
 [ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="5_8givh"]
 [ext_resource type="Texture2D" uid="uid://b2khowkqqocvr" path="res://assets/00 - Interface/03 - Buttons/01 - Reap/Button_Scythe_Pressed.png" id="6_8givh"]
+[ext_resource type="Texture2D" uid="uid://dpwulxr5m6roq" path="res://assets/00 - Interface/03 - Buttons/00 - Plant/Button_Plant_Unpressed_Inactive.png" id="6_oq8xk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
 radius = 14.035668
@@ -48,6 +49,7 @@ can be processed into flour!
 theme = ExtResource("5_8givh")
 texture_normal = ExtResource("3_77n4u")
 texture_pressed = ExtResource("4_3ak4f")
+texture_disabled = ExtResource("6_oq8xk")
 
 [node name="ReapButton" type="TextureButton" parent="Buttons" unique_id=842239033]
 anchors_preset = 8

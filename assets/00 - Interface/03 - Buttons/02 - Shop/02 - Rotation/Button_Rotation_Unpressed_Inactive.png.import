@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci88xju3wg772"
-path="res://.godot/imported/windmill_base_damage_1.png-9bb23cad249ec7df0eed95d4f68c10a0.ctex"
+uid="uid://j3khteowkmj8"
+path="res://.godot/imported/Button_Rotation_Unpressed_Inactive.png-c5da23bd1c3e0275ef9cb5404e111568.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/00 - Windmill/windmill_base_damage_1.png"
-dest_files=["res://.godot/imported/windmill_base_damage_1.png-9bb23cad249ec7df0eed95d4f68c10a0.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/02 - Rotation/Button_Rotation_Unpressed_Inactive.png"
+dest_files=["res://.godot/imported/Button_Rotation_Unpressed_Inactive.png-c5da23bd1c3e0275ef9cb5404e111568.ctex"]
 
 [params]
 

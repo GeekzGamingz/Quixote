@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qb3ntumuildp"
-path="res://.godot/imported/basicarms.png-3519a37afa43fe6fe33ef681de604314.ctex"
+uid="uid://csxytisfmlwkb"
+path="res://.godot/imported/Button_Fence_Unpressed_Inactive.png-601cf8092b6b54ae2c9d49d9d7f63766.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/00 - Windmill/basicarms.png"
-dest_files=["res://.godot/imported/basicarms.png-3519a37afa43fe6fe33ef681de604314.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Unpressed_Inactive.png"
+dest_files=["res://.godot/imported/Button_Fence_Unpressed_Inactive.png-601cf8092b6b54ae2c9d49d9d7f63766.ctex"]
 
 [params]
 

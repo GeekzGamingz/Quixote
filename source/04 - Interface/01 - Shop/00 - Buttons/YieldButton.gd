@@ -2,12 +2,14 @@ extends TextureButton
 #------------------------------------------------------------------------------#
 #Signals
 signal yield_upgrade
+signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
 #Integers
 var upgrade: int = 1
 #------------------------------------------------------------------------------#
 #Functions
+func _process(_delta: float) -> void: check_button()
 #Ready
 func _ready() -> void: update_tooltip()
 #------------------------------------------------------------------------------#
@@ -17,6 +19,7 @@ func _on_button_up() -> void:
 	if G.FLOUR >= upgrade:
 		G.FLOUR -= upgrade
 		upgrade += 1
+		emit_signal("flour_changed")
 		emit_signal("yield_upgrade")
 	update_tooltip()
 #------------------------------------------------------------------------------#
@@ -38,3 +41,9 @@ func update_tooltip():
 						learned to make your wheat
 						stretch, yielding more flour!
 						{Fully Upgraded}"
+#------------------------------------------------------------------------------#
+#Custom Signaled Functions
+#Check Button
+func check_button():
+	if G.FLOUR >= upgrade: disabled = false
+	else: disabled = true

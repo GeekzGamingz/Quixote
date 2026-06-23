@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/_Main.gd" id="1_alxrc"]
 [ext_resource type="Script" uid="uid://dwb1baam3pgdh" path="res://source/01 - World/Level.gd" id="2_sxaaq"]
 [ext_resource type="Script" uid="uid://3x1qr27gfybm" path="res://source/01 - World/LevelFSM.gd" id="3_hdco3"]
-[ext_resource type="FontFile" uid="uid://cvyktajn7l7q5" path="res://assets/00 - Interface/02 - Fonts/Piacevoli.ttf" id="4_hbw1b"]
 [ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="5_5irkm"]
 [ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="6_46hjb"]
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.tscn" id="7_qxxn8"]
 [ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/Shop.tscn" id="8_jhciw"]
+[ext_resource type="PackedScene" uid="uid://ddke43t35st5h" path="res://source/04 - Interface/02 - Notifications/Notifier.tscn" id="9_88mwx"]
 [ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="9_lkj5x"]
 [ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="10_45upr"]
 [ext_resource type="PackedScene" uid="uid://bk36k0b6gnqlm" path="res://source/02 - Objects/02 - Fence/Fence.tscn" id="11_wx7qp"]
@@ -22,7 +22,7 @@ radius = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1j8a"]
 radius = 4.0
-height = 80.0
+height = 58.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_alxrc")
@@ -37,23 +37,13 @@ grain_nodes = [NodePath("../Areas/Grain"), NodePath("../Areas/Grain2"), NodePath
 [node name="LevelFSM" type="Node2D" parent="Level" unique_id=369404075]
 script = ExtResource("3_hdco3")
 
-[node name="Outputs" type="HBoxContainer" parent="Level" unique_id=2102172733]
-offset_right = 49.0
-offset_bottom = 9.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Level/Outputs" unique_id=2057421734]
-layout_mode = 2
-
-[node name="Label_Day" type="Label" parent="Level/Outputs" unique_id=1716478447]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_hbw1b")
-theme_override_font_sizes/font_size = 9
-text = "Day:"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Outputs" type="Node2D" parent="Level" unique_id=1572894972]
 
 [node name="Output_State" type="Label" parent="Level/Outputs" unique_id=1524947661]
-layout_mode = 2
+offset_left = 31.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = 17.0
 theme_override_fonts/font = ExtResource("5_5irkm")
 theme_override_font_sizes/font_size = 9
 text = "Level State"
@@ -70,6 +60,8 @@ texture = ExtResource("6_46hjb")
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
 layer = 100
+
+[node name="Notifier" parent="Interface" unique_id=2003346744 instance=ExtResource("9_88mwx")]
 
 [node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill", "fence", "grain_nodes") instance=ExtResource("7_qxxn8")]
 quixote = NodePath("../../Entities/Quixote")
@@ -120,7 +112,8 @@ shape = SubResource("CapsuleShape2D_a1j8a")
 position = Vector2(120, 44)
 
 [node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
-position = Vector2(69, 81)
+position = Vector2(69, 77)
+state = "Built"
 
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 

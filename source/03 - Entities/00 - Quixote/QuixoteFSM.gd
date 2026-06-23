@@ -52,12 +52,15 @@ func transitions(delta):
 			if quixote.horse_speed < 0: return states.idle
 			if quixote.collapsed: return states.collapsed
 			if quixote.victorious: return states.victorious
+			if quixote.path_clear: return states.idle
 	return null
 #Enter State
 @warning_ignore("unused_parameter")
 func state_enter(new_state, old_state):
 	match(new_state):
-		states.idle: quixote.sprite_player.play("idle")
+		states.idle:
+			quixote.path_clear = false
+			quixote.sprite_player.play("idle")
 		states.ride_forth: quixote.sprite_player.play("ride_forth")
 		states.to_arms: quixote.sprite_player.play("to_arms")
 		states.bracing: quixote.sprite_player.play("bracing")

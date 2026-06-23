@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtknhtk3iy6fg"
-path="res://.godot/imported/windmill_base_damage_3.png-f8f2b297f4d21fa8e87f63500221e903.ctex"
+path="res://.godot/imported/windmill_base_damage_3.png-b5d7493645694e537fbe86fd928678ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/00 - Windmill/windmill_base_damage_3.png"
-dest_files=["res://.godot/imported/windmill_base_damage_3.png-f8f2b297f4d21fa8e87f63500221e903.ctex"]
+source_file="res://assets/02 - Objects/00 - Windmill/00 - Base/windmill_base_damage_3.png"
+dest_files=["res://.godot/imported/windmill_base_damage_3.png-b5d7493645694e537fbe86fd928678ff.ctex"]
 
 [params]
 

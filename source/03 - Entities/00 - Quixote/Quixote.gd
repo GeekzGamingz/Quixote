@@ -10,6 +10,7 @@ var on_screen: bool = false
 var collapsed: bool = false
 var victorious: bool = false
 var windmill_sighted: bool = false
+var path_clear: bool = false
 #Integers
 var geriatric_damage: int = 10
 #Exported Variables
@@ -35,6 +36,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	MAIN.WINDMILL.connect("spin", impede)
 	MAIN.PROGRESS.connect("collapse", collapse)
+	MAIN.PROGRESS.connect("fence_broken", fence_broken)
 	MAIN.SANCHO.get_node("SanchoFSM").connect("target_acquired", target_acquired)
 #------------------------------------------------------------------------------#
 #Signaled Functions
@@ -49,7 +51,7 @@ func _on_screen_notifier_entered() -> void: on_screen = true
 #Custom Functions
 func ride_forth(delta): global_position.x += horse_speed * delta
 func attack_lance():
-	match(lance.get_collider().name):
+	if lance.is_colliding(): match(lance.get_collider().name):
 		"Windmill": emit_signal("windmill_damage", "Lance", lance_damage)
 		"Fence": emit_signal("fence_damage", "Lance", lance_damage * 2)
 func collapse(origin):
@@ -57,7 +59,7 @@ func collapse(origin):
 		match(origin.name):
 			"Quixote": collapsed = true
 			"Windmill": victorious = true
-		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
+		MAIN.NOTIFIER.add_message(str("The ", origin.name, " has Collapsed!"), 10)
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Impede
@@ -77,5 +79,7 @@ func impede(spinning, wind_speed):
 		print("Horse Speed: ", horse_speed)
 #Target Acquired
 func target_acquired():
-	print("WINDMILL SIGHTED!")
+	MAIN.NOTIFIER.add_message("Quixote has acquired his next victim...", 10)
 	windmill_sighted = true
+#Fence Broken
+func fence_broken(): path_clear = true

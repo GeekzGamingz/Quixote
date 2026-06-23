@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ddke43t35st5h"]
+
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="1_hufyg"]
+[ext_resource type="Script" uid="uid://7y1uom5tl4nt" path="res://source/04 - Interface/02 - Notifications/Notifier.gd" id="2_cpsmu"]
+
+[node name="Notifier" type="Control" unique_id=2003346744]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_hufyg")
+script = ExtResource("2_cpsmu")
+metadata/_edit_horizontal_guides_ = [-25.0]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1317563638]
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 18.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1156035061]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1747470290]
+layout_mode = 2
+offset_transform_position = Vector2(1, 0)
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1037901483]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=490801860]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1753281000]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=344067113]
+custom_maximum_size = Vector2(100, -1)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Day: [Day]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=134053241]
+layout_mode = 2

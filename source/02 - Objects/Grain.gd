@@ -9,6 +9,7 @@ const STATE_5 = preload("uid://bjd68qvw5vkia")
 #------------------------------------------------------------------------------#
 #Signals
 signal harvested
+signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
 var crop_yield: int = 10
@@ -31,10 +32,12 @@ var crop_yield: int = 10
 @onready var reap_button: TextureButton = $Buttons/ReapButton
 #------------------------------------------------------------------------------#
 #Functions
+func _process(_delta: float) -> void: check_button()
 #Ready
 func _ready() -> void:
 	check_grain()
 	await get_tree().process_frame
+	MAIN.PROGRESS.connect("flour_changed", check_grain)
 	MAIN.SHOP.growth_button.connect("growth_upgrade", growth_upgrade)
 	MAIN.SHOP.yield_button.connect("yield_upgrade", yield_upgrade)
 #------------------------------------------------------------------------------#
@@ -44,21 +47,24 @@ func _on_reap_button_up() -> void: harvest()
 func _on_plant_button_up() -> void:
 	if G.FLOUR > 0:
 		state = "Seedling"
-		check_grain()
 		G.FLOUR -= 1
+		check_grain()
+		emit_signal("flour_changed")
 #Growth Timer
 func _on_growth_timeout() -> void:
 	match(state):
 		"Seedling": state = "Tillering"
 		"Tillering": state = "Stemling"
 		"Stemling": state = "Heading"
-		"Heading":
-			state = "Ripening"
-			print("[", name, "] Ready for Harvesting!")
+		"Heading": state = "Ripening"
 		"Ripening": pass
 	growth_timer.start()
 	check_grain()
 #------------------------------------------------------------------------------#
+#Check Button
+func check_button():
+	if G.FLOUR > 0: plant_button.disabled = false
+	else: plant_button.disabled = true
 #Custom Functions
 func check_grain():
 	reap_button.set_deferred("visible", false)
@@ -78,6 +84,7 @@ func check_grain():
 func harvest():
 	if state == "Ripening":
 		state = "Seedling"
+		emit_signal("flour_changed")
 		emit_signal("harvested", crop_yield)
 		check_grain()
 #------------------------------------------------------------------------------#

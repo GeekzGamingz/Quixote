@@ -2,12 +2,14 @@ extends TextureButton
 #------------------------------------------------------------------------------#
 #Signals
 signal rotation_upgrade
+signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
 #Integers
 var upgrade: int = 1
 #------------------------------------------------------------------------------#
 #Functions
+func _process(_delta: float) -> void: check_button()
 #Ready
 func _ready() -> void: update_tooltip()
 #------------------------------------------------------------------------------#
@@ -17,13 +19,14 @@ func _on_button_up() -> void:
 	if G.FLOUR >= upgrade * 3:
 		G.FLOUR -= upgrade * 3
 		upgrade += 1
+		emit_signal("flour_changed")
 		emit_signal("rotation_upgrade")
 	update_tooltip()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Update Tooltip
 func update_tooltip():
-	if upgrade != 3:
+	if upgrade < 3:
 		tooltip_text = "[Upgrade Rotation]
 						The human will increase our
 						rotation speed when hovering,
@@ -38,3 +41,9 @@ func update_tooltip():
 						processing flour quicker
 						and other fun results!
 						{Fully Upgraded}"
+#------------------------------------------------------------------------------#
+#Custom Signaled Functions
+#Check Button
+func check_button():
+	if G.FLOUR >= upgrade * 3: disabled = false
+	else: disabled = true

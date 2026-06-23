@@ -37,13 +37,11 @@ func _on_mill_area_exited(_area: Area2D) -> void: emit_signal("rotated", 15)
 #Custom Functions
 func focus_spin(focused):
 	if focused:
-		print("#---Focused Spinning---#")
 		pin.motor_target_velocity = wind_speed
 		emit_signal("spin", focused, wind_speed)
 	else:
 		pin.motor_target_velocity = 1
 		emit_signal("spin", focused, 2)
-		print("#---Idle Spinning---#")
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Collapse
@@ -54,6 +52,5 @@ func collapse(origin):
 			"Windmill":
 				collapsed = true
 				pin.node_b = ""
-		print("#---[", self.name, "] Witnessed [", origin.name, "]'s Collapse!---#")
 #Upgrade Rotation
 func rotation_upgrade(): if wind_speed < 20: wind_speed += 5

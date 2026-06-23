@@ -2,6 +2,7 @@ extends TextureButton
 #------------------------------------------------------------------------------#
 #Signals
 signal erect_fence
+signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
 #Bools
@@ -10,6 +11,7 @@ var built: bool = false
 var cost: int = 3
 #------------------------------------------------------------------------------#
 #Functions
+func _process(_delta: float) -> void: check_button()
 #Ready
 func _ready() -> void: update_tooltip()
 #------------------------------------------------------------------------------#
@@ -19,6 +21,7 @@ func _on_button_up() -> void:
 	if G.FLOUR >= cost:
 		G.FLOUR -= cost
 		built = true
+		emit_signal("flour_changed")
 		emit_signal("erect_fence")
 	update_tooltip()
 #------------------------------------------------------------------------------#
@@ -38,3 +41,9 @@ func update_tooltip():
 						It helped; Even, but for a
 						moment.
 						{Costs %s Flour}" % str(cost)
+#------------------------------------------------------------------------------#
+#Custom Signaled Functions
+#Check Button
+func check_button():
+	if G.FLOUR >= cost: disabled = false
+	else: disabled = true
