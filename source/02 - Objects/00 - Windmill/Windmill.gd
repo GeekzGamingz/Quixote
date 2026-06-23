@@ -13,14 +13,18 @@ signal rotated
 #Variable
 #Bools
 var collapsed: bool = false
+#Exported Variables
 #Integers
 @export_range(2, 20, 1, "prefer_slider") var wind_speed: int
+#Arrays
+@export var arms_array: Array[Area2D] = []
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
 @onready var pin: PinJoint2D = $PinJoint2D
 @onready var sprite_base: Sprite2D = $SpriteBase
+@onready var arm_player: AnimationPlayer = $AnimationPlayers/ArmPlayer
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:

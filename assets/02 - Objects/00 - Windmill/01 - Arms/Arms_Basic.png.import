@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qb3ntumuildp"
-path="res://.godot/imported/basicarms.png-9ce690be6ebdef525e8d93b340d1f7a9.ctex"
+path="res://.godot/imported/Arms_Basic.png-1a61b03be7a05c292789f2b60c8295ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/02 - Objects/00 - Windmill/01 - Arms/basicarms.png"
-dest_files=["res://.godot/imported/basicarms.png-9ce690be6ebdef525e8d93b340d1f7a9.ctex"]
+source_file="res://assets/02 - Objects/00 - Windmill/01 - Arms/Arms_Basic.png"
+dest_files=["res://.godot/imported/Arms_Basic.png-1a61b03be7a05c292789f2b60c8295ff.ctex"]
 
 [params]
 

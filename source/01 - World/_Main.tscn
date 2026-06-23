@@ -113,7 +113,6 @@ position = Vector2(120, 44)
 
 [node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
 position = Vector2(69, 77)
-state = "Built"
 
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 

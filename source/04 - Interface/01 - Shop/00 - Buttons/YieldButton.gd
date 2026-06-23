@@ -5,6 +5,8 @@ signal yield_upgrade
 signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
+#Bools
+var fully_upgraded: bool = false
 #Integers
 var upgrade: int = 1
 #------------------------------------------------------------------------------#
@@ -41,9 +43,12 @@ func update_tooltip():
 						learned to make your wheat
 						stretch, yielding more flour!
 						{Fully Upgraded}"
+		fully_upgraded = true
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Check Button
 func check_button():
-	if G.FLOUR >= upgrade: disabled = false
+	if !fully_upgraded:
+		if G.FLOUR >= upgrade: disabled = false
+		else: disabled = true
 	else: disabled = true

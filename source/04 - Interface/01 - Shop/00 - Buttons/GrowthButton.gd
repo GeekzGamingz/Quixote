@@ -5,6 +5,8 @@ signal growth_upgrade
 signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
+#Bool
+var fully_upgraded = false
 #Integers
 var upgrade: int = 1
 #------------------------------------------------------------------------------#
@@ -40,9 +42,12 @@ func update_tooltip():
 						just because of that
 						other crop you enjoy.
 						{Fully Upgraded}"
+		fully_upgraded = true
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Check Button
 func check_button():
-	if G.FLOUR >= upgrade + 1: disabled = false
+	if !fully_upgraded:
+		if G.FLOUR >= upgrade + 1: disabled = false
+		else: disabled = true
 	else: disabled = true

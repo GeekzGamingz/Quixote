@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://brxn33gc2y45x" path="res://source/02 - Objects/00 - Windmill/Windmill.gd" id="1_0h1dv"]
 [ext_resource type="Script" uid="uid://bqufyl3fg8mam" path="res://source/02 - Objects/00 - Windmill/WindmillFSM.gd" id="1_h2yvc"]
-[ext_resource type="Texture2D" uid="uid://qb3ntumuildp" path="res://assets/02 - Objects/00 - Windmill/01 - Arms/basicarms.png" id="1_ooutd"]
+[ext_resource type="Script" uid="uid://bjhpkpak5nh2s" path="res://source/02 - Objects/00 - Windmill/Upgrades.gd" id="3_4mkj5"]
 [ext_resource type="Texture2D" uid="uid://b5qatte40smgt" path="res://assets/02 - Objects/00 - Windmill/00 - Base/windmill_base.png" id="3_atwbm"]
+[ext_resource type="Texture2D" uid="uid://vtlp80fvae5y" path="res://assets/02 - Objects/00 - Windmill/01 - Arms/Arms_Electrified_Sheet.png" id="5_4mkj5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3xuhk"]
 bounce = 1.0
@@ -14,16 +15,153 @@ radius = 30.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_txbq4"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1apot"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_4mkj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hyfl8"]
+resource_name = "bladed"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_as1n2"]
+resource_name = "default"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ihjqu"]
+resource_name = "electrified_charge"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_2bbfx"]
+resource_name = "electrified_inert"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_qdvif"]
+resource_name = "electrified_loop"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_gkcd5"]
+resource_name = "lengthened"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Axis/SpriteBlades:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v63bs"]
+_data = {
+&"RESET": SubResource("Animation_4mkj5"),
+&"bladed": SubResource("Animation_hyfl8"),
+&"default": SubResource("Animation_as1n2"),
+&"electrified_charge": SubResource("Animation_ihjqu"),
+&"electrified_inert": SubResource("Animation_2bbfx"),
+&"electrified_loop": SubResource("Animation_qdvif"),
+&"lengthened": SubResource("Animation_gkcd5")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
 
-[node name="Windmill" type="StaticBody2D" unique_id=1608751506]
+[node name="Windmill" type="StaticBody2D" unique_id=1608751506 node_paths=PackedStringArray("arms_array")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_0h1dv")
 wind_speed = 5
+arms_array = [NodePath("Axis/Areas/Arm1"), NodePath("Axis/Areas/Arm2"), NodePath("Axis/Areas/Arm3"), NodePath("Axis/Areas/Arm4")]
 
 [node name="WindmillFSM" type="Node2D" parent="." unique_id=968206681]
 script = ExtResource("1_h2yvc")
+
+[node name="Upgrades" type="Node2D" parent="." unique_id=909215226]
+script = ExtResource("3_4mkj5")
+arms = "Electrified"
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1257591889]
 node_a = NodePath("..")
@@ -43,9 +181,11 @@ input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_3xuhk")
 
 [node name="SpriteBlades" type="Sprite2D" parent="Axis" unique_id=1662794801]
-position = Vector2(-24, -24)
-texture = ExtResource("1_ooutd")
+position = Vector2(-43, -43)
+texture = ExtResource("5_4mkj5")
 centered = false
+hframes = 12
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis" unique_id=1409782010]
 shape = SubResource("CircleShape2D_a1j8a")
@@ -63,6 +203,45 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/MillingRay/MillArea" unique_id=898078651]
 shape = SubResource("CircleShape2D_txbq4")
+
+[node name="Areas" type="Node2D" parent="Axis" unique_id=1765220860]
+
+[node name="Arm1" type="Area2D" parent="Axis/Areas" unique_id=1402853720]
+position = Vector2(30, -30)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm1" unique_id=1734998162]
+shape = SubResource("CircleShape2D_1apot")
+
+[node name="Arm2" type="Area2D" parent="Axis/Areas" unique_id=2040833919]
+position = Vector2(30, 30)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm2" unique_id=174766132]
+shape = SubResource("CircleShape2D_1apot")
+
+[node name="Arm3" type="Area2D" parent="Axis/Areas" unique_id=848469970]
+position = Vector2(-30, 30)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm3" unique_id=1124108634]
+shape = SubResource("CircleShape2D_1apot")
+
+[node name="Arm4" type="Area2D" parent="Axis/Areas" unique_id=858191004]
+position = Vector2(-30, -30)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm4" unique_id=994888637]
+shape = SubResource("CircleShape2D_1apot")
+
+[node name="AnimationPlayers" type="Node2D" parent="." unique_id=243805469]
+
+[node name="ArmPlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=545330586]
+libraries/ = SubResource("AnimationLibrary_v63bs")
 
 [node name="Outputs" type="Node2D" parent="." unique_id=603764257]
 

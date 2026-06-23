@@ -5,6 +5,8 @@ signal rotation_upgrade
 signal flour_changed
 #------------------------------------------------------------------------------#
 #Variables
+#Bools
+var fully_upgraded: bool = false
 #Integers
 var upgrade: int = 1
 #------------------------------------------------------------------------------#
@@ -41,9 +43,12 @@ func update_tooltip():
 						processing flour quicker
 						and other fun results!
 						{Fully Upgraded}"
+		fully_upgraded = true
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Check Button
 func check_button():
-	if G.FLOUR >= upgrade * 3: disabled = false
+	if !fully_upgraded:
+		if G.FLOUR >= upgrade * 3: disabled = false
+		else: disabled = true
 	else: disabled = true
