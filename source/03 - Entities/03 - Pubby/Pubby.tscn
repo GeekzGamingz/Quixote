@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://lac3kgksasyy"]
+
+[ext_resource type="Texture2D" uid="uid://drrcqt8w4crqs" path="res://assets/03 - Entities/03 - Pubby/Pubby_Sheet.png" id="1_ja0rr"]
+
+[sub_resource type="Animation" id="Animation_j74yu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sgkoc"]
+resource_name = "angy"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_c7lwd"]
+resource_name = "idle"
+length = 3.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4000001, 1.5999223, 1.7999223, 1.9999223, 2.1999223, 2.4, 2.6000001, 2.8000002, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 8, 9, 10, 11, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_v8rf2"]
+resource_name = "idle_tongue"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_giiq4"]
+_data = {
+&"RESET": SubResource("Animation_j74yu"),
+&"angy": SubResource("Animation_sgkoc"),
+&"idle": SubResource("Animation_c7lwd"),
+&"idle_tongue": SubResource("Animation_v8rf2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcboc"]
+
+[node name="Pubby" type="CharacterBody2D" unique_id=488267989]
+
+[node name="PubbyFSM" type="Node2D" parent="." unique_id=1899061551]
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1884892770]
+
+[node name="SpriteBase" type="Sprite2D" parent="Sprites" unique_id=753184777]
+z_index = 1
+position = Vector2(1, -6)
+texture = ExtResource("1_ja0rr")
+hframes = 4
+vframes = 3
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=1267840910]
+
+[node name="BorkRay" type="RayCast2D" parent="RayCasts" unique_id=289890487]
+target_position = Vector2(-75, 0)
+collision_mask = 4
+
+[node name="AnimationPlayers" type="Node2D" parent="." unique_id=609688521]
+
+[node name="SpritePlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=1161614682]
+libraries/ = SubResource("AnimationLibrary_giiq4")
+autoplay = &"idle"
+
+[node name="Timers" type="Node2D" parent="." unique_id=330278697]
+
+[node name="IdleTimer" type="Timer" parent="Timers" unique_id=1780059087]
+wait_time = 4.0
+one_shot = true
+
+[node name="Outputs" type="Node2D" parent="." unique_id=487313161]
+
+[node name="StateOutput" type="Label" parent="Outputs" unique_id=1450290957]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4
+text = "State"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 162
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652355932]
+shape = SubResource("CircleShape2D_lcboc")

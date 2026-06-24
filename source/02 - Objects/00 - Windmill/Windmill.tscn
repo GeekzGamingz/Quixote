@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bjhpkpak5nh2s" path="res://source/02 - Objects/00 - Windmill/Upgrades.gd" id="3_4mkj5"]
 [ext_resource type="Texture2D" uid="uid://b5qatte40smgt" path="res://assets/02 - Objects/00 - Windmill/00 - Base/windmill_base.png" id="3_atwbm"]
 [ext_resource type="Texture2D" uid="uid://vtlp80fvae5y" path="res://assets/02 - Objects/00 - Windmill/01 - Arms/Arms_Electrified_Sheet.png" id="5_4mkj5"]
+[ext_resource type="Texture2D" uid="uid://dgg1jg2b0msbb" path="res://assets/02 - Objects/03 - Lightning/Spire_Sheet.png" id="5_hyfl8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3xuhk"]
 bounce = 1.0
@@ -147,6 +148,45 @@ _data = {
 &"lengthened": SubResource("Animation_gkcd5")
 }
 
+[sub_resource type="Animation" id="Animation_v63bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteSpire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_en3kc"]
+resource_name = "active"
+length = 0.39999999999999997
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteSpire:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i176g"]
+_data = {
+&"RESET": SubResource("Animation_v63bs"),
+&"active": SubResource("Animation_en3kc")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
 
 [node name="Windmill" type="StaticBody2D" unique_id=1608751506 node_paths=PackedStringArray("arms_array")]
@@ -173,6 +213,15 @@ motor_target_velocity = 0.43633232
 position = Vector2(-18, -9)
 texture = ExtResource("3_atwbm")
 centered = false
+
+[node name="SpriteSpire" type="Sprite2D" parent="." unique_id=329381355]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("5_hyfl8")
+hframes = 4
+
+[node name="Marker2D" type="Marker2D" parent="SpriteSpire" unique_id=110039599]
+position = Vector2(0, -4)
 
 [node name="Axis" type="RigidBody2D" parent="." unique_id=706639578]
 collision_layer = 2
@@ -243,6 +292,10 @@ shape = SubResource("CircleShape2D_1apot")
 [node name="ArmPlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=545330586]
 libraries/ = SubResource("AnimationLibrary_v63bs")
 
+[node name="SpirePlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=355879243]
+libraries/ = SubResource("AnimationLibrary_i176g")
+autoplay = &"active"
+
 [node name="Outputs" type="Node2D" parent="." unique_id=603764257]
 
 [node name="Output_State" type="Label" parent="Outputs" unique_id=1268243271]
@@ -267,6 +320,7 @@ justification_flags = 162
 uppercase = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2084936935]
+visible = false
 polygon = PackedVector2Array(-4, 2, 4, 2, 16, 12, 16, 15, 8, 17, 11, 20, 16, 48, -16, 48, -11, 20, -8, 17, -15.999998, 15.137108, -16, 12)
 
 [node name="RotationDetection" type="Area2D" parent="." unique_id=745292265]

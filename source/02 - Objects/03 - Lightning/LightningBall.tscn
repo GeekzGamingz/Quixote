@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://diygev468lgg3"]
+
+[ext_resource type="Script" uid="uid://bt7pun8lvdw6" path="res://source/02 - Objects/03 - Lightning/LightningBall.gd" id="1_ftf70"]
+[ext_resource type="Texture2D" uid="uid://canc5emlcfdkt" path="res://assets/02 - Objects/03 - Lightning/Lightning_Ball_Sheet.png" id="2_t6kc3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ftf70"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_kvb05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Lightning:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_312gl"]
+resource_name = "impact"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Lightning:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_amfbj"]
+resource_name = "shoot"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Lightning:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olyeo"]
+_data = {
+&"RESET": SubResource("Animation_kvb05"),
+&"impact": SubResource("Animation_312gl"),
+&"shoot": SubResource("Animation_amfbj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
+radius = 8.0
+
+[node name="LightningBall" type="RigidBody2D" unique_id=858454794]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ftf70")
+script = ExtResource("1_ftf70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163612565]
+shape = SubResource("CircleShape2D_a1j8a")
+
+[node name="Sprite_Lightning" type="Sprite2D" parent="." unique_id=1659611956]
+texture = ExtResource("2_t6kc3")
+hframes = 3
+vframes = 2
+
+[node name="LightningPlayer" type="AnimationPlayer" parent="." unique_id=961129866]
+libraries/ = SubResource("AnimationLibrary_olyeo")
+autoplay = &"shoot"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=110168975]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=927323501]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=584811015]
+shape = SubResource("CircleShape2D_43fak")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="12_y6q66"]
 [ext_resource type="PackedScene" uid="uid://dny50y7ngafpp" path="res://source/03 - Entities/01 - Sancho/Sancho.tscn" id="13_ow5x3"]
 [ext_resource type="PackedScene" uid="uid://ch6jtpmkwfkdj" path="res://source/03 - Entities/02 - Farmer/Farmer.tscn" id="14_tinpb"]
+[ext_resource type="PackedScene" uid="uid://lac3kgksasyy" path="res://source/03 - Entities/03 - Pubby/Pubby.tscn" id="15_88mwx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
 radius = 3.0
@@ -22,7 +23,7 @@ radius = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1j8a"]
 radius = 4.0
-height = 58.0
+height = 125.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_alxrc")
@@ -101,18 +102,21 @@ position = Vector2(228, 84)
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
 
 [node name="WorldBorder" type="StaticBody2D" parent="Objects" unique_id=138302502]
-position = Vector2(120, 100)
+position = Vector2(61, 100)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/WorldBorder" unique_id=1186160181]
+position = Vector2(1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a1j8a")
 
-[node name="Windmill" parent="Objects" unique_id=874538700 instance=ExtResource("10_45upr")]
+[node name="Windmill" parent="Objects" unique_id=874538700 node_paths=PackedStringArray("quixote") instance=ExtResource("10_45upr")]
 position = Vector2(120, 44)
+quixote = NodePath("../../Entities/Quixote")
 
 [node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
 position = Vector2(69, 77)
+state = "Built"
 
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 
@@ -124,3 +128,8 @@ position = Vector2(-10, 85)
 
 [node name="Farmer" parent="Entities" unique_id=1738560258 instance=ExtResource("14_tinpb")]
 position = Vector2(152, 85)
+
+[node name="Pubby" parent="Entities" unique_id=488267989 instance=ExtResource("15_88mwx")]
+position = Vector2(70, 89)
+
+[node name="Orphanage" type="Node2D" parent="." unique_id=829003638]

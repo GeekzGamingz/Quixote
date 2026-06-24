@@ -6,3 +6,4 @@ extends Node2D
 @onready var NOTIFIER: Control = $Interface/Notifier
 @onready var PROGRESS: Control = $Interface/ProgressBars
 @onready var SHOP: Control = $Interface/Shop
+@onready var ORPHANAGE: Node2D = $Orphanage

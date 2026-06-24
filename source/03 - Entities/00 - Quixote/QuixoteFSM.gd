@@ -53,6 +53,7 @@ func transitions(delta):
 			if quixote.collapsed: return states.collapsed
 			if quixote.victorious: return states.victorious
 			if quixote.path_clear: return states.idle
+			if !quixote.lance.is_colliding(): return states.idle
 	return null
 #Enter State
 @warning_ignore("unused_parameter")

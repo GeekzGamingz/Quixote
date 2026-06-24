@@ -56,6 +56,7 @@ func check_stamina():
 func quixote_damage(damage_type, value):
 	match(damage_type):
 		"Geriatric": q_stamina.progress_damage(value)
+		"Electric": q_stamina.progress_damage(value)
 	var notifier = MAIN.NOTIFIER
 	if value > 10: notifier.add_message(str("Quixote Took Great ", damage_type, " Damage!!"), 3)
 	elif value > 30: notifier.add_message(str("Quixote Took Massive ", damage_type, " Damage!!"), 3)

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dwixxa7fiw3nt" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Unpressed.png" id="11_2k7ie"]
 [ext_resource type="Texture2D" uid="uid://bh7kcipt26k1y" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/01 - Blades/Button_BladeUpgrade1_Unpressed_Inactive.png" id="11_gucpk"]
 [ext_resource type="Texture2D" uid="uid://bdge10da45rts" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Pressed.png" id="12_88s1b"]
+[ext_resource type="Script" uid="uid://s5g706vm1jb8" path="res://source/04 - Interface/01 - Shop/Upgrade_Button.gd" id="12_gucpk"]
 [ext_resource type="Script" uid="uid://bcvijcv7aluwd" path="res://source/04 - Interface/01 - Shop/00 - Buttons/RotationButton.gd" id="12_u345u"]
 [ext_resource type="Texture2D" uid="uid://djxr0lm4bydoc" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed.png" id="13_ahl2h"]
 [ext_resource type="Texture2D" uid="uid://b4xeob72rmpy2" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Pressed.png" id="14_1hwss"]
@@ -162,6 +163,7 @@ layout_mode = 2
 texture_normal = ExtResource("7_uobg6")
 texture_pressed = ExtResource("8_u345u")
 texture_disabled = ExtResource("11_gucpk")
+script = ExtResource("12_gucpk")
 
 [node name="RotationButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=107834953]
 layout_mode = 2
@@ -226,6 +228,7 @@ autoplay = &"RESET"
 
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ShopRect" to="." method="_on_shop_mouse_entered"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RepairButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" method="_on_button_up"]

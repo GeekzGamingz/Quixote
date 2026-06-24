@@ -193,7 +193,7 @@ _data = {
 
 [node name="Quixote" type="CharacterBody2D" unique_id=38179943]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_wbstt")
 geriatric_damage_max = 20
 
