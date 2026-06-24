@@ -15,6 +15,7 @@ func _ready() -> void:
 	state_add("intro")
 	state_add("idle")
 	state_add("strumming")
+	state_add("rocking")
 	call_deferred("state_set", states.intro)
 #------------------------------------------------------------------------------#
 #State Label
@@ -32,6 +33,7 @@ func transitions(delta):
 		#Idle
 		states.intro: if sancho.position_ray.is_colliding(): return states.idle
 		states.idle: if sancho.idle_timer.is_stopped(): return states.strumming
+		states.strumming: if sancho.participating: return states.rocking
 	return null
 #Enter State
 @warning_ignore("unused_parameter")
@@ -44,8 +46,10 @@ func state_enter(new_state, old_state):
 		states.strumming:
 			sancho.sprite_player.play("strum")
 			emit_signal("target_acquired")
+		states.rocking: sancho.rock_on(true)
 #Exit State
 @warning_ignore("unused_parameter")
 func state_exit(old_state, new_state):
 	match(old_state):
 		states.intro: pass
+		states.rocking: sancho.rock_on(false)

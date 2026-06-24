@@ -87,7 +87,6 @@ _data = {
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_i0hiy")
-donkey_speed = 3
 
 [node name="SanchoFSM" type="Node2D" parent="." unique_id=2145642539]
 script = ExtResource("2_wgy1w")
@@ -121,6 +120,9 @@ libraries/ = SubResource("AnimationLibrary_es6pb")
 wait_time = 4.0
 one_shot = true
 
+[node name="MusicTimer" type="Timer" parent="Timers" unique_id=188179749]
+wait_time = 4.0
+
 [node name="Outputs" type="Node2D" parent="." unique_id=1500426306]
 
 [node name="StateOutput" type="Label" parent="Outputs" unique_id=1282101752]
@@ -147,3 +149,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11001386]
 shape = SubResource("CircleShape2D_jnv4i")
+
+[node name="RockZone" type="Marker2D" parent="." unique_id=2062970264]
+position = Vector2(33, -3)
+
+[connection signal="timeout" from="Timers/MusicTimer" to="." method="_on_music_timer_timeout"]

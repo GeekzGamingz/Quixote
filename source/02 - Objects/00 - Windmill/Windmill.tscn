@@ -191,7 +191,7 @@ _data = {
 
 [node name="Windmill" type="StaticBody2D" unique_id=1608751506 node_paths=PackedStringArray("arms_array")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_0h1dv")
 wind_speed = 5
 arms_array = [NodePath("Axis/Areas/Arm1"), NodePath("Axis/Areas/Arm2"), NodePath("Axis/Areas/Arm3"), NodePath("Axis/Areas/Arm4")]
@@ -201,7 +201,6 @@ script = ExtResource("1_h2yvc")
 
 [node name="Upgrades" type="Node2D" parent="." unique_id=909215226]
 script = ExtResource("3_4mkj5")
-arms = "Electrified"
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1257591889]
 node_a = NodePath("..")
@@ -257,7 +256,7 @@ shape = SubResource("CircleShape2D_txbq4")
 
 [node name="Arm1" type="Area2D" parent="Axis/Areas" unique_id=1402853720]
 position = Vector2(30, -30)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm1" unique_id=1734998162]
@@ -265,7 +264,7 @@ shape = SubResource("CircleShape2D_1apot")
 
 [node name="Arm2" type="Area2D" parent="Axis/Areas" unique_id=2040833919]
 position = Vector2(30, 30)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm2" unique_id=174766132]
@@ -273,7 +272,7 @@ shape = SubResource("CircleShape2D_1apot")
 
 [node name="Arm3" type="Area2D" parent="Axis/Areas" unique_id=848469970]
 position = Vector2(-30, 30)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm3" unique_id=1124108634]
@@ -281,7 +280,7 @@ shape = SubResource("CircleShape2D_1apot")
 
 [node name="Arm4" type="Area2D" parent="Axis/Areas" unique_id=858191004]
 position = Vector2(-30, -30)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Axis/Areas/Arm4" unique_id=994888637]
@@ -320,7 +319,6 @@ justification_flags = 162
 uppercase = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2084936935]
-visible = false
 polygon = PackedVector2Array(-4, 2, 4, 2, 16, 12, 16, 15, 8, 17, 11, 20, 16, 48, -16, 48, -11, 20, -8, 17, -15.999998, 15.137108, -16, 12)
 
 [node name="RotationDetection" type="Area2D" parent="." unique_id=745292265]

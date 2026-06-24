@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://bt7pun8lvdw6" path="res://source/02 - Objects/03 - Lightning/LightningBall.gd" id="1_ftf70"]
 [ext_resource type="Texture2D" uid="uid://canc5emlcfdkt" path="res://assets/02 - Objects/03 - Lightning/Lightning_Ball_Sheet.png" id="2_t6kc3"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ftf70"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
 radius = 6.0
 
@@ -69,9 +67,9 @@ _data = {
 radius = 8.0
 
 [node name="LightningBall" type="RigidBody2D" unique_id=858454794]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 4
-physics_material_override = SubResource("PhysicsMaterial_ftf70")
+gravity_scale = 0.0
 script = ExtResource("1_ftf70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=163612565]
@@ -82,14 +80,14 @@ texture = ExtResource("2_t6kc3")
 hframes = 3
 vframes = 2
 
-[node name="LightningPlayer" type="AnimationPlayer" parent="." unique_id=961129866]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=961129866]
 libraries/ = SubResource("AnimationLibrary_olyeo")
 autoplay = &"shoot"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=110168975]
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=927323501]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=584811015]

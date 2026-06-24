@@ -31,6 +31,7 @@ func _ready() -> void:
 	quixote.connect("windmill_damage", windmill_damage)
 	quixote.connect("fence_damage", fence_damage)
 	windmill.connect("rotated", flour_gain)
+	windmill.connect("windmill_damage", windmill_damage)
 	fence.connect("fence_repair", fence_repair)
 	for grain in grain_nodes: grain.connect("harvested", reapings)
 	await get_tree().process_frame
@@ -67,9 +68,10 @@ func quixote_damage(damage_type, value): if !quixote.collapsed:
 	check_stamina()
 #Windmill
 #Windmill Damage
-func windmill_damage(damage_type, value):
+func windmill_damage(damage_type, value): if !windmill.collapsed:
 	match(damage_type):
 		"Lance": w_stamina.progress_damage(value)
+		"Minstrel": w_stamina.progress_damage(value)
 	check_windmill()
 #Windmill Heal
 func windmill_heal(value):

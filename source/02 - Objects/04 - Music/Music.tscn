@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dgr6esfwxl7ux"]
+
+[ext_resource type="Script" uid="uid://djspfhqp3kgi2" path="res://source/02 - Objects/04 - Music/Music.gd" id="1_adijs"]
+[ext_resource type="Texture2D" uid="uid://5lbjftdfaxlr" path="res://assets/02 - Objects/04 - Music/Rocking.png" id="2_adijs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adijs"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_kvb05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Music:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7thst"]
+resource_name = "charge"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Music:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_312gl"]
+resource_name = "impact"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Music:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_amfbj"]
+resource_name = "shoot"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Music:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7thst"]
+_data = {
+&"RESET": SubResource("Animation_kvb05"),
+&"charge": SubResource("Animation_7thst"),
+&"impact": SubResource("Animation_312gl"),
+&"shoot": SubResource("Animation_amfbj")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5f5fb"]
+radius = 8.0
+
+[node name="Music" type="RigidBody2D" unique_id=51295897]
+collision_layer = 16
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_adijs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465447341]
+shape = SubResource("CircleShape2D_adijs")
+
+[node name="Sprite_Music" type="Sprite2D" parent="." unique_id=167367431]
+position = Vector2(-14, 0)
+texture = ExtResource("2_adijs")
+hframes = 8
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1493912534]
+libraries/ = SubResource("AnimationLibrary_7thst")
+autoplay = &"charge"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1727041075]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=394351643]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1668167614]
+shape = SubResource("CircleShape2D_5f5fb")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

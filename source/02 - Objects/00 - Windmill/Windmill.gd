@@ -10,6 +10,7 @@ const LIGHTNING_BALL = preload("uid://diygev468lgg3")
 #Signals
 signal spin
 signal rotated
+signal windmill_damage
 #------------------------------------------------------------------------------#
 #Variable
 #Bools
@@ -71,6 +72,8 @@ func launch_lightning(_target):
 	MAIN.ORPHANAGE.call_deferred("add_child", lightning_scene)
 	lightning_scene.global_position = launch_marker.global_position
 	lightning_scene.launch(quixote)
+#Windmill Damage
+func take_damage(damage_type): emit_signal("windmill_damage", damage_type, 10)
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Collapse

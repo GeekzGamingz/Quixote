@@ -23,7 +23,10 @@ radius = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1j8a"]
 radius = 4.0
-height = 146.0
+height = 120.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txbq4"]
+radius = 5.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_alxrc")
@@ -102,13 +105,20 @@ position = Vector2(228, 84)
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
 
 [node name="WorldBorder" type="StaticBody2D" parent="Objects" unique_id=138302502]
-position = Vector2(75, 100)
+position = Vector2(60, 100)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/WorldBorder" unique_id=1186160181]
-position = Vector2(1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a1j8a")
+
+[node name="WheelBouncer" type="StaticBody2D" parent="Objects" unique_id=1096629759]
+position = Vector2(87, 61)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/WheelBouncer" unique_id=1858815007]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_txbq4")
 
 [node name="Windmill" parent="Objects" unique_id=874538700 node_paths=PackedStringArray("quixote") instance=ExtResource("10_45upr")]
 position = Vector2(120, 44)

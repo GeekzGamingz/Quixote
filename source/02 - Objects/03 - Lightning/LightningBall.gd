@@ -6,7 +6,7 @@ var direction = Vector2.ZERO
 #Exported Variables
 @export_range(100, 200, 25) var speed = 100
 #OnReady Variables
-@onready var lightning_player: AnimationPlayer = $LightningPlayer
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 #------------------------------------------------------------------------------#
 #Functions
 #Process
@@ -23,8 +23,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Body: ", body)
 	match(body.name):
 		"Quixote": body.emit_signal("quixote_damage", "Electric", 10)
-	lightning_player.play("impact")
-	await lightning_player.animation_finished
+	anim_player.play("impact")
+	await anim_player.animation_finished
 	queue_free()
 #------------------------------------------------------------------------------#
 #Custom Functions

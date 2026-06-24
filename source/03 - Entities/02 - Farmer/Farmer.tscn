@@ -119,3 +119,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=324292791]
 shape = SubResource("CircleShape2D_vyvht")
+disabled = true
