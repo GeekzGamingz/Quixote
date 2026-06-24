@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://q214cj5k55nc"
+path="res://.godot/imported/Windmill_Fast.ogg-8e7c9bfb69ccb7ee2198e87497738e3f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/01 - Audio/01 - Ambience/00 - Windmill/Windmill_Fast.ogg"
+dest_files=["res://.godot/imported/Windmill_Fast.ogg-8e7c9bfb69ccb7ee2198e87497738e3f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

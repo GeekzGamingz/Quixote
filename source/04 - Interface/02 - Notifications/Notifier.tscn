@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddke43t35st5h"]
 
-[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://source/03 - Entities/01 - Sancho/Base_Theme.tres" id="1_hufyg"]
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="1_hufyg"]
 [ext_resource type="Script" uid="uid://7y1uom5tl4nt" path="res://source/04 - Interface/02 - Notifications/Notifier.gd" id="2_cpsmu"]
 
 [node name="Notifier" type="Control" unique_id=2003346744]

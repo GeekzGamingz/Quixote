@@ -329,6 +329,9 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationDetection" unique_id=1344274790]
 shape = SubResource("CircleShape2D_43fak")
 
+[node name="WindmillAudio" type="AudioStreamPlayer2D" parent="." unique_id=1038949101]
+bus = &"Ambience"
+
 [connection signal="mouse_entered" from="Axis" to="." method="_on_axis_mouse_entered"]
 [connection signal="mouse_exited" from="Axis" to="." method="_on_axis_mouse_exited"]
 [connection signal="area_exited" from="Axis/MillingRay/MillArea" to="." method="_on_mill_area_exited"]

@@ -1,11 +1,14 @@
 extends StaticBody2D
 #------------------------------------------------------------------------------#
 #Constants
+#Textures
 const BASE = preload("uid://b5qatte40smgt")
 const BASE_DAMAGE_1 = preload("uid://ci88xju3wg772")
 const BASE_DAMAGE_2 = preload("uid://bdbq5bpsy78jt")
 const BASE_DAMAGE_3 = preload("uid://dtknhtk3iy6fg")
 const LIGHTNING_BALL = preload("uid://diygev468lgg3")
+#Audio
+const WINDMILL_FAST = preload("uid://q214cj5k55nc")
 #------------------------------------------------------------------------------#
 #Signals
 signal spin
@@ -33,6 +36,7 @@ var collapsed: bool = false
 @onready var sprite_spire: Sprite2D = $SpriteSpire
 @onready var launch_marker: Marker2D = $SpriteSpire/Marker2D
 @onready var arm_player: AnimationPlayer = $AnimationPlayers/ArmPlayer
+@onready var audio: AudioStreamPlayer2D = $WindmillAudio
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:

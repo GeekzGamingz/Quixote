@@ -2,6 +2,7 @@ extends CharacterBody2D
 #------------------------------------------------------------------------------#
 #Constants
 const MUSIC = preload("uid://dgr6esfwxl7ux")
+const INTRO = preload("uid://dk5fpv4mk1km6")
 #------------------------------------------------------------------------------#
 #Variables
 @export var participating: bool = false
@@ -11,10 +12,11 @@ const MUSIC = preload("uid://dgr6esfwxl7ux")
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
 @onready var position_ray: RayCast2D = $RayCasts/PositionRay
-@onready var sprite_player: AnimationPlayer = $AnimationPlayers/AnimationPlayer
 @onready var idle_timer: Timer = $Timers/IdleTimer
 @onready var music_timer: Timer = $Timers/MusicTimer
 @onready var rock_zone: Marker2D = $RockZone
+@onready var sprite_player: AnimationPlayer = $AnimationPlayers/AnimationPlayer
+@onready var audio: AudioStreamPlayer2D = $SanchoAudio
 #------------------------------------------------------------------------------#
 #Signaled Functions
 func _on_music_timer_timeout() -> void:

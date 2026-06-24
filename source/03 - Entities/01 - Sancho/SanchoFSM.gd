@@ -4,6 +4,9 @@ extends StateMachine
 #Signals
 signal target_acquired
 #------------------------------------------------------------------------------#
+#Constants
+const INTRO = preload("uid://dk5fpv4mk1km6")
+#------------------------------------------------------------------------------#
 #Variables
 #OnReady Variables
 @onready var sancho: CharacterBody2D = $".."
@@ -39,7 +42,10 @@ func transitions(delta):
 @warning_ignore("unused_parameter")
 func state_enter(new_state, old_state):
 	match(new_state):
-		states.intro: sancho.sprite_player.play("ride_forth")
+		states.intro:
+			sancho.audio.stream = INTRO
+			sancho.audio.play()
+			sancho.sprite_player.play("ride_forth")
 		states.idle: 
 			sancho.idle_timer.start()
 			sancho.sprite_player.play("idle")

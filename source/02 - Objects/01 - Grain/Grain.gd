@@ -30,6 +30,7 @@ var crop_yield: int = 10
 @onready var growth_timer: Timer = $GrowthTimer
 @onready var plant_button: TextureButton = $Buttons/PlantButton
 @onready var reap_button: TextureButton = $Buttons/ReapButton
+@onready var audio: AudioStreamPlayer2D = $GrainAudio
 #------------------------------------------------------------------------------#
 #Functions
 func _process(_delta: float) -> void: check_button()
@@ -86,6 +87,7 @@ func harvest():
 		state = "Seedling"
 		emit_signal("flour_changed")
 		emit_signal("harvested", crop_yield)
+		audio.play()
 		check_grain()
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions

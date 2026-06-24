@@ -153,4 +153,7 @@ shape = SubResource("CircleShape2D_jnv4i")
 [node name="RockZone" type="Marker2D" parent="." unique_id=2062970264]
 position = Vector2(33, -3)
 
+[node name="SanchoAudio" type="AudioStreamPlayer2D" parent="." unique_id=537262192]
+bus = &"Music"
+
 [connection signal="timeout" from="Timers/MusicTimer" to="." method="_on_music_timer_timeout"]

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.tscn" id="7_qxxn8"]
 [ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/Shop.tscn" id="8_jhciw"]
 [ext_resource type="PackedScene" uid="uid://ddke43t35st5h" path="res://source/04 - Interface/02 - Notifications/Notifier.tscn" id="9_88mwx"]
-[ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/Grain.tscn" id="9_lkj5x"]
+[ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/01 - Grain/Grain.tscn" id="9_lkj5x"]
 [ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="10_45upr"]
 [ext_resource type="PackedScene" uid="uid://bk36k0b6gnqlm" path="res://source/02 - Objects/02 - Fence/Fence.tscn" id="11_wx7qp"]
 [ext_resource type="PackedScene" uid="uid://br8ewobmjuem" path="res://source/03 - Entities/00 - Quixote/Quixote.tscn" id="12_y6q66"]
