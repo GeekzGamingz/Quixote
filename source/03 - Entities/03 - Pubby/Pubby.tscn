@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lac3kgksasyy"]
 
 [ext_resource type="Texture2D" uid="uid://drrcqt8w4crqs" path="res://assets/03 - Entities/03 - Pubby/Pubby_Sheet.png" id="1_ja0rr"]
+[ext_resource type="Texture2D" uid="uid://c0fi0bsi5fwgh" path="res://assets/03 - Entities/03 - Pubby/Bork_Sheet.png" id="2_v8rf2"]
 
 [sub_resource type="Animation" id="Animation_j74yu"]
 length = 0.001
@@ -11,6 +12,18 @@ tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprites/SpriteBork:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -32,6 +45,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprites/SpriteBork:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprites/SpriteBork:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_c7lwd"]
@@ -93,11 +130,16 @@ texture = ExtResource("1_ja0rr")
 hframes = 4
 vframes = 3
 
+[node name="SpriteBork" type="Sprite2D" parent="Sprites" unique_id=89158582]
+position = Vector2(-13, -8)
+texture = ExtResource("2_v8rf2")
+hframes = 10
+
 [node name="RayCasts" type="Node2D" parent="." unique_id=1267840910]
 
 [node name="BorkRay" type="RayCast2D" parent="RayCasts" unique_id=289890487]
 target_position = Vector2(-75, 0)
-collision_mask = 4
+collision_mask = 16
 
 [node name="AnimationPlayers" type="Node2D" parent="." unique_id=609688521]
 

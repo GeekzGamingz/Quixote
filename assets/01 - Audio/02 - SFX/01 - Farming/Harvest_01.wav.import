@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://xemtxnlh5xd5"
-path="res://.godot/imported/Harvest_01.wav-5d4ab8eb99e7db9b15282c2fe7f34a36.sample"
+path="res://.godot/imported/Harvest_01.wav-ccb2c99435b7bf8e00984707f951af26.sample"
 
 [deps]
 
-source_file="res://assets/01 - Audio/02 - SFX/Harvest_01.wav"
-dest_files=["res://.godot/imported/Harvest_01.wav-5d4ab8eb99e7db9b15282c2fe7f34a36.sample"]
+source_file="res://assets/01 - Audio/02 - SFX/01 - Farming/Harvest_01.wav"
+dest_files=["res://.godot/imported/Harvest_01.wav-ccb2c99435b7bf8e00984707f951af26.sample"]
 
 [params]
 

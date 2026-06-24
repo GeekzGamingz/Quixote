@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="1_hufyg"]
 [ext_resource type="Script" uid="uid://7y1uom5tl4nt" path="res://source/04 - Interface/02 - Notifications/Notifier.gd" id="2_cpsmu"]
+[ext_resource type="AudioStream" uid="uid://c47rgjjgvyxeg" path="res://assets/01 - Audio/02 - SFX/00 - Menus/NotificationPopup.wav" id="3_cpsmu"]
 
 [node name="Notifier" type="Control" unique_id=2003346744]
 layout_mode = 3
@@ -47,3 +48,9 @@ vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=134053241]
 layout_mode = 2
+
+[node name="AudioPlayers" type="Node2D" parent="." unique_id=1581643380]
+
+[node name="NotificationAudio" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=1159950995]
+stream = ExtResource("3_cpsmu")
+bus = &"Effects"

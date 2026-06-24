@@ -19,6 +19,8 @@ signal check_arms
 var fully_upgraded = false
 #Integers
 var upgrade: int = 1
+#Exported Variables
+@export var audio: AudioStreamPlayer2D
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -37,6 +39,7 @@ func _on_button_up() -> void:
 		upgrade += 1
 		emit_signal("flour_changed")
 	update_tooltip()
+	audio.play()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Update Tooltip

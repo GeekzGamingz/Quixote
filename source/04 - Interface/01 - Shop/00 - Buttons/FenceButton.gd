@@ -9,6 +9,8 @@ signal flour_changed
 var built: bool = false
 #Integers
 var cost: int = 3
+#Exported Variables
+@export var audio: AudioStreamPlayer2D
 #------------------------------------------------------------------------------#
 #Functions
 func _process(_delta: float) -> void: check_button()
@@ -24,6 +26,7 @@ func _on_button_up() -> void:
 		emit_signal("flour_changed")
 		emit_signal("erect_fence")
 	update_tooltip()
+	audio.play()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Update Tooltip

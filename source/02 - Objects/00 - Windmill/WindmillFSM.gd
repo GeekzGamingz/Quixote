@@ -43,4 +43,4 @@ func state_enter(new_state, old_state):
 func state_exit(old_state, new_state):
 	match(old_state):
 		states.idle: pass
-		states.spinning: windmill.audio.stop()
+		states.spinning: windmill.audio.fade_out()

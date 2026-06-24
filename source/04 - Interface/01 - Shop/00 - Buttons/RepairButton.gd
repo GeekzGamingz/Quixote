@@ -4,6 +4,10 @@ extends TextureButton
 signal repair
 signal flour_changed
 #------------------------------------------------------------------------------#
+#Variables
+#Exported Variables
+@export var audio: AudioStreamPlayer2D
+#------------------------------------------------------------------------------#
 #Functions
 func _process(_delta: float) -> void: check_button()
 #------------------------------------------------------------------------------#
@@ -15,6 +19,7 @@ func _on_button_up() -> void:
 		emit_signal("repair", 50)
 		G.FLOUR -= cost
 		emit_signal("flour_changed")
+	audio.play()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Check Button

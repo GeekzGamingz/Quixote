@@ -9,6 +9,8 @@ signal flour_changed
 var fully_upgraded: bool = false
 #Integers
 var upgrade: int = 1
+#Exported Variables
+@export var audio: AudioStreamPlayer2D
 #------------------------------------------------------------------------------#
 #Functions
 func _process(_delta: float) -> void: check_button()
@@ -24,6 +26,7 @@ func _on_button_up() -> void:
 		emit_signal("flour_changed")
 		emit_signal("yield_upgrade")
 	update_tooltip()
+	audio.play()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Update Tooltip

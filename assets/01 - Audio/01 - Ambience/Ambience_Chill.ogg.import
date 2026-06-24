@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cw7ex85dlfytq"
+path="res://.godot/imported/Ambience_Chill.ogg-97e5bca2275cec613844ab9f87b4e978.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/01 - Audio/01 - Ambience/Ambience_Chill.ogg"
+dest_files=["res://.godot/imported/Ambience_Chill.ogg-97e5bca2275cec613844ab9f87b4e978.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

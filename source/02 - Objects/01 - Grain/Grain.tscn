@@ -8,9 +8,11 @@
 [ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="5_8givh"]
 [ext_resource type="Texture2D" uid="uid://b2khowkqqocvr" path="res://assets/00 - Interface/03 - Buttons/01 - Reap/Button_Scythe_Pressed.png" id="6_8givh"]
 [ext_resource type="Texture2D" uid="uid://dpwulxr5m6roq" path="res://assets/00 - Interface/03 - Buttons/00 - Plant/Button_Plant_Unpressed_Inactive.png" id="6_oq8xk"]
-[ext_resource type="AudioStream" uid="uid://xemtxnlh5xd5" path="res://assets/01 - Audio/02 - SFX/Harvest_01.wav" id="9_n7gml"]
-[ext_resource type="AudioStream" uid="uid://7egu2y7ncqve" path="res://assets/01 - Audio/02 - SFX/Harvest_02.wav" id="10_0lp7j"]
-[ext_resource type="AudioStream" uid="uid://nkwelqg7e7bf" path="res://assets/01 - Audio/02 - SFX/Harvest_03.wav" id="11_6f5j2"]
+[ext_resource type="AudioStream" uid="uid://xemtxnlh5xd5" path="res://assets/01 - Audio/02 - SFX/01 - Farming/Harvest_01.wav" id="9_n7gml"]
+[ext_resource type="AudioStream" uid="uid://7egu2y7ncqve" path="res://assets/01 - Audio/02 - SFX/01 - Farming/Harvest_02.wav" id="10_0lp7j"]
+[ext_resource type="AudioStream" uid="uid://nkwelqg7e7bf" path="res://assets/01 - Audio/02 - SFX/01 - Farming/Harvest_03.wav" id="11_6f5j2"]
+[ext_resource type="AudioStream" uid="uid://c0lyuof38q4dl" path="res://assets/01 - Audio/02 - SFX/00 - Menus/Button_Click.wav" id="12_6f5j2"]
+[ext_resource type="AudioStream" uid="uid://cslubqwxj7exl" path="res://assets/01 - Audio/02 - SFX/01 - Farming/PlantSeed.wav" id="13_dd1u3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
 radius = 14.035668
@@ -82,8 +84,18 @@ theme = ExtResource("5_8givh")
 texture_normal = ExtResource("5_3ak4f")
 texture_pressed = ExtResource("6_8givh")
 
-[node name="GrainAudio" type="AudioStreamPlayer2D" parent="." unique_id=1799650822]
+[node name="AudioPlayers" type="Node2D" parent="." unique_id=970547865]
+
+[node name="GrainAudio" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=1799650822]
 stream = SubResource("AudioStreamRandomizer_a1j8a")
+bus = &"Effects"
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=1293342403]
+stream = ExtResource("12_6f5j2")
+bus = &"Effects"
+
+[node name="SeedAudio" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=1326059241]
+stream = ExtResource("13_dd1u3")
 bus = &"Effects"
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timeout"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c47rgjjgvyxeg"
+path="res://.godot/imported/NotificationPopup.wav-2b25a0380a496d0d267b4ec4d64bc7a0.sample"
+
+[deps]
+
+source_file="res://assets/01 - Audio/02 - SFX/00 - Menus/NotificationPopup.wav"
+dest_files=["res://.godot/imported/NotificationPopup.wav-2b25a0380a496d0d267b4ec4d64bc7a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

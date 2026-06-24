@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgcmle72qexw3"
+path="res://.godot/imported/MenuClose.wav-370ca4d4d82585216795f7b0418c32ea.sample"
+
+[deps]
+
+source_file="res://assets/01 - Audio/02 - SFX/00 - Menus/MenuClose.wav"
+dest_files=["res://.godot/imported/MenuClose.wav-370ca4d4d82585216795f7b0418c32ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
