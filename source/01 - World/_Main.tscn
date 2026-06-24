@@ -23,7 +23,7 @@ radius = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1j8a"]
 radius = 4.0
-height = 125.0
+height = 146.0
 
 [node name="Main" type="Node2D" unique_id=962239125]
 script = ExtResource("1_alxrc")
@@ -102,7 +102,7 @@ position = Vector2(228, 84)
 [node name="Objects" type="Node2D" parent="." unique_id=1558102882]
 
 [node name="WorldBorder" type="StaticBody2D" parent="Objects" unique_id=138302502]
-position = Vector2(61, 100)
+position = Vector2(75, 100)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/WorldBorder" unique_id=1186160181]

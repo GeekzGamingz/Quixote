@@ -13,6 +13,7 @@ signal rotated
 #------------------------------------------------------------------------------#
 #Variable
 #Bools
+var is_spinning: bool = false
 var collapsed: bool = false
 #Exported Variables
 #Integers
@@ -37,15 +38,21 @@ func _ready() -> void:
 	await get_tree().process_frame
 	MAIN.PROGRESS.connect("collapse", collapse)
 	MAIN.SHOP.rotation_button.connect("rotation_upgrade", rotation_upgrade)
+#------------------------------------------------------------------------------#
 #Signaled Functions
 #Mouse Enter/Exit
 func _on_axis_mouse_entered() -> void: focus_spin(true)
 func _on_axis_mouse_exited() -> void: focus_spin(false)
 #Rotation Detection
 func _on_mill_area_exited(_area: Area2D) -> void:
-	if upgrades.arms == "Electrified": #if quixote.on_screen:
-		launch_lightning(quixote)
+	if upgrades.arms == "Electrified": if quixote.on_screen: launch_lightning(quixote)
 	emit_signal("rotated", 15)
+#Signaled FUnctions
+func _on_arm_body_entered(body: Node2D) -> void:
+	if body.name == "Quixote" && is_spinning:
+		match(upgrades.arms):
+			"Lengthened": body.emit_signal("quixote_damage", "Bludgeoning", 1)
+			"Bladed", "Electrified": body.emit_signal("quixote_damage", "Slashing", 3)
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Focus Spin
@@ -53,9 +60,11 @@ func focus_spin(focused):
 	if focused:
 		pin.motor_target_velocity = wind_speed
 		emit_signal("spin", focused, wind_speed)
+		is_spinning = true
 	else:
 		pin.motor_target_velocity = 1
 		emit_signal("spin", focused, 2)
+		is_spinning = false
 #Launch Lightning
 func launch_lightning(_target):
 	var lightning_scene = LIGHTNING_BALL.instantiate()

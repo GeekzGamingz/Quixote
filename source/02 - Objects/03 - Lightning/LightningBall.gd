@@ -22,10 +22,9 @@ func _on_screen_exited() -> void: queue_free()
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Body: ", body)
 	match(body.name):
-		"Quixote":
-			body.emit_signal("quixote_damage", "Electric", 10)
-			lightning_player.play("impact")
-			await lightning_player.animation_finished
+		"Quixote": body.emit_signal("quixote_damage", "Electric", 10)
+	lightning_player.play("impact")
+	await lightning_player.animation_finished
 	queue_free()
 #------------------------------------------------------------------------------#
 #Custom Functions

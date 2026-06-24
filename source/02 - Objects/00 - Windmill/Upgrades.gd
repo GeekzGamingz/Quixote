@@ -29,6 +29,7 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 #Custom Functions
 func check_arms(upgrade):
+	windmill.sprite_spire.set_deferred("visible", false)
 	for arm in windmill.arms_array:
 		arm.get_node("CollisionShape2D").set_deferred("disabled", false)
 	match(upgrade):

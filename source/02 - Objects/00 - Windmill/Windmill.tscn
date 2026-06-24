@@ -165,7 +165,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_en3kc"]
 resource_name = "active"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -334,3 +334,7 @@ shape = SubResource("CircleShape2D_43fak")
 [connection signal="mouse_entered" from="Axis" to="." method="_on_axis_mouse_entered"]
 [connection signal="mouse_exited" from="Axis" to="." method="_on_axis_mouse_exited"]
 [connection signal="area_exited" from="Axis/MillingRay/MillArea" to="." method="_on_mill_area_exited"]
+[connection signal="body_entered" from="Axis/Areas/Arm1" to="." method="_on_arm_body_entered"]
+[connection signal="body_entered" from="Axis/Areas/Arm2" to="." method="_on_arm_body_entered"]
+[connection signal="body_entered" from="Axis/Areas/Arm3" to="." method="_on_arm_body_entered"]
+[connection signal="body_entered" from="Axis/Areas/Arm4" to="." method="_on_arm_body_entered"]

@@ -53,14 +53,17 @@ func check_stamina():
 #Custom Signaled Functions
 #Quixote
 #Quixote Damage
-func quixote_damage(damage_type, value):
-	match(damage_type):
+func quixote_damage(damage_type, value): if !quixote.collapsed:
+	match(damage_type): #Tracking for Special Events
 		"Geriatric": q_stamina.progress_damage(value)
 		"Electric": q_stamina.progress_damage(value)
+		"Bludgeoning": q_stamina.progress_damage(value)
+		"Slashing": q_stamina.progress_damage(value)
 	var notifier = MAIN.NOTIFIER
-	if value > 10: notifier.add_message(str("Quixote Took Great ", damage_type, " Damage!!"), 3)
-	elif value > 30: notifier.add_message(str("Quixote Took Massive ", damage_type, " Damage!!"), 3)
-	else: notifier.add_message(str("Quixote Took ", damage_type, " Damage!"), 3)
+	if notifier.vbox.get_child_count() < 5:
+		if value > 10: notifier.add_message(str("Quixote Took Great ", damage_type, " Damage!!"), 3)
+		elif value > 30: notifier.add_message(str("Quixote Took Massive ", damage_type, " Damage!!"), 3)
+		else: notifier.add_message(str("Quixote Took ", damage_type, " Damage!"), 3)
 	check_stamina()
 #Windmill
 #Windmill Damage
