@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bglpyxsew5x6t"
-path="res://.godot/imported/Button_Pubby_Unpressed_Inactive.png-39ba295279a9727119da55338c409d5f.ctex"
+uid="uid://dn8c6xpr0ephx"
+path="res://.godot/imported/Button_Pubby_Unpressed.png-033fe224a1d9b6c197412e9dd4ab2ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Pubby_Unpressed_Inactive.png"
-dest_files=["res://.godot/imported/Button_Pubby_Unpressed_Inactive.png-39ba295279a9727119da55338c409d5f.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/07 - Pubby/Button_Pubby_Unpressed.png"
+dest_files=["res://.godot/imported/Button_Pubby_Unpressed.png-033fe224a1d9b6c197412e9dd4ab2ce5.ctex"]
 
 [params]
 

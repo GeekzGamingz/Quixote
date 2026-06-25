@@ -87,6 +87,7 @@ _data = {
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_i0hiy")
+participating = true
 
 [node name="SanchoFSM" type="Node2D" parent="." unique_id=2145642539]
 script = ExtResource("2_wgy1w")

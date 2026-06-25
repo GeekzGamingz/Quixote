@@ -40,7 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_312gl"]
 resource_name = "impact"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -86,7 +86,7 @@ radius = 8.0
 
 [node name="Music" type="RigidBody2D" unique_id=51295897]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 18
 gravity_scale = 0.0
 script = ExtResource("1_adijs")
 
@@ -107,7 +107,7 @@ autoplay = &"charge"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=394351643]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1668167614]
 shape = SubResource("CircleShape2D_5f5fb")

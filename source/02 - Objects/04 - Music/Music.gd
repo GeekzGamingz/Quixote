@@ -19,6 +19,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		"Windmill":
 			body.take_damage("Minstrel")
 			anim_player.play("impact")
+		"BorkShield": anim_player.play("impact")
 #Animation Player Finished
 func _on_animation_player_finished(anim_name: StringName) -> void:
 	match(anim_name):

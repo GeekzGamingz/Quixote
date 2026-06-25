@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://lac3kgksasyy"]
 
 [ext_resource type="Texture2D" uid="uid://drrcqt8w4crqs" path="res://assets/03 - Entities/03 - Pubby/Pubby_Sheet.png" id="1_ja0rr"]
+[ext_resource type="Script" uid="uid://plkr262yfjq0" path="res://source/03 - Entities/03 - Pubby/Pubby.gd" id="1_lcboc"]
+[ext_resource type="Script" uid="uid://cdkvjdmj1fdd5" path="res://source/03 - Entities/03 - Pubby/PubbyFSM.gd" id="2_mllf7"]
 [ext_resource type="Texture2D" uid="uid://c0fi0bsi5fwgh" path="res://assets/03 - Entities/03 - Pubby/Bork_Sheet.png" id="2_v8rf2"]
+[ext_resource type="AudioStream" uid="uid://dx65kp3kt5kwn" path="res://assets/01 - Audio/02 - SFX/02 - Pubby/Bark_01.wav" id="5_1gl3p"]
+[ext_resource type="AudioStream" uid="uid://spu8jpee01f4" path="res://assets/01 - Audio/02 - SFX/02 - Pubby/Bark_02.wav" id="6_r8ri6"]
+[ext_resource type="AudioStream" uid="uid://wps5y0cdd6wn" path="res://assets/01 - Audio/02 - SFX/02 - Pubby/Bark_03.wav" id="7_utuli"]
+[ext_resource type="AudioStream" uid="uid://bqkx7v5qr5yge" path="res://assets/01 - Audio/02 - SFX/02 - Pubby/Bark_04.wav" id="8_b55d4"]
 
 [sub_resource type="Animation" id="Animation_j74yu"]
 length = 0.001
@@ -29,10 +35,34 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprites/SpriteBork:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BorkShield/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_sgkoc"]
 resource_name = "angy"
-length = 1.2
+length = 1.5999999999999999
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -41,10 +71,10 @@ tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7]
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -53,10 +83,10 @@ tracks/1/path = NodePath("../Sprites/SpriteBork:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -65,10 +95,39 @@ tracks/2/path = NodePath("../Sprites/SpriteBork:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": []
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BorkShield/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"bork"
+}, {
+"args": [],
+"method": &"bork"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_c7lwd"]
@@ -83,43 +142,60 @@ tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4000001, 1.5999223, 1.7999223, 1.9999223, 2.1999223, 2.4, 2.6000001, 2.8000002, 3),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2, 2.4, 2.6000001, 2.8, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 8, 9, 10, 11, 0, 1, 2, 3, 0, 1, 2, 3]
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 32, 33, 34, 35, 0, 1, 2, 3]
 }
-
-[sub_resource type="Animation" id="Animation_v8rf2"]
-resource_name = "idle_tongue"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprites/SpriteBase:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BorkShield/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprites/SpriteBork:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_giiq4"]
 _data = {
 &"RESET": SubResource("Animation_j74yu"),
 &"angy": SubResource("Animation_sgkoc"),
-&"idle": SubResource("Animation_c7lwd"),
-&"idle_tongue": SubResource("Animation_v8rf2")
+&"idle": SubResource("Animation_c7lwd")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a1j8a"]
+streams_count = 4
+stream_0/stream = ExtResource("5_1gl3p")
+stream_1/stream = ExtResource("6_r8ri6")
+stream_2/stream = ExtResource("7_utuli")
+stream_3/stream = ExtResource("8_b55d4")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lcboc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_43fak"]
+
 [node name="Pubby" type="CharacterBody2D" unique_id=488267989]
+script = ExtResource("1_lcboc")
+rescued = true
 
 [node name="PubbyFSM" type="Node2D" parent="." unique_id=1899061551]
+script = ExtResource("2_mllf7")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1884892770]
 
@@ -127,25 +203,31 @@ _data = {
 z_index = 1
 position = Vector2(1, -6)
 texture = ExtResource("1_ja0rr")
-hframes = 4
-vframes = 3
+hframes = 16
+vframes = 4
 
 [node name="SpriteBork" type="Sprite2D" parent="Sprites" unique_id=89158582]
 position = Vector2(-13, -8)
 texture = ExtResource("2_v8rf2")
-hframes = 10
+hframes = 16
 
 [node name="RayCasts" type="Node2D" parent="." unique_id=1267840910]
 
 [node name="BorkRay" type="RayCast2D" parent="RayCasts" unique_id=289890487]
-target_position = Vector2(-75, 0)
+target_position = Vector2(-30, -20)
 collision_mask = 16
 
 [node name="AnimationPlayers" type="Node2D" parent="." unique_id=609688521]
 
-[node name="SpritePlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=1161614682]
+[node name="PubbyPlayer" type="AnimationPlayer" parent="AnimationPlayers" unique_id=1161614682]
 libraries/ = SubResource("AnimationLibrary_giiq4")
 autoplay = &"idle"
+
+[node name="AudioPlayers" type="Node2D" parent="." unique_id=680115155]
+
+[node name="BorkAudio" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=407107632]
+stream = SubResource("AudioStreamRandomizer_a1j8a")
+volume_db = -15.0
 
 [node name="Timers" type="Node2D" parent="." unique_id=330278697]
 
@@ -179,3 +261,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652355932]
 shape = SubResource("CircleShape2D_lcboc")
+
+[node name="BorkShield" type="StaticBody2D" parent="." unique_id=1326401877]
+position = Vector2(10, -7)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorkShield" unique_id=963884750]
+shape = SubResource("CircleShape2D_43fak")

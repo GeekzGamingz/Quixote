@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://spu8jpee01f4"
+path="res://.godot/imported/Bark_02.wav-c8f7ac78e8ee66a04cc9775f659ec806.sample"
+
+[deps]
+
+source_file="res://assets/01 - Audio/02 - SFX/02 - Pubby/Bark_02.wav"
+dest_files=["res://.godot/imported/Bark_02.wav-c8f7ac78e8ee66a04cc9775f659ec806.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
