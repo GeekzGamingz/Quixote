@@ -60,6 +60,7 @@ func quixote_damage(damage_type, value): if !quixote.collapsed:
 		"Electric": q_stamina.progress_damage(value)
 		"Bludgeoning": q_stamina.progress_damage(value)
 		"Slashing": q_stamina.progress_damage(value)
+		"Fork": q_stamina.progress_damage(value)
 	var notifier = MAIN.NOTIFIER
 	if notifier.vbox.get_child_count() < 5:
 		if value > 10: notifier.add_message(str("Quixote Took Great ", damage_type, " Damage!!"), 3)

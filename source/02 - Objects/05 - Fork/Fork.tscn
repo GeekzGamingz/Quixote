@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bn3i5tdhe6w3c"]
+
+[ext_resource type="Script" uid="uid://chw3fscr7xnqq" path="res://source/02 - Objects/05 - Fork/Fork.gd" id="1_lrldd"]
+[ext_resource type="Texture2D" uid="uid://cs58hc7vwaui4" path="res://assets/02 - Objects/05 - Fork/Pitchfork.png" id="2_t0ncl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_blyni"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_t0ncl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Fork:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ishv5"]
+resource_name = "impact"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Fork:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_lrldd"]
+resource_name = "shoot"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Fork:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0ncl"]
+_data = {
+&"RESET": SubResource("Animation_t0ncl"),
+&"impact": SubResource("Animation_ishv5"),
+&"shoot": SubResource("Animation_lrldd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1j8a"]
+radius = 5.0
+
+[node name="Fork" type="RigidBody2D" unique_id=51295897]
+collision_layer = 16
+collision_mask = 4
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_lrldd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465447341]
+shape = SubResource("CircleShape2D_blyni")
+
+[node name="Sprite_Fork" type="Sprite2D" parent="." unique_id=167367431]
+position = Vector2(3, 0)
+texture = ExtResource("2_t0ncl")
+hframes = 6
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2013783763]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=838971733]
+libraries/ = SubResource("AnimationLibrary_t0ncl")
+autoplay = &"shoot"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=708490729]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=405688580]
+shape = SubResource("CircleShape2D_a1j8a")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="on_screen_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_finished"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

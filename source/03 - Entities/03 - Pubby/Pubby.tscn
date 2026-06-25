@@ -192,7 +192,6 @@ stream_3/stream = ExtResource("8_b55d4")
 
 [node name="Pubby" type="CharacterBody2D" unique_id=488267989]
 script = ExtResource("1_lcboc")
-rescued = true
 
 [node name="PubbyFSM" type="Node2D" parent="." unique_id=1899061551]
 script = ExtResource("2_mllf7")

@@ -1,12 +1,12 @@
 extends TextureButton
 #------------------------------------------------------------------------------#
 #Signals
-signal rescue
+signal anger
 #------------------------------------------------------------------------------#
 #Variables
-var rescued = false
+var angered = false
 #Exported Variables
-@export var cost: int = 5
+@export var cost: int = 3
 @export var audio: AudioStreamPlayer2D
 #------------------------------------------------------------------------------#
 #Functions
@@ -16,32 +16,30 @@ func _process(_delta: float) -> void: check_button()
 #Signaled Functions
 #Rescue Pubby
 func _on_button_up() -> void:
-	if !rescued && G.FLOUR > cost:
+	if !angered && G.FLOUR >= cost:
 		G.FLOUR -= cost
-		emit_signal("rescue")
-		rescued = true
+		emit_signal("anger")
+		angered = true
 	audio.play()
 	update_tooltip()
 #------------------------------------------------------------------------------#
 #Custom Functions
 #Check Button
 func check_button():
-	if G.FLOUR > cost: disabled = false
+	if G.FLOUR >= cost: disabled = false
 	else: disabled = true
-	if rescued: disabled = true
+	if angered: disabled = true
 #Update Tooltip
 func update_tooltip():
-	if !rescued:
-		tooltip_text = "[Rescue Pubby]
-						They say they're 'Man's
-						Best Friend'. At the very
-						least it will drown out that
-						bothersome fanfare...
+	if !angered:
+		tooltip_text = "[Rally Farmer]
+						Instill our human with
+						the ferocity of EL MOLINO...
+						(Now Including a Barrel
+						of Infinite Pitchforks!!)
 						{Costs %s Flour}" % str(cost)
 	else:
 		set_deferred("disabled", true)
-		tooltip_text = "[Pubby Rescued]
-						The beast might be more
-						useful than I had originally
-						anticipated...
+		tooltip_text = "[Farmer ANGY]
+						Feel the hate inside you...
 						{Fully Upgraded}"

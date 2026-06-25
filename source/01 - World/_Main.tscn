@@ -145,8 +145,9 @@ position = Vector2(-100, 80)
 [node name="Sancho" parent="Entities" unique_id=1585068152 instance=ExtResource("13_ow5x3")]
 position = Vector2(-10, 85)
 
-[node name="Farmer" parent="Entities" unique_id=1738560258 instance=ExtResource("14_tinpb")]
+[node name="Farmer" parent="Entities" unique_id=1738560258 node_paths=PackedStringArray("quixote") instance=ExtResource("14_tinpb")]
 position = Vector2(152, 85)
+quixote = NodePath("../Quixote")
 
 [node name="Pubby" parent="Entities" unique_id=488267989 instance=ExtResource("15_88mwx")]
 position = Vector2(70, 89)

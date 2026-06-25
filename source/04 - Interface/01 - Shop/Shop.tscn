@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://yvavsp4ihj66" path="res://source/04 - Interface/01 - Shop/00 - Buttons/GrowthButton.gd" id="22_ysoof"]
 [ext_resource type="Texture2D" uid="uid://bl8brx4bbrwu1" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/05 - Farmer/Button_AngyFarmer_Unpressed_Inactive.png" id="25_0hx72"]
 [ext_resource type="Script" uid="uid://bxmtef5la816" path="res://source/04 - Interface/01 - Shop/00 - Buttons/YieldButton.gd" id="27_0gi2b"]
+[ext_resource type="Script" uid="uid://cnpw7wffquyso" path="res://source/04 - Interface/01 - Shop/FarmerButton.gd" id="27_8bhnh"]
 [ext_resource type="Texture2D" uid="uid://bya600bqc5eob" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/06 - Growth/Button_GrowthSpeed_Unpressed_Inactive.png" id="28_8bhnh"]
 [ext_resource type="Texture2D" uid="uid://bglpyxsew5x6t" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/07 - Pubby/Button_Pubby_Unpressed_Inactive.png" id="33_0hx72"]
 [ext_resource type="Script" uid="uid://dtrhqj2stbmkt" path="res://source/04 - Interface/01 - Shop/00 - Buttons/PubbyButton.gd" id="33_6y0tb"]
@@ -193,11 +194,13 @@ texture_normal = ExtResource("13_ahl2h")
 texture_pressed = ExtResource("14_1hwss")
 texture_disabled = ExtResource("15_jek6v")
 
-[node name="FarmerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=689984806]
+[node name="FarmerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=689984806 node_paths=PackedStringArray("audio")]
 layout_mode = 2
 texture_normal = ExtResource("15_ai084")
 texture_pressed = ExtResource("16_bnkj6")
 texture_disabled = ExtResource("25_0hx72")
+script = ExtResource("27_8bhnh")
+audio = NodePath("../../../../../../AudioPlayers/ButtonPlayer")
 
 [node name="GrowthButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=6897367 node_paths=PackedStringArray("audio")]
 layout_mode = 2
@@ -252,6 +255,7 @@ bus = &"Effects"
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FarmerButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FarmerButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/PubbyButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/PubbyButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/YieldButton" method="_on_button_up"]
