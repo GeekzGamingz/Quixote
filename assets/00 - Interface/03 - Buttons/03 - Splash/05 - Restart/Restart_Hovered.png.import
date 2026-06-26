@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7woayyfw3t88"
-path="res://.godot/imported/Quit_Game_Clicked.png-ae2f540fe9941d5ca65f541b44e00958.ctex"
+uid="uid://b8lli7783quo5"
+path="res://.godot/imported/Restart_Hovered.png-6c8c5a8223536083b63b4b50779b67ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Clicked.png"
-dest_files=["res://.godot/imported/Quit_Game_Clicked.png-ae2f540fe9941d5ca65f541b44e00958.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/05 - Restart/Restart_Hovered.png"
+dest_files=["res://.godot/imported/Restart_Hovered.png-6c8c5a8223536083b63b4b50779b67ce.ctex"]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://ceh3uwc7mvv2m" path="res://GameOver.gd" id="1_f5ppn"]
 [ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="1_pj1cs"]
-[ext_resource type="Texture2D" uid="uid://clm0dxnpmig04" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Unclicked.png" id="3_kqmc3"]
+[ext_resource type="Texture2D" uid="uid://clm0dxnpmig04" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/05 - Restart/Restart_Unclicked.png" id="3_kqmc3"]
 [ext_resource type="Texture2D" uid="uid://fvliehoff2xh" path="res://assets/00 - Interface/06 - Splash/Splash_Sheet.png" id="3_pj1cs"]
-[ext_resource type="Texture2D" uid="uid://cak1i40ox0wsu" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Unhovered.png" id="3_yor6o"]
-[ext_resource type="Texture2D" uid="uid://byxsxp6ommytp" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Hovered.png" id="4_pj1cs"]
-[ext_resource type="Texture2D" uid="uid://scl2ytsnb00q" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Clicked.png" id="4_yor6o"]
-[ext_resource type="Texture2D" uid="uid://b8lli7783quo5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Hovered.png" id="5_pj1cs"]
-[ext_resource type="Texture2D" uid="uid://m1fo6yrvmte5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Unclicked.png" id="6_3auia"]
-[ext_resource type="Texture2D" uid="uid://7woayyfw3t88" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Clicked.png" id="7_1p63t"]
-[ext_resource type="Texture2D" uid="uid://cy45lbovetn74" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Hovered.png" id="8_pqd3s"]
+[ext_resource type="Texture2D" uid="uid://cak1i40ox0wsu" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/03 - Credits/Credits_Unhovered.png" id="3_yor6o"]
+[ext_resource type="Texture2D" uid="uid://byxsxp6ommytp" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/03 - Credits/Credits_Hovered.png" id="4_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://scl2ytsnb00q" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/05 - Restart/Restart_Clicked.png" id="4_yor6o"]
+[ext_resource type="Texture2D" uid="uid://b8lli7783quo5" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/05 - Restart/Restart_Hovered.png" id="5_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://m1fo6yrvmte5" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/02 - Quit/Quit_Game_Unclicked.png" id="6_3auia"]
+[ext_resource type="Texture2D" uid="uid://7woayyfw3t88" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/02 - Quit/Quit_Game_Clicked.png" id="7_1p63t"]
+[ext_resource type="Texture2D" uid="uid://cy45lbovetn74" path="res://assets/00 - Interface/03 - Buttons/03 - Splash/02 - Quit/Quit_Game_Hovered.png" id="8_pqd3s"]
 
 [sub_resource type="Animation" id="Animation_3fc0l"]
 length = 0.001

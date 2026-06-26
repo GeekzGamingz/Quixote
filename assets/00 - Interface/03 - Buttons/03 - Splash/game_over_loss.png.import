@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lli7783quo5"
-path="res://.godot/imported/Restart_Hovered.png-97fa8744bd9805fa327cd2d4e960d348.ctex"
+uid="uid://b5c2dl0dvlfkw"
+path="res://.godot/imported/game_over_loss.png-e5bd8a4ff335d0176f410f7d9ed4619f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Hovered.png"
-dest_files=["res://.godot/imported/Restart_Hovered.png-97fa8744bd9805fa327cd2d4e960d348.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/game_over_loss.png"
+dest_files=["res://.godot/imported/game_over_loss.png-e5bd8a4ff335d0176f410f7d9ed4619f.ctex"]
 
 [params]
 

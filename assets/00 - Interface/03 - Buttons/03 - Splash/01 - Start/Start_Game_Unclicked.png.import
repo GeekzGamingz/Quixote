@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5c2dl0dvlfkw"
-path="res://.godot/imported/game_over_loss.png-abe2e128d661d788f5ed4dee44852f71.ctex"
+uid="uid://dbtfg1kx4t6b1"
+path="res://.godot/imported/Start_Game_Unclicked.png-4e9e9311e964d56eb406dd59fb1d0186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/game_over_loss.png"
-dest_files=["res://.godot/imported/game_over_loss.png-abe2e128d661d788f5ed4dee44852f71.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/01 - Start/Start_Game_Unclicked.png"
+dest_files=["res://.godot/imported/Start_Game_Unclicked.png-4e9e9311e964d56eb406dd59fb1d0186.ctex"]
 
 [params]
 

@@ -9,6 +9,7 @@ signal fence_damage
 #Bools
 var on_screen: bool = false
 var collapsed: bool = false
+var death: bool = false
 var victorious: bool = false
 var windmill_sighted: bool = false
 var path_clear: bool = false

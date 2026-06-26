@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bqufyl3fg8mam" path="res://source/02 - Objects/00 - Windmill/WindmillFSM.gd" id="1_h2yvc"]
 [ext_resource type="Script" uid="uid://bjhpkpak5nh2s" path="res://source/02 - Objects/00 - Windmill/Upgrades.gd" id="3_4mkj5"]
 [ext_resource type="Texture2D" uid="uid://b5qatte40smgt" path="res://assets/02 - Objects/00 - Windmill/00 - Base/windmill_base.png" id="3_atwbm"]
+[ext_resource type="PackedScene" uid="uid://cic33cbut60gc" path="res://source/02 - Objects/00 - Windmill/Windmill_FinalForm.tscn" id="4_ihjqu"]
 [ext_resource type="Texture2D" uid="uid://vtlp80fvae5y" path="res://assets/02 - Objects/00 - Windmill/01 - Arms/Arms_Electrified_Sheet.png" id="5_4mkj5"]
 [ext_resource type="Texture2D" uid="uid://dgg1jg2b0msbb" path="res://assets/02 - Objects/03 - Lightning/Spire_Sheet.png" id="5_hyfl8"]
 [ext_resource type="Script" uid="uid://cic5hc2wsvpx" path="res://source/00 - Globals/_Audio.gd" id="7_as1n2"]
@@ -201,8 +202,13 @@ arms_array = [NodePath("Axis/Areas/Arm1"), NodePath("Axis/Areas/Arm2"), NodePath
 [node name="WindmillFSM" type="Node2D" parent="." unique_id=968206681]
 script = ExtResource("1_h2yvc")
 
-[node name="Upgrades" type="Node2D" parent="." unique_id=909215226]
+[node name="Upgrades" type="Node2D" parent="." unique_id=909215226 node_paths=PackedStringArray("sprite_array")]
 script = ExtResource("3_4mkj5")
+sprite_array = [NodePath("../SpriteBase"), NodePath("../SpriteSpire"), NodePath("../Axis")]
+
+[node name="FinalForm" parent="Upgrades" unique_id=1260278224 instance=ExtResource("4_ihjqu")]
+visible = false
+position = Vector2(1, -5)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1257591889]
 node_a = NodePath("..")

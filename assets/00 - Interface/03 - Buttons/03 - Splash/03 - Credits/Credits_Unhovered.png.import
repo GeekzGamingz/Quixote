@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cak1i40ox0wsu"
-path="res://.godot/imported/Credits_Unhovered.png-4eed200ba4b79f103a2ad76267b925db.ctex"
+path="res://.godot/imported/Credits_Unhovered.png-a3821a4d2e44446698378483ac8d927b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Unhovered.png"
-dest_files=["res://.godot/imported/Credits_Unhovered.png-4eed200ba4b79f103a2ad76267b925db.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/03 - Credits/Credits_Unhovered.png"
+dest_files=["res://.godot/imported/Credits_Unhovered.png-a3821a4d2e44446698378483ac8d927b.ctex"]
 
 [params]
 

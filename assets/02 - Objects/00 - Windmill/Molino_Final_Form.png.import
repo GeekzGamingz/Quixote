@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy45lbovetn74"
-path="res://.godot/imported/Quit_Game_Hovered.png-86c4fe469a7905fe78e0f86a714c6a3b.ctex"
+uid="uid://c7vylcncxr8hq"
+path="res://.godot/imported/Molino_Final_Form.png-a90f5dea314313d895f4fd681cecc2ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Hovered.png"
-dest_files=["res://.godot/imported/Quit_Game_Hovered.png-86c4fe469a7905fe78e0f86a714c6a3b.ctex"]
+source_file="res://assets/02 - Objects/00 - Windmill/Molino_Final_Form.png"
+dest_files=["res://.godot/imported/Molino_Final_Form.png-a90f5dea314313d895f4fd681cecc2ca.ctex"]
 
 [params]
 

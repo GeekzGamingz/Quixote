@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byxsxp6ommytp"
-path="res://.godot/imported/Credits_Hovered.png-790c6a172b3e88c899cb01db06b2dda8.ctex"
+uid="uid://p5kfjo6per0w"
+path="res://.godot/imported/Resume_Hovered.png-c5b15809d0445502523068c2cdf03193.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Hovered.png"
-dest_files=["res://.godot/imported/Credits_Hovered.png-790c6a172b3e88c899cb01db06b2dda8.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/04 - Resume/Resume_Hovered.png"
+dest_files=["res://.godot/imported/Resume_Hovered.png-c5b15809d0445502523068c2cdf03193.ctex"]
 
 [params]
 

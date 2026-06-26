@@ -129,9 +129,10 @@ collision_mask = 0
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_txbq4")
 
-[node name="Windmill" parent="Objects" unique_id=874538700 node_paths=PackedStringArray("quixote") instance=ExtResource("10_45upr")]
+[node name="Windmill" parent="Objects" unique_id=874538700 node_paths=PackedStringArray("quixote", "fence") instance=ExtResource("10_45upr")]
 position = Vector2(120, 44)
 quixote = NodePath("../../Entities/Quixote")
+fence = NodePath("../Fence")
 
 [node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
 position = Vector2(69, 77)

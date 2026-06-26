@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://bdge10da45rts" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/03 - Fence/Button_Fence_Pressed.png" id="12_88s1b"]
 [ext_resource type="Script" uid="uid://s5g706vm1jb8" path="res://source/04 - Interface/01 - Shop/00 - Buttons/UpgradeButton.gd" id="12_gucpk"]
 [ext_resource type="Script" uid="uid://bcvijcv7aluwd" path="res://source/04 - Interface/01 - Shop/00 - Buttons/RotationButton.gd" id="12_u345u"]
-[ext_resource type="Texture2D" uid="uid://djxr0lm4bydoc" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed.png" id="13_ahl2h"]
-[ext_resource type="Texture2D" uid="uid://b4xeob72rmpy2" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Pressed.png" id="14_1hwss"]
+[ext_resource type="Texture2D" uid="uid://djxr0lm4bydoc" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/04 - Unknown/Button_Unknown_Unpressed.png" id="13_ahl2h"]
+[ext_resource type="Texture2D" uid="uid://b4xeob72rmpy2" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/04 - Unknown/Button_Unknown_Pressed.png" id="14_1hwss"]
 [ext_resource type="Texture2D" uid="uid://j3khteowkmj8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/02 - Rotation/Button_Rotation_Unpressed_Inactive.png" id="14_in8ky"]
 [ext_resource type="Texture2D" uid="uid://cv83ud6ua68bw" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/05 - Farmer/Button_AngyFarmer_Unpressed.png" id="15_ai084"]
-[ext_resource type="Texture2D" uid="uid://buxoahhavjkm5" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed_Inactive.png" id="15_jek6v"]
+[ext_resource type="Texture2D" uid="uid://buxoahhavjkm5" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/04 - Unknown/Button_Unknown_Unpressed_Inactive.png" id="15_jek6v"]
 [ext_resource type="Script" uid="uid://pw54ioexemlm" path="res://source/04 - Interface/01 - Shop/00 - Buttons/FenceButton.gd" id="15_utta5"]
 [ext_resource type="Texture2D" uid="uid://bh3md4oacv63" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/05 - Farmer/Button_AngyFarmer_Pressed.png" id="16_bnkj6"]
 [ext_resource type="Texture2D" uid="uid://di3lopgxu473b" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/06 - Growth/Button_GrowthSpeed_Unpressed.png" id="17_rjjwo"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://yn7bkki7upb8" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/08 - Yield/Button_HarvestYield_Unpressed.png" id="21_6y0tb"]
 [ext_resource type="Texture2D" uid="uid://irxshbuho3dn" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/08 - Yield/Button_HarvestYield_Pressed.png" id="22_0hx72"]
 [ext_resource type="Script" uid="uid://yvavsp4ihj66" path="res://source/04 - Interface/01 - Shop/00 - Buttons/GrowthButton.gd" id="22_ysoof"]
+[ext_resource type="Script" uid="uid://dgfvpnr0thjft" path="res://source/04 - Interface/01 - Shop/00 - Buttons/UnknownButton.gd" id="24_ss04y"]
 [ext_resource type="Texture2D" uid="uid://bl8brx4bbrwu1" path="res://assets/00 - Interface/03 - Buttons/02 - Shop/05 - Farmer/Button_AngyFarmer_Unpressed_Inactive.png" id="25_0hx72"]
 [ext_resource type="Script" uid="uid://bxmtef5la816" path="res://source/04 - Interface/01 - Shop/00 - Buttons/YieldButton.gd" id="27_0gi2b"]
 [ext_resource type="Script" uid="uid://cnpw7wffquyso" path="res://source/04 - Interface/01 - Shop/FarmerButton.gd" id="27_8bhnh"]
@@ -187,12 +188,15 @@ texture_disabled = ExtResource("18_6y0tb")
 script = ExtResource("15_utta5")
 audio = NodePath("../../../../../../AudioPlayers/ButtonPlayer")
 
-[node name="UnknownButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1551835152]
+[node name="UnknownButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1551835152 node_paths=PackedStringArray("audio")]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("13_ahl2h")
 texture_pressed = ExtResource("14_1hwss")
 texture_disabled = ExtResource("15_jek6v")
+script = ExtResource("24_ss04y")
+unlocked = true
+audio = NodePath("../../../../../../AudioPlayers/ButtonPlayer")
 
 [node name="FarmerButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=689984806 node_paths=PackedStringArray("audio")]
 layout_mode = 2
@@ -255,6 +259,7 @@ bus = &"Effects"
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UpgradeButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/RotationButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FenceButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UnknownButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/UnknownButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FarmerButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/FarmerButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/GrowthButton" method="_on_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/PubbyButton" to="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/GridContainer/PubbyButton" method="_on_button_up"]

@@ -22,6 +22,7 @@ func _ready() -> void:
 	state_add("strumming")
 	state_add("rocking")
 	state_add("intermission")
+	state_add("fucking_off")
 	call_deferred("state_set", states.intro)
 #------------------------------------------------------------------------------#
 #State Label
@@ -32,18 +33,28 @@ func _process(_delta: float) -> void: state_label.text = str(states.keys()[state
 func state_logic(delta):
 	match(state):
 		states.intro: sancho.ride_forth(delta)
+		states.fucking_off: sancho.global_position.x -= 1 * delta
 #State Transitions
 @warning_ignore("unused_parameter")
 func transitions(delta):
 	match(state):
 		#Idle
-		states.intro: if sancho.position_ray.is_colliding(): return states.idle
-		states.idle: if sancho.idle_timer.is_stopped(): return states.strumming
+		states.intro:
+			if sancho.position_ray.is_colliding(): return states.idle
+			if sancho.quixote.death: return states.fucking_off
+		states.idle:
+			if sancho.idle_timer.is_stopped(): return states.strumming
+			if sancho.quixote.death: return states.fucking_off
 		states.strumming:
 			if sancho.participating: return states.rocking
 			if sancho.quixote.collapsed: return states.intermission
-		states.rocking: if sancho.quixote.collapsed: return states.intermission
-		states.intermission: if sancho.is_ready: return states.intro
+			if sancho.quixote.death: return states.fucking_off
+		states.rocking:
+			if sancho.quixote.collapsed: return states.intermission
+			if sancho.quixote.death: return states.fucking_off
+		states.intermission:
+			if sancho.is_ready: return states.intro
+			if sancho.quixote.death: return states.fucking_off
 	return null
 #Enter State
 @warning_ignore("unused_parameter")

@@ -27,6 +27,7 @@ var collapsed: bool = false
 @export var arms_array: Array[Area2D] = []
 #Nodes
 @export var quixote: CharacterBody2D
+@export var fence: StaticBody2D
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
@@ -38,6 +39,7 @@ var collapsed: bool = false
 @onready var launch_marker: Marker2D = $SpriteSpire/Marker2D
 @onready var arm_player: AnimationPlayer = $AnimationPlayers/ArmPlayer
 @onready var audio: AudioStreamPlayer2D = $WindmillAudio
+@onready var final_form: CharacterBody2D = $Upgrades/FinalForm
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:

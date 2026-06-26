@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxoahhavjkm5"
-path="res://.godot/imported/Button_Unknown_Unpressed_Inactive.png-694aa0285dfea0e55445b5338240c5b8.ctex"
+uid="uid://ci4u8gvut150q"
+path="res://.godot/imported/game_over_win.png-530d5481c37e11fcd4cd3183c8e7e46b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/02 - Shop/Button_Unknown_Unpressed_Inactive.png"
-dest_files=["res://.godot/imported/Button_Unknown_Unpressed_Inactive.png-694aa0285dfea0e55445b5338240c5b8.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/game_over_win.png"
+dest_files=["res://.godot/imported/game_over_win.png-530d5481c37e11fcd4cd3183c8e7e46b.ctex"]
 
 [params]
 

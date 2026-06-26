@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjoxa8d4wrxky"
-path="res://.godot/imported/Start_Game_Clicked.png-275b8efb114bcb2536810992c0c619f5.ctex"
+uid="uid://scl2ytsnb00q"
+path="res://.godot/imported/Restart_Clicked.png-b24c4f02bb1b816dfbd0877a9d1e8512.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/01 - Start/Start_Game_Clicked.png"
-dest_files=["res://.godot/imported/Start_Game_Clicked.png-275b8efb114bcb2536810992c0c619f5.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/05 - Restart/Restart_Clicked.png"
+dest_files=["res://.godot/imported/Restart_Clicked.png-b24c4f02bb1b816dfbd0877a9d1e8512.ctex"]
 
 [params]
 

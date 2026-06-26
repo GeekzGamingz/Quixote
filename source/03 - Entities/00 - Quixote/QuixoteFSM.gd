@@ -16,6 +16,7 @@ func _ready() -> void:
 	state_add("bracing")
 	state_add("brace_max")
 	state_add("collapsed")
+	state_add("death")
 	state_add("victorious")
 	call_deferred("state_set", states.intro)
 #------------------------------------------------------------------------------#
@@ -37,23 +38,28 @@ func transitions(delta):
 			if quixote.horse_speed > 0: return states.ride_forth
 			if quixote.horse_speed < 0: return states.bracing
 			if quixote.collapsed: return states.collapsed
+			if quixote.death: return states.death
 		states.ride_forth: 
 			if quixote.horse_speed < 1: return states.idle
 			if quixote.lance.is_colliding(): return states.to_arms
 			if quixote.collapsed: return states.collapsed
+			if quixote.death: return states.death
 		states.bracing:
 			if quixote.horse_speed > -1: return states.idle
 			if quixote.brace_cast.is_colliding(): return states.brace_max
 			if quixote.collapsed: return states.collapsed
+			if quixote.death: return states.death
 		states.brace_max:
 			if quixote.horse_speed > -1: return states.idle
 			if quixote.collapsed: return states.collapsed
+			if quixote.death: return states.death
 		states.to_arms:
 			if quixote.horse_speed < 0: return states.idle
 			if quixote.collapsed: return states.collapsed
 			if quixote.victorious: return states.victorious
 			if quixote.path_clear: return states.idle
 			if !quixote.lance.is_colliding(): return states.idle
+			if quixote.death: return states.death
 		states.collapsed: if !quixote.collapsed: return states.intro
 	return null
 #Enter State
@@ -67,7 +73,7 @@ func state_enter(new_state, old_state):
 		states.to_arms: quixote.sprite_player.play("to_arms")
 		states.bracing: quixote.sprite_player.play("bracing")
 		states.brace_max: quixote.sprite_player.play("brace_max")
-		states.collapsed: quixote.sprite_player.play("collapsing")
+		states.collapsed, states.death: quixote.sprite_player.play("collapsing")
 		states.victorious: quixote.sprite_player.play("victory")
 #Exit State
 @warning_ignore("unused_parameter")

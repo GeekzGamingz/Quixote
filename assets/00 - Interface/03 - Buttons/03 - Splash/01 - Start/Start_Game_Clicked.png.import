@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbtfg1kx4t6b1"
-path="res://.godot/imported/Start_Game_Unclicked.png-9520e4ce440ffd8a9ed32a0e8faa7dce.ctex"
+uid="uid://bjoxa8d4wrxky"
+path="res://.godot/imported/Start_Game_Clicked.png-288c4f0274b6c403a5a269437902ef5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/01 - Start/Start_Game_Unclicked.png"
-dest_files=["res://.godot/imported/Start_Game_Unclicked.png-9520e4ce440ffd8a9ed32a0e8faa7dce.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/01 - Start/Start_Game_Clicked.png"
+dest_files=["res://.godot/imported/Start_Game_Clicked.png-288c4f0274b6c403a5a269437902ef5c.ctex"]
 
 [params]
 

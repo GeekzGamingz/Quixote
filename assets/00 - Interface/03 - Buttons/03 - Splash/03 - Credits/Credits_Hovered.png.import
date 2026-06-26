@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://scl2ytsnb00q"
-path="res://.godot/imported/Restart_Clicked.png-562ef07d01102f822887be21048dce9a.ctex"
+uid="uid://byxsxp6ommytp"
+path="res://.godot/imported/Credits_Hovered.png-7fc6bd304462c05c8436d291b3bd5166.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Clicked.png"
-dest_files=["res://.godot/imported/Restart_Clicked.png-562ef07d01102f822887be21048dce9a.ctex"]
+source_file="res://assets/00 - Interface/03 - Buttons/03 - Splash/03 - Credits/Credits_Hovered.png"
+dest_files=["res://.godot/imported/Credits_Hovered.png-7fc6bd304462c05c8436d291b3bd5166.ctex"]
 
 [params]
 
