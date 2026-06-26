@@ -43,12 +43,14 @@ script = ExtResource("1_alxrc")
 metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0, -100.0, 180.0, 204.0, 228.0, 75.0]
 metadata/_edit_horizontal_guides_ = [80.0, 100.0, 85.0, 14.0, 44.0, 117.0, 124.0, 66.0, 206.0]
 
-[node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("quixote", "sancho", "notifier", "intermission")]
+[node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("windmill", "quixote", "sancho", "notifier", "intermission", "splash_canvas")]
 script = ExtResource("2_sxaaq")
+windmill = NodePath("../Objects/Windmill")
 quixote = NodePath("../Entities/Quixote")
 sancho = NodePath("../Entities/Sancho")
 notifier = NodePath("../Interface/Notifier")
 intermission = NodePath("../Interface/Intermission")
+splash_canvas = NodePath("../Splash")
 
 [node name="LevelFSM" type="Node2D" parent="Level" unique_id=369404075]
 script = ExtResource("3_hdco3")
@@ -80,6 +82,7 @@ grain_nodes = [NodePath("../../Areas/Grain"), NodePath("../../Areas/Grain2"), No
 layer = 110
 
 [node name="Splash" parent="Splash" unique_id=1712747508 instance=ExtResource("9_6vswa")]
+mouse_filter = 1
 
 [node name="Areas" type="Node2D" parent="." unique_id=1560364250]
 

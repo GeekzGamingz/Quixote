@@ -42,6 +42,7 @@ func transitions(delta):
 		states.strumming:
 			if sancho.participating: return states.rocking
 			if sancho.quixote.collapsed: return states.intermission
+		states.rocking: if sancho.quixote.collapsed: return states.intermission
 		states.intermission: if sancho.is_ready: return states.intro
 	return null
 #Enter State

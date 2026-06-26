@@ -3,6 +3,7 @@ extends CharacterBody2D
 #Constants
 const MUSIC = preload("uid://dgr6esfwxl7ux")
 const INTRO = preload("uid://dk5fpv4mk1km6")
+const SANCHO_UPGRADED = preload("uid://btdo4ujhkkxqo")
 #------------------------------------------------------------------------------#
 #Variables
 #Bools
@@ -22,6 +23,7 @@ var start_position: Vector2
 @onready var idle_timer: Timer = $Timers/IdleTimer
 @onready var music_timer: Timer = $Timers/MusicTimer
 @onready var rock_zone: Marker2D = $RockZone
+@onready var sprite_base: Sprite2D = $Sprites/SpriteBase
 @onready var sprite_player: AnimationPlayer = $AnimationPlayers/AnimationPlayer
 @onready var audio: AudioStreamPlayer2D = $SanchoAudio
 #------------------------------------------------------------------------------#

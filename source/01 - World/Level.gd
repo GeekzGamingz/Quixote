@@ -1,5 +1,10 @@
 extends Node2D
 #------------------------------------------------------------------------------#
+#Constants
+const GAME_OVER = preload("uid://kjlntl5mrham")
+const GAME_OVER_WIN = preload("uid://ci4u8gvut150q")
+const GAME_OVER_LOSS = preload("uid://b5c2dl0dvlfkw")
+#------------------------------------------------------------------------------#
 #Variables
 #Bools
 var intermission_over: bool = false
@@ -10,10 +15,12 @@ var intermission_over: bool = false
 	"intermission",
 	"outro"
 ) var level: int
+@export var windmill: StaticBody2D
 @export var quixote: CharacterBody2D
 @export var sancho: CharacterBody2D
 @export var notifier: Control
 @export var intermission: Control
+@export var splash_canvas: CanvasLayer
 @export var grain_nodes: Array[Area2D] = []
 #------------------------------------------------------------------------------#
 #Functions
@@ -30,11 +37,24 @@ func change_scene():
 	sancho.audio.play()
 	fade_player.play("fade_in")
 	await fade_player.animation_finished
+	if level == 3:
+		sancho.participating = true
+		sancho.sprite_base.texture = sancho.SANCHO_UPGRADED
 	level_reset()
 	fade_player.play("fade_out")
 	await fade_player.animation_finished
 	sancho.is_ready = true
 	intermission_over = true
+#Game Over
+func game_over(success):
+	var over_scene = GAME_OVER.instantiate()
+	await get_tree().create_timer(3).timeout
+	splash_canvas.add_child(over_scene)
+	match(success):
+		"Lost": over_scene.bg_rect.texture = GAME_OVER_LOSS 
+		"Won":
+			over_scene.bg_rect.texture = GAME_OVER_WIN
+			over_scene.sprite_arms.set_deferred("visible", true)
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Level Switch

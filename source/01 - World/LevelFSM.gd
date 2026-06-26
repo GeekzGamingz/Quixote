@@ -18,6 +18,7 @@ func _ready() -> void:
 	state_add("VII")
 	state_add("Intermission")
 	state_add("Epilogue")
+	state_add("Defeated")
 	call_deferred("state_set", states.Prologue)
 #------------------------------------------------------------------------------#
 #State Label
@@ -36,7 +37,10 @@ func transitions(delta):
 		states.Prologue: if level.level == 1: return states.I
 		states.I, states.II, states.III, states.IV, states.V, states.VI:
 			if level.quixote.collapsed: return states.Intermission
-		states.VII: if level.quixote.collapsed: return states.Epilogue
+			if level.windmill.collapsed: return states.Defeated
+		states.VII:
+			if level.quixote.collapsed: return states.Epilogue
+			if level.windmill.collapsed: return states.Defeated
 		states.Intermission: if level.intermission_over:
 			match(level.level):
 				1: return states.II
@@ -51,6 +55,7 @@ func transitions(delta):
 func state_enter(new_state, old_state):
 	match(new_state):
 		states.Intermission: level.change_scene()
+		states.Defeated: level.game_over("Lost")
 #Exit State
 @warning_ignore("unused_parameter")
 func state_exit(old_state, new_state):

@@ -76,12 +76,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_ob7st")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2069041282]
+[node name="SpriteArms" type="Sprite2D" parent="." unique_id=2069041282]
 position = Vector2(210, 35)
 texture = ExtResource("3_8v1fn")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=120774852]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteArms" unique_id=120774852]
 libraries/ = SubResource("AnimationLibrary_7nf8g")
 autoplay = &"idle"
 

@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://kjlntl5mrham"]
+
+[ext_resource type="Script" uid="uid://ceh3uwc7mvv2m" path="res://GameOver.gd" id="1_f5ppn"]
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="1_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://clm0dxnpmig04" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Unclicked.png" id="3_kqmc3"]
+[ext_resource type="Texture2D" uid="uid://fvliehoff2xh" path="res://assets/00 - Interface/06 - Splash/Splash_Sheet.png" id="3_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://cak1i40ox0wsu" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Unhovered.png" id="3_yor6o"]
+[ext_resource type="Texture2D" uid="uid://byxsxp6ommytp" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Hovered.png" id="4_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://scl2ytsnb00q" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Clicked.png" id="4_yor6o"]
+[ext_resource type="Texture2D" uid="uid://b8lli7783quo5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Hovered.png" id="5_pj1cs"]
+[ext_resource type="Texture2D" uid="uid://m1fo6yrvmte5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Unclicked.png" id="6_3auia"]
+[ext_resource type="Texture2D" uid="uid://7woayyfw3t88" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Clicked.png" id="7_1p63t"]
+[ext_resource type="Texture2D" uid="uid://cy45lbovetn74" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Hovered.png" id="8_pqd3s"]
+
+[sub_resource type="Animation" id="Animation_3fc0l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ifor7"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3auia"]
+_data = {
+&"RESET": SubResource("Animation_3fc0l"),
+&"idle": SubResource("Animation_ifor7")
+}
+
+[sub_resource type="Animation" id="Animation_yor6o"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_pj1cs"]
+resource_name = "fade_in"
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.15, 0.16666669, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_3auia"]
+resource_name = "fade_out"
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1p63t"]
+_data = {
+&"RESET": SubResource("Animation_yor6o"),
+&"fade_in": SubResource("Animation_pj1cs"),
+&"fade_out": SubResource("Animation_3auia")
+}
+
+[node name="GameOver" type="Control" unique_id=2136452191]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_pj1cs")
+script = ExtResource("1_f5ppn")
+metadata/_edit_horizontal_guides_ = [128.0]
+metadata/_edit_vertical_guides_ = [5.0, 235.0]
+
+[node name="BackgroundRect" type="TextureRect" parent="." unique_id=345194969]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpriteArms" type="Sprite2D" parent="." unique_id=708300311]
+visible = false
+position = Vector2(210, 35)
+texture = ExtResource("3_pj1cs")
+hframes = 6
+
+[node name="ArmsPlayer" type="AnimationPlayer" parent="SpriteArms" unique_id=1453860597]
+libraries/ = SubResource("AnimationLibrary_3auia")
+autoplay = &"idle"
+
+[node name="HMenuContainer" type="HBoxContainer" parent="." unique_id=711013936]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 62.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HMenuContainer" unique_id=1436468691]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="VMenuContainer" type="VBoxContainer" parent="HMenuContainer" unique_id=1166503263]
+layout_mode = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="HMenuContainer/VMenuContainer" unique_id=896313373]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_kqmc3")
+texture_pressed = ExtResource("4_yor6o")
+texture_hover = ExtResource("5_pj1cs")
+
+[node name="QuitButton" type="TextureButton" parent="HMenuContainer/VMenuContainer" unique_id=549621724]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_3auia")
+texture_pressed = ExtResource("7_1p63t")
+texture_hover = ExtResource("8_pqd3s")
+
+[node name="MarginContainer" type="MarginContainer" parent="HMenuContainer/VMenuContainer" unique_id=534927664]
+layout_mode = 2
+theme_override_constants/margin_top = 1
+
+[node name="HCreditsContainer" type="HBoxContainer" parent="." unique_id=2042681050]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VCreditsContainer" type="VBoxContainer" parent="HCreditsContainer" unique_id=1203040819]
+layout_mode = 2
+
+[node name="CreditsButton" type="TextureButton" parent="HCreditsContainer/VCreditsContainer" unique_id=1206471343]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "~☆(Developers)☆~
+Programming: David Alan \"Zeuk\" Smith
+Pixel Art: Kylian \"Kazvery\" Smith
+Composer: Raoul \"Neum\" Neumann
+
+~All Programming, Pixel Art, and Audio was
+made during the Very Serious JuniperDev Game Jam~"
+texture_normal = ExtResource("3_yor6o")
+texture_hover = ExtResource("4_pj1cs")
+
+[node name="MarginContainer" type="MarginContainer" parent="HCreditsContainer/VCreditsContainer" unique_id=377606780]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HCreditsContainer" unique_id=1100488068]
+layout_mode = 2
+theme_override_constants/margin_right = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1108113803]
+libraries/ = SubResource("AnimationLibrary_1p63t")
+autoplay = &"fade_in"
+
+[connection signal="button_up" from="HMenuContainer/VMenuContainer/RestartButton" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="HMenuContainer/VMenuContainer/QuitButton" to="." method="_on_quit_button_up"]
