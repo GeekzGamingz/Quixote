@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://76sgt0dcg27a"]
+
+[ext_resource type="Theme" uid="uid://c1fdn3jrwtw4l" path="res://assets/00 - Interface/Base_Theme.tres" id="1_m5dit"]
+[ext_resource type="Texture2D" uid="uid://dkuy1lr3nswil" path="res://assets/00 - Interface/06 - Splash/Splash.png" id="2_ob7st"]
+[ext_resource type="Script" uid="uid://fwabx3jy8xyk" path="res://source/04 - Interface/03 - Splash/Splash.gd" id="2_s3ccq"]
+[ext_resource type="Texture2D" uid="uid://fvliehoff2xh" path="res://assets/00 - Interface/06 - Splash/Splash_Sheet.png" id="3_8v1fn"]
+[ext_resource type="Texture2D" uid="uid://dbtfg1kx4t6b1" path="res://assets/00 - Interface/03 - Buttons/03- Splash/01 - Start/Start_Game_Unclicked.png" id="4_8v1fn"]
+[ext_resource type="Texture2D" uid="uid://bjoxa8d4wrxky" path="res://assets/00 - Interface/03 - Buttons/03- Splash/01 - Start/Start_Game_Clicked.png" id="5_s3ccq"]
+[ext_resource type="Texture2D" uid="uid://m1fo6yrvmte5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Unclicked.png" id="6_m5dit"]
+[ext_resource type="Texture2D" uid="uid://dja8t3jtki6gj" path="res://assets/00 - Interface/03 - Buttons/03- Splash/01 - Start/Start_Game_Hovered.png" id="7_ifor7"]
+[ext_resource type="Texture2D" uid="uid://7woayyfw3t88" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Clicked.png" id="7_ob7st"]
+[ext_resource type="Texture2D" uid="uid://clm0dxnpmig04" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Unclicked.png" id="8_au2qd"]
+[ext_resource type="Texture2D" uid="uid://cak1i40ox0wsu" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Unhovered.png" id="8_tqndi"]
+[ext_resource type="Texture2D" uid="uid://byxsxp6ommytp" path="res://assets/00 - Interface/03 - Buttons/03- Splash/03 - Credits/Credits_Hovered.png" id="9_5irur"]
+[ext_resource type="Texture2D" uid="uid://scl2ytsnb00q" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Clicked.png" id="9_bvn2q"]
+[ext_resource type="Texture2D" uid="uid://cy45lbovetn74" path="res://assets/00 - Interface/03 - Buttons/03- Splash/02 - Quit/Quit_Game_Hovered.png" id="10_7nf8g"]
+[ext_resource type="Texture2D" uid="uid://b8lli7783quo5" path="res://assets/00 - Interface/03 - Buttons/03- Splash/05 - Restart/Restart_Hovered.png" id="10_vvphl"]
+[ext_resource type="Texture2D" uid="uid://cnlku0wep4ofs" path="res://assets/00 - Interface/08 - Sliders/Icon_Sound.png" id="11_26dna"]
+[ext_resource type="Texture2D" uid="uid://bum3mbuokmwif" path="res://assets/00 - Interface/08 - Sliders/Icon_Music.png" id="12_3fc0l"]
+[ext_resource type="Texture2D" uid="uid://ehejklrkpplw" path="res://assets/00 - Interface/08 - Sliders/Icon_Ambient.png" id="13_ifor7"]
+
+[sub_resource type="Animation" id="Animation_3fc0l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ifor7"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nf8g"]
+_data = {
+&"RESET": SubResource("Animation_3fc0l"),
+&"idle": SubResource("Animation_ifor7")
+}
+
+[node name="Splash" type="Control" unique_id=1712747508]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m5dit")
+script = ExtResource("2_s3ccq")
+metadata/_edit_horizontal_guides_ = [124.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=737036858]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ob7st")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2069041282]
+position = Vector2(210, 35)
+texture = ExtResource("3_8v1fn")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=120774852]
+libraries/ = SubResource("AnimationLibrary_7nf8g")
+autoplay = &"idle"
+
+[node name="HButtonContainer" type="HBoxContainer" parent="." unique_id=1564346072]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 83.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HButtonContainer" unique_id=397964307]
+layout_mode = 2
+
+[node name="VButtonContainer" type="VBoxContainer" parent="HButtonContainer" unique_id=208911550]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="HButtonContainer/VButtonContainer" unique_id=342705103]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 3)
+offset_transform_visual_only = false
+texture_normal = ExtResource("4_8v1fn")
+texture_pressed = ExtResource("5_s3ccq")
+texture_hover = ExtResource("7_ifor7")
+
+[node name="RestartButton" type="TextureButton" parent="HButtonContainer/VButtonContainer" unique_id=314453541]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_au2qd")
+texture_pressed = ExtResource("9_bvn2q")
+texture_hover = ExtResource("10_vvphl")
+
+[node name="QuitButton" type="TextureButton" parent="HButtonContainer/VButtonContainer" unique_id=275443849]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_m5dit")
+texture_pressed = ExtResource("7_ob7st")
+texture_hover = ExtResource("10_7nf8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="HButtonContainer/VButtonContainer" unique_id=788084247]
+layout_mode = 2
+theme_override_constants/margin_top = 1
+
+[node name="HButtonContainer2" type="HBoxContainer" parent="." unique_id=1099594932]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VButtonContainer" type="VBoxContainer" parent="HButtonContainer2" unique_id=1446986083]
+layout_mode = 2
+alignment = 1
+
+[node name="CreditsButton" type="TextureButton" parent="HButtonContainer2/VButtonContainer" unique_id=527118672]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+tooltip_text = "~☆(Developers)☆~
+Programming: David Alan \"Zeuk\" Smith
+Pixel Art: Kylian \"Kazvery\" Smith
+Composer: Raoul \"Neum\" Neumann
+
+~All Programming, Pixel Art, and Audio was
+made during the Very Serious JuniperDev Game Jam~"
+texture_normal = ExtResource("8_tqndi")
+texture_hover = ExtResource("9_5irur")
+
+[node name="VolumeContainer" type="VBoxContainer" parent="HButtonContainer2/VButtonContainer" unique_id=1081522432]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="EffectsContainer" type="HBoxContainer" parent="HButtonContainer2/VButtonContainer/VolumeContainer" unique_id=1956844624]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="EffectsSlider" type="HSlider" parent="HButtonContainer2/VButtonContainer/VolumeContainer/EffectsContainer" unique_id=818077422]
+layout_mode = 2
+min_value = -30.0
+max_value = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EffectsRect" type="TextureRect" parent="HButtonContainer2/VButtonContainer/VolumeContainer/EffectsContainer" unique_id=1588834644]
+layout_mode = 2
+texture = ExtResource("11_26dna")
+
+[node name="AmbienceContainer" type="HBoxContainer" parent="HButtonContainer2/VButtonContainer/VolumeContainer" unique_id=2066494439]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="AmbienceSlider" type="HSlider" parent="HButtonContainer2/VButtonContainer/VolumeContainer/AmbienceContainer" unique_id=1743269277]
+layout_mode = 2
+min_value = -30.0
+max_value = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AmbienceRect" type="TextureRect" parent="HButtonContainer2/VButtonContainer/VolumeContainer/AmbienceContainer" unique_id=875380625]
+layout_mode = 2
+texture = ExtResource("13_ifor7")
+
+[node name="MusicContainer" type="HBoxContainer" parent="HButtonContainer2/VButtonContainer/VolumeContainer" unique_id=445656963]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="MusicSlider" type="HSlider" parent="HButtonContainer2/VButtonContainer/VolumeContainer/MusicContainer" unique_id=789129431]
+layout_mode = 2
+min_value = -30.0
+max_value = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicRect" type="TextureRect" parent="HButtonContainer2/VButtonContainer/VolumeContainer/MusicContainer" unique_id=1116599800]
+layout_mode = 2
+texture = ExtResource("12_3fc0l")
+
+[node name="MarginContainer" type="MarginContainer" parent="HButtonContainer2/VButtonContainer" unique_id=902170195]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HButtonContainer2" unique_id=1888944292]
+layout_mode = 2
+
+[connection signal="button_up" from="HButtonContainer/VButtonContainer/StartButton" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="HButtonContainer/VButtonContainer/RestartButton" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="HButtonContainer/VButtonContainer/QuitButton" to="." method="_on_quit_button_up"]
+[connection signal="value_changed" from="HButtonContainer2/VButtonContainer/VolumeContainer/EffectsContainer/EffectsSlider" to="." method="_on_effects_slider_value_changed"]
+[connection signal="value_changed" from="HButtonContainer2/VButtonContainer/VolumeContainer/AmbienceContainer/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
+[connection signal="value_changed" from="HButtonContainer2/VButtonContainer/VolumeContainer/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

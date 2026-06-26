@@ -5,18 +5,29 @@ const MUSIC = preload("uid://dgr6esfwxl7ux")
 const INTRO = preload("uid://dk5fpv4mk1km6")
 #------------------------------------------------------------------------------#
 #Variables
+#Bools
+var is_ready: bool = false
+#Vectors
+var start_position: Vector2
+#Exported Variables
+@export var quixote: CharacterBody2D
 @export var participating: bool = false
 @export_range(1, 10, 1, "prefer_slider") var donkey_speed: int = 3
 #OnReady Variables
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
+@onready var sancho_fsm: StateMachine = $SanchoFSM
 @onready var position_ray: RayCast2D = $RayCasts/PositionRay
 @onready var idle_timer: Timer = $Timers/IdleTimer
 @onready var music_timer: Timer = $Timers/MusicTimer
 @onready var rock_zone: Marker2D = $RockZone
 @onready var sprite_player: AnimationPlayer = $AnimationPlayers/AnimationPlayer
 @onready var audio: AudioStreamPlayer2D = $SanchoAudio
+#------------------------------------------------------------------------------#
+#Functions
+#Ready
+func _ready() -> void: start_position = global_position
 #------------------------------------------------------------------------------#
 #Signaled Functions
 func _on_music_timer_timeout() -> void:

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://82lkxv6qc3at" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.gd" id="2_pqbtp"]
 [ext_resource type="Texture2D" uid="uid://fhbu540uf2f0" path="res://assets/00 - Interface/01 - ProgressBar/00 - Stamina/Stamina_Border.png" id="2_wdb5f"]
 [ext_resource type="Script" uid="uid://dse58edombkoy" path="res://source/04 - Interface/00 - ProgressBars/Progress.gd" id="3_16uq8"]
+[ext_resource type="Texture2D" uid="uid://7sqlkjnjgk66" path="res://assets/00 - Interface/01 - ProgressBar/Quixote.png" id="3_ap1s1"]
 [ext_resource type="Texture2D" uid="uid://bkcdq6t3xvk3m" path="res://assets/00 - Interface/01 - ProgressBar/03 - Fence/Fence_Progress_Bar.png" id="6_2f1rd"]
 [ext_resource type="Texture2D" uid="uid://bajf0o4ivay4q" path="res://assets/00 - Interface/01 - ProgressBar/02 - Grain/Grain_Progress_Bar.png" id="6_c5wa0"]
 [ext_resource type="Texture2D" uid="uid://by3axmdpt0f88" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Empty.png" id="6_j3tq5"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dnlub7k7n6ck5" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Outline.png" id="8_c5wa0"]
 [ext_resource type="Texture2D" uid="uid://dagkekyns1auv" path="res://assets/00 - Interface/01 - ProgressBar/01 - Flour/Flour_Progress_Full.png" id="9_2k8up"]
 [ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="12_ukrv8"]
+[ext_resource type="Texture2D" uid="uid://br0dm3mhurw53" path="res://assets/00 - Interface/01 - ProgressBar/Molino.png" id="16_bacwx"]
 
 [sub_resource type="Theme" id="Theme_yyeld"]
 default_font = ExtResource("1_wdb5f")
@@ -56,21 +58,11 @@ size_flags_vertical = 4
 [node name="QuixoteContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=140477706]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = -6
+theme_override_constants/separation = -19
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=906001615]
+[node name="QuixoteRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=1611563742]
 layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/QuixoteContainer/HBoxContainer" unique_id=1464554662]
-z_index = 1
-layout_mode = 2
-text = "Quixote"
-horizontal_alignment = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer/HBoxContainer" unique_id=67712654]
-layout_mode = 2
-theme_override_constants/margin_left = 3
+texture = ExtResource("3_ap1s1")
 
 [node name="Quixote" type="CenterContainer" parent="VBoxContainer/HBoxContainer/QuixoteContainer" unique_id=1275707637 node_paths=PackedStringArray("progress_under", "progress_over")]
 layout_mode = 2
@@ -187,20 +179,11 @@ layout_mode = 2
 [node name="WindmillContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=59323279]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = -6
+theme_override_constants/separation = -19
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=2092593191]
+[node name="WindmillRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=1137689936]
 layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer/HBoxContainer" unique_id=1233998019]
-layout_mode = 2
-theme_override_constants/margin_left = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/WindmillContainer/HBoxContainer" unique_id=1039119602]
-z_index = 1
-layout_mode = 2
-text = "Windmill"
+texture = ExtResource("16_bacwx")
 
 [node name="Windmill" type="CenterContainer" parent="VBoxContainer/HBoxContainer/WindmillContainer" unique_id=2023118161 node_paths=PackedStringArray("progress_under", "progress_over")]
 layout_mode = 2

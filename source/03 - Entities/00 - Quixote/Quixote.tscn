@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c23kfs1p321do" path="res://source/03 - Entities/00 - Quixote/QuixoteFSM.gd" id="1_3ne05"]
 [ext_resource type="Script" uid="uid://bfaowuyw801dm" path="res://source/03 - Entities/00 - Quixote/Quixote.gd" id="1_wbstt"]
-[ext_resource type="Texture2D" uid="uid://brth8hlq8dn4x" path="res://assets/03 - Entities/00 - Quixote/Don_Lvl1_Sheet.png" id="3_wbstt"]
+[ext_resource type="Script" uid="uid://05f0xjxx48km" path="res://source/03 - Entities/00 - Quixote/Upgrades.gd" id="3_84m07"]
+[ext_resource type="Texture2D" uid="uid://dht0a7yqoyhnt" path="res://assets/03 - Entities/00 - Quixote/Don_Lvl1_Sheet.png" id="4_84m07"]
 
 [sub_resource type="Animation" id="Animation_3ne05"]
 length = 0.001
@@ -197,16 +198,21 @@ height = 14.0
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_wbstt")
-geriatric_damage_max = 20
+geriatric_damage_base = 11
+geriatric_damage_max = 21
+metadata/_edit_vertical_guides_ = [16.0, 40.0]
 
 [node name="QuixoteFSM" type="Node2D" parent="." unique_id=1136628782]
 script = ExtResource("1_3ne05")
 
+[node name="Upgrades" type="Node2D" parent="." unique_id=1391866611]
+script = ExtResource("3_84m07")
+
 [node name="Sprites" type="Node2D" parent="." unique_id=88351418]
 
 [node name="SpriteBase" type="Sprite2D" parent="Sprites" unique_id=539089955]
-position = Vector2(2, -3)
-texture = ExtResource("3_wbstt")
+position = Vector2(11, -13)
+texture = ExtResource("4_84m07")
 hframes = 8
 vframes = 8
 
@@ -262,7 +268,7 @@ uppercase = true
 shape = SubResource("CapsuleShape2D_hyfl8")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1821998188]
-rect = Rect2(-48, -10, 20, 20)
+position = Vector2(-40, 0)
 
 [connection signal="animation_finished" from="AnimationPlayers/SpritePlayer" to="." method="_on_sprite_player_finished"]
 [connection signal="timeout" from="Timers/GeriatricTimer" to="." method="_on_geriatric_timeout"]

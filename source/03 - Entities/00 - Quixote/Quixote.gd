@@ -1,6 +1,7 @@
 extends CharacterBody2D
 #------------------------------------------------------------------------------#
 signal quixote_damage
+signal quixote_heal
 signal windmill_damage
 signal fence_damage
 #------------------------------------------------------------------------------#
@@ -13,10 +14,13 @@ var windmill_sighted: bool = false
 var path_clear: bool = false
 #Integers
 var geriatric_damage: int = 10
+var starting_speed: int
+#Vectors
+var start_position: Vector2
 #Exported Variables
 @export_category("Geriatric Damage")
-@export_range(10, 30, 5, "prefer_slider") var geriatric_damage_base = geriatric_damage
-@export_range(10, 30, 5, "prefer_slider") var geriatric_damage_max = geriatric_damage
+@export_range(11, 33, 1, "prefer_slider") var geriatric_damage_base = geriatric_damage
+@export_range(11, 33, 1, "prefer_slider") var geriatric_damage_max = geriatric_damage
 @export_range(5, 20, 1, "prefer_slider") var geriatric_ticks = 10
 @export_category("Traits")
 @export_range(5, 20, 1, "prefer_slider") var lance_damage: int = 5
@@ -25,15 +29,18 @@ var geriatric_damage: int = 10
 #Main Nodes
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local Nodes
+@onready var upgrades: Node2D = $Upgrades
 @onready var lance: RayCast2D = $RayCasts/LanceRay
 @onready var brace_cast: RayCast2D = $RayCasts/BraceRay
-@onready var starting_speed: int = horse_speed
 @onready var geriatric_timer: Timer = $Timers/GeriatricTimer
+@onready var sprite_base: Sprite2D = $Sprites/SpriteBase
 @onready var sprite_player: AnimationPlayer = $AnimationPlayers/SpritePlayer
 #------------------------------------------------------------------------------#
 #Ready
 func _ready() -> void:
 	await get_tree().process_frame
+	starting_speed = horse_speed
+	start_position = global_position
 	MAIN.WINDMILL.connect("spin", impede)
 	MAIN.PROGRESS.connect("collapse", collapse)
 	MAIN.PROGRESS.connect("fence_broken", fence_broken)
@@ -60,6 +67,12 @@ func collapse(origin):
 			"Quixote": collapsed = true
 			"Windmill": victorious = true
 		MAIN.NOTIFIER.add_message(str("The ", origin.name, " has Collapsed!"), 10)
+func drink_fountain():
+	emit_signal("quixote_heal", 100)
+	MAIN.NOTIFIER.add_message(
+		"Don Quixote has supped from the\nFountain of Youth. He will take\nless Geriatric Damage",
+		10
+	)
 #------------------------------------------------------------------------------#
 #Custom Signaled Functions
 #Impede
@@ -75,8 +88,6 @@ func impede(spinning, wind_speed):
 			geriatric_timer.wait_time = 10.0
 			geriatric_timer.start()
 			geriatric_damage = geriatric_damage_base
-		print("Wind Speed: ", wind_speed)
-		print("Horse Speed: ", horse_speed)
 #Target Acquired
 func target_acquired():
 	MAIN.NOTIFIER.add_message("Quixote has acquired his next victim...", 10)

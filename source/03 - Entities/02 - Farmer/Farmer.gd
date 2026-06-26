@@ -11,6 +11,7 @@ const FORK = preload("uid://bn3i5tdhe6w3c")
 @onready var MAIN: Node2D = get_tree().get_root().get_node("Main")
 #Local
 @onready var fork_zone: Marker2D = $ForkZone
+@onready var sprite_barrel: Sprite2D = $Sprites/SpriteBarrel
 @onready var sprite_player: AnimationPlayer = $AnimationPlayers/SpritePlayer
 #------------------------------------------------------------------------------#
 #Functions
@@ -31,4 +32,6 @@ func huck_fork():
 	fork_scene.global_position = fork_zone.global_position
 #------------------------------------------------------------------------------#
 #Custom Signaled Function
-func anger(): participating = true
+func anger():
+	participating = true
+	sprite_barrel.set_deferred("visible", true)

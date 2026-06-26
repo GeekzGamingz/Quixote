@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dr06yplhj0i42" path="res://source/03 - Entities/02 - Farmer/Farmer.gd" id="1_rccvj"]
 [ext_resource type="Texture2D" uid="uid://b1r0sioeifyj6" path="res://assets/03 - Entities/02 - Farmer/Farmer_Sheet.png" id="2_c7lwd"]
 [ext_resource type="Texture2D" uid="uid://f38yexinwbin" path="res://assets/04 - Effects/emote_angy.png" id="2_sgkoc"]
+[ext_resource type="Texture2D" uid="uid://4n24prr5nbbp" path="res://assets/03 - Entities/02 - Farmer/barrel.png" id="3_vyvht"]
 
 [sub_resource type="Animation" id="Animation_j74yu"]
 length = 0.001
@@ -171,12 +172,16 @@ _data = {
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_rccvj")
-participating = true
 
 [node name="FarmerFSM" type="Node2D" parent="." unique_id=895177623]
 script = ExtResource("1_c7lwd")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=318322000]
+
+[node name="SpriteBarrel" type="Sprite2D" parent="Sprites" unique_id=453780360]
+visible = false
+position = Vector2(-3, -1)
+texture = ExtResource("3_vyvht")
 
 [node name="SpriteBase" type="Sprite2D" parent="Sprites" unique_id=297870647]
 position = Vector2(2, -3)
@@ -189,12 +194,6 @@ position = Vector2(4, -14)
 texture = ExtResource("2_sgkoc")
 hframes = 4
 frame = 1
-
-[node name="RayCasts" type="Node2D" parent="." unique_id=1629565411]
-
-[node name="ForkRay" type="RayCast2D" parent="RayCasts" unique_id=139672912]
-target_position = Vector2(-75, 0)
-collision_mask = 4
 
 [node name="AnimationPlayers" type="Node2D" parent="." unique_id=1557503056]
 

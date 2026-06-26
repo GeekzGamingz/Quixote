@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 func _on_screen_exited() -> void: queue_free()
 #Body Entered
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	print("Body: ", body)
 	match(body.name):
 		"Quixote": body.emit_signal("quixote_damage", "Electric", 10)
 	anim_player.play("impact")

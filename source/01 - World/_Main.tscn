@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://dhmx7kj1iom07" path="res://source/01 - World/_Main.gd" id="1_alxrc"]
 [ext_resource type="Script" uid="uid://dwb1baam3pgdh" path="res://source/01 - World/Level.gd" id="2_sxaaq"]
 [ext_resource type="Script" uid="uid://3x1qr27gfybm" path="res://source/01 - World/LevelFSM.gd" id="3_hdco3"]
-[ext_resource type="FontFile" uid="uid://bh0s3x848uyrw" path="res://assets/00 - Interface/02 - Fonts/Alkhemikal.ttf" id="5_5irkm"]
 [ext_resource type="Texture2D" uid="uid://cmqre171lnssm" path="res://assets/00 - Interface/00 - Backgrounds/bg_blank.png" id="6_46hjb"]
 [ext_resource type="PackedScene" uid="uid://d1dfprxgd1can" path="res://source/04 - Interface/00 - ProgressBars/ProgressBars.tscn" id="7_qxxn8"]
+[ext_resource type="PackedScene" uid="uid://bmft660xhysom" path="res://source/04 - Interface/04 - Intermission/Intermission.tscn" id="8_6vswa"]
 [ext_resource type="PackedScene" uid="uid://c74c3wi4a460o" path="res://source/04 - Interface/01 - Shop/Shop.tscn" id="8_jhciw"]
+[ext_resource type="PackedScene" uid="uid://76sgt0dcg27a" path="res://source/04 - Interface/03 - Splash/Splash.tscn" id="9_6vswa"]
 [ext_resource type="PackedScene" uid="uid://ddke43t35st5h" path="res://source/04 - Interface/02 - Notifications/Notifier.tscn" id="9_88mwx"]
 [ext_resource type="PackedScene" uid="uid://cbxxtvr4b3wn7" path="res://source/02 - Objects/01 - Grain/Grain.tscn" id="9_lkj5x"]
 [ext_resource type="PackedScene" uid="uid://cyjstrj5qd3fs" path="res://source/02 - Objects/00 - Windmill/Windmill.tscn" id="10_45upr"]
@@ -42,26 +43,15 @@ script = ExtResource("1_alxrc")
 metadata/_edit_vertical_guides_ = [312.0, 120.0, 240.0, 0.0, -100.0, 180.0, 204.0, 228.0, 75.0]
 metadata/_edit_horizontal_guides_ = [80.0, 100.0, 85.0, 14.0, 44.0, 117.0, 124.0, 66.0, 206.0]
 
-[node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("quixote", "grain_nodes")]
+[node name="Level" type="Node2D" parent="." unique_id=1226498027 node_paths=PackedStringArray("quixote", "sancho", "notifier", "intermission")]
 script = ExtResource("2_sxaaq")
 quixote = NodePath("../Entities/Quixote")
-grain_nodes = [NodePath("../Areas/Grain"), NodePath("../Areas/Grain2"), NodePath("../Areas/Grain3")]
+sancho = NodePath("../Entities/Sancho")
+notifier = NodePath("../Interface/Notifier")
+intermission = NodePath("../Interface/Intermission")
 
 [node name="LevelFSM" type="Node2D" parent="Level" unique_id=369404075]
 script = ExtResource("3_hdco3")
-
-[node name="Outputs" type="Node2D" parent="Level" unique_id=1572894972]
-
-[node name="Output_State" type="Label" parent="Level/Outputs" unique_id=1524947661]
-offset_left = 31.0
-offset_top = 7.0
-offset_right = 69.0
-offset_bottom = 17.0
-theme_override_fonts/font = ExtResource("5_5irkm")
-theme_override_font_sizes/font_size = 9
-text = "Level State"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1838358318]
 layer = -100
@@ -74,15 +64,22 @@ texture = ExtResource("6_46hjb")
 [node name="Interface" type="CanvasLayer" parent="." unique_id=256196869]
 layer = 100
 
-[node name="Notifier" parent="Interface" unique_id=2003346744 instance=ExtResource("9_88mwx")]
-
 [node name="ProgressBars" parent="Interface" unique_id=563821590 node_paths=PackedStringArray("quixote", "windmill", "fence", "grain_nodes") instance=ExtResource("7_qxxn8")]
 quixote = NodePath("../../Entities/Quixote")
 windmill = NodePath("../../Objects/Windmill")
 fence = NodePath("../../Objects/Fence")
 grain_nodes = [NodePath("../../Areas/Grain"), NodePath("../../Areas/Grain2"), NodePath("../../Areas/Grain3")]
 
+[node name="Intermission" parent="Interface" unique_id=1079787074 instance=ExtResource("8_6vswa")]
+
+[node name="Notifier" parent="Interface" unique_id=2003346744 instance=ExtResource("9_88mwx")]
+
 [node name="Shop" parent="Interface" unique_id=917203886 instance=ExtResource("8_jhciw")]
+
+[node name="Splash" type="CanvasLayer" parent="." unique_id=1470072742]
+layer = 110
+
+[node name="Splash" parent="Splash" unique_id=1712747508 instance=ExtResource("9_6vswa")]
 
 [node name="Areas" type="Node2D" parent="." unique_id=1560364250]
 
@@ -135,18 +132,18 @@ quixote = NodePath("../../Entities/Quixote")
 
 [node name="Fence" parent="Objects" unique_id=1994101032 instance=ExtResource("11_wx7qp")]
 position = Vector2(69, 77)
-state = "Built"
 
 [node name="Entities" type="Node2D" parent="." unique_id=1974705992]
 
 [node name="Quixote" parent="Entities" unique_id=38179943 instance=ExtResource("12_y6q66")]
 position = Vector2(-100, 80)
 
-[node name="Sancho" parent="Entities" unique_id=1585068152 instance=ExtResource("13_ow5x3")]
+[node name="Sancho" parent="Entities" unique_id=1585068152 node_paths=PackedStringArray("quixote") instance=ExtResource("13_ow5x3")]
 position = Vector2(-10, 85)
+quixote = NodePath("../Quixote")
 
 [node name="Farmer" parent="Entities" unique_id=1738560258 node_paths=PackedStringArray("quixote") instance=ExtResource("14_tinpb")]
-position = Vector2(152, 85)
+position = Vector2(161, 82)
 quixote = NodePath("../Quixote")
 
 [node name="Pubby" parent="Entities" unique_id=488267989 instance=ExtResource("15_88mwx")]
@@ -157,6 +154,7 @@ position = Vector2(70, 89)
 [node name="AudioPlayers" type="Node2D" parent="." unique_id=1055377407]
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer2D" parent="AudioPlayers" unique_id=1248366425]
+process_mode = 3
 stream = SubResource("AudioStreamOggVorbis_88mwx")
 autoplay = true
 bus = &"Ambience"

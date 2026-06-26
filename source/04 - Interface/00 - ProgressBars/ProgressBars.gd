@@ -28,6 +28,7 @@ func _process(_delta: float) -> void: sacks_label.text = str(G.FLOUR)
 #Ready
 func _ready() -> void:
 	quixote.connect("quixote_damage", quixote_damage)
+	quixote.connect("quixote_heal", quixote_heal)
 	quixote.connect("windmill_damage", windmill_damage)
 	quixote.connect("fence_damage", fence_damage)
 	windmill.connect("rotated", flour_gain)
@@ -67,6 +68,8 @@ func quixote_damage(damage_type, value): if !quixote.collapsed:
 		elif value > 30: notifier.add_message(str("Quixote Took Massive ", damage_type, " Damage!!"), 3)
 		else: notifier.add_message(str("Quixote Took ", damage_type, " Damage!"), 3)
 	check_stamina()
+#Quixote Heal
+func quixote_heal(value): q_stamina.progress_heal(value)
 #Windmill
 #Windmill Damage
 func windmill_damage(damage_type, value): if !windmill.collapsed:

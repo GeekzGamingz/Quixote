@@ -32,17 +32,19 @@ theme_override_constants/margin_top = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=490801860]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1753281000]
+[node name="TitleContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1753281000]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=344067113]
+[node name="TitleLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/TitleContainer" unique_id=344067113]
 custom_maximum_size = Vector2(100, -1)
 layout_mode = 2
+theme_override_constants/paragraph_separation = 0
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
 text = "Day: [Day]"
 fit_content = true
 scroll_active = false
+tab_size = 0
 shortcut_keys_enabled = false
 vertical_alignment = 1
 

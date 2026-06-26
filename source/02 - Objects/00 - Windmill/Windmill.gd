@@ -21,6 +21,7 @@ var is_spinning: bool = false
 var collapsed: bool = false
 #Exported Variables
 #Integers
+@export_range(25, 50, 1, "prefer_slider") var flour_processed: int
 @export_range(2, 20, 1, "prefer_slider") var wind_speed: int
 #Arrays
 @export var arms_array: Array[Area2D] = []
@@ -51,7 +52,7 @@ func _on_axis_mouse_exited() -> void: focus_spin(false)
 #Rotation Detection
 func _on_mill_area_exited(_area: Area2D) -> void:
 	if upgrades.arms == "Electrified": if quixote.on_screen: launch_lightning(quixote)
-	emit_signal("rotated", 15)
+	emit_signal("rotated", flour_processed)
 #Signaled FUnctions
 func _on_arm_body_entered(body: Node2D) -> void:
 	if body.name == "Quixote" && is_spinning:

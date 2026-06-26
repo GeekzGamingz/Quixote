@@ -7,6 +7,7 @@ const PANEL = preload("uid://bxf0eqp2uio1d")
 #OnReady Variables
 @onready var vbox: VBoxContainer = $HBoxContainer/VBoxContainer
 @onready var notification_audio: AudioStreamPlayer2D = $AudioPlayers/NotificationAudio
+@onready var title_label: RichTextLabel = $HBoxContainer/VBoxContainer/HBoxContainer/TitleContainer/TitleLabel
 #------------------------------------------------------------------------------#
 #Custom Functions
 func add_message(message, timeout):
